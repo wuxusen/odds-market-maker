@@ -87,6 +87,7 @@ class _Book:
     bias: float  # persistent home-lean in probability space
     noise: float  # per-update prob noise sigma
     update_period_s: float
+    misprice_prob: float  # chance any given update is a fat-finger outlier
     next_update_s: float = 0.0
 
 
@@ -122,6 +123,12 @@ class SimulatedFeed(FeedAdapter):
                 bias=self.rng.uniform(-0.01, 0.01),
                 noise=self.rng.uniform(0.004, 0.012),
                 update_period_s=self.rng.uniform(10.0, 25.0),
+                # A slow/careless book fat-fingers or lags a stale line every
+                # so often — real feeds are never uniformly clean, and this
+                # is exactly the disagreement the consensus/confidence layer
+                # exists to shrug off (dispersion spikes, confidence dips,
+                # spreads widen) without a human ever intervening.
+                misprice_prob=self.rng.uniform(0.01, 0.035),
             )
             for i in range(n_books)
         ]
@@ -179,10 +186,18 @@ class SimulatedFeed(FeedAdapter):
     ) -> OddsTick:
         # Perturb true probs with per-book bias + noise, renormalise,
         # then apply the book's margin multiplicatively (classic vig).
+        # Occasionally a book fat-fingers or hasn't caught up to a recent
+        # incident yet: inflate its noise sharply for a single update. This
+        # is deliberately noisy, not adversarial — the point is to give the
+        # consensus/confidence layer (pricing/consensus.py) real dispersion
+        # to reject, the same way it would against a live multi-bookmaker
+        # feed, rather than the toy-clean signal a naive demo would fake.
+        errored = self.rng.random() < book.misprice_prob
+        eff_noise = book.noise * self.rng.uniform(6.0, 14.0) if errored else book.noise
         raw = [
-            max(0.005, probs[0] + book.bias + self.rng.gauss(0.0, book.noise)),
-            max(0.005, probs[1] + self.rng.gauss(0.0, book.noise)),
-            max(0.005, probs[2] - book.bias + self.rng.gauss(0.0, book.noise)),
+            max(0.005, probs[0] + book.bias + self.rng.gauss(0.0, eff_noise)),
+            max(0.005, probs[1] + self.rng.gauss(0.0, eff_noise)),
+            max(0.005, probs[2] - book.bias + self.rng.gauss(0.0, eff_noise)),
         ]
         z = sum(raw)
         quoted = [(p / z) * (1.0 + book.margin) for p in raw]

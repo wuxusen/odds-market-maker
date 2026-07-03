@@ -55,6 +55,23 @@ _PAGE = """<!DOCTYPE html>
  .halt { color:var(--amber); }
  svg { width:100%; height:90px; }
  .kv td { text-align:left; }
+ .dot { display:inline-block; width:10px; height:10px; border-radius:50%;
+        margin-right:6px; vertical-align:middle; }
+ .dot.ACTIVE { background:var(--green); box-shadow:0 0 6px var(--green); }
+ .dot.TRIPPED { background:var(--red); box-shadow:0 0 6px var(--red); animation:pulse 1s infinite; }
+ @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+ .gauge { background:#0d1116; border-radius:6px; height:8px; margin:4px 0 10px;
+          overflow:hidden; }
+ .gauge > div { height:100%; background:var(--green); }
+ .gauge > div.warn { background:var(--amber); }
+ .gauge > div.danger { background:var(--red); }
+ .gauge-label { display:flex; justify-content:space-between; color:var(--dim); font-size:12px; }
+ #log { max-height:220px; overflow-y:auto; }
+ #log div { padding:2px 0; border-bottom:1px solid #232b34; }
+ #log .m { color:var(--dim); display:inline-block; width:44px; }
+ #log .trip { color:var(--red); }
+ #log .rearm { color:var(--green); }
+ #log .goal { color:var(--amber); font-weight:bold; }
 </style></head><body>
 <h1>In-Play Odds Market Maker <span id="clock" style="color:var(--dim)"></span></h1>
 <div class="grid">
@@ -64,7 +81,9 @@ _PAGE = """<!DOCTYPE html>
  <div class="panel" style="grid-column:1/-1"><h2>Quotes (probability space / decimal odds)</h2>
    <div id="quotes"></div></div>
  <div class="panel"><h2>Positions</h2><div id="positions"></div></div>
+ <div class="panel"><h2>Exposure vs Hard Caps</h2><div id="exposure"></div></div>
  <div class="panel"><h2>Consensus Fair Price</h2><div id="fair"></div></div>
+ <div class="panel" style="grid-column:1/-1"><h2>Timeline</h2><div id="log"></div></div>
 </div>
 <script>
 const fmt = (x,d=3) => x==null ? "-" : Number(x).toFixed(d);
@@ -77,9 +96,9 @@ async function tick() {
   document.getElementById("clock").textContent = " — " + (s.match?.clock ?? "");
   const b = s.breaker || {};
   document.getElementById("breaker").innerHTML =
-    `<span class="badge ${b.state}">${b.state||"?"}</span>` +
+    `<span class="dot ${b.state}"></span><span class="badge ${b.state}">${b.state||"?"}</span>` +
     (b.reason ? ` <span class="halt">${b.reason}</span>` : "") +
-    `<div style="color:var(--dim);margin-top:6px">trips: ${b.trip_count??0}</div>` +
+    `<div style="color:var(--dim);margin-top:6px">trips this match: ${b.trip_count??0}</div>` +
     (s.halt_reason ? `<div class="halt">quoting halted: ${s.halt_reason}</div>` : "");
   const l = s.ledger || {};
   document.getElementById("pnl").innerHTML =
@@ -110,6 +129,23 @@ async function tick() {
     `<table><tr><th>outcome</th><th>prob</th></tr>` +
     Object.entries(f.probs||{}).map(([k,v])=>`<tr><td>${k}</td><td>${fmt(v)}</td></tr>`).join("") +
     `</table><div style="color:var(--dim)">confidence ${fmt(f.confidence,2)} · books ${f.n_books??0}</div>`;
+  const ex = s.exposure || {};
+  const gauge = (label, val, max) => {
+    const pct = max ? Math.min(100, 100*(val||0)/max) : 0;
+    const level = pct>90?"danger":pct>60?"warn":"";
+    return `<div class="gauge-label"><span>${label}</span><span>${fmt(val,1)} / ${fmt(max,0)}</span></div>` +
+           `<div class="gauge"><div class="${level}" style="width:${pct}%"></div></div>`;
+  };
+  document.getElementById("exposure").innerHTML =
+    gauge("fixture worst-case loss", ex.fixture, ex.fixture_max) +
+    gauge("book-wide worst-case loss", ex.total, ex.total_max);
+  const entries = (s.log || []).slice().reverse();
+  document.getElementById("log").innerHTML = entries.map(e => {
+    const t = e.text.includes("TRIPPED") ? "trip" :
+              e.text.includes("re-armed") ? "rearm" :
+              (e.text.startsWith("GOAL")||e.text.startsWith("RED_CARD")) ? "goal" : "";
+    return `<div class="${t}"><span class="m">${e.minute}'</span>${e.text}</div>`;
+  }).join("") || '<span class="halt">warming up…</span>';
   // equity sparkline
   const pts = s.equity_curve || [];
   if (pts.length > 1) {

@@ -143,7 +143,11 @@ The demo feed is a seeded generative model, not recorded data:
   opponent's by 1.25.
 * Incidents (goal times, red card) pre-sampled from `random.Random(seed)`.
 * Five bookmakers quote around the truth with per-book bias, Gaussian
-  noise, 4–8% multiplicative margin, and 10–25s update lag.
+  noise, 4–8% multiplicative margin, and 10–25s update lag. Each book also
+  has a small (1–3.5%) per-update chance of a fat-fingered/stale outlier
+  tick (noise inflated 6–14x for that one update) — real multi-bookmaker
+  feeds are never uniformly clean, and this is exactly the disagreement
+  the consensus/confidence layer exists to shrug off.
 * Taker flow is *informed on average* (private value = truth + noise),
   the adversarial case for a maker; it trades whenever our quote crosses
   its value.

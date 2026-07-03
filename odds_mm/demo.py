@@ -23,7 +23,7 @@ import time
 from .dashboard import DashboardServer, StateStore
 from .feeds import SimulatedFeed
 from .ledger import PaperLedger
-from .mm import CircuitBreaker, InventoryBook, MarketMaker, MMConfig
+from .mm import BreakerState, CircuitBreaker, InventoryBook, MarketMaker, MMConfig
 from .pricing import ConsensusPricer
 from .types import (
     EventKind,
@@ -35,6 +35,8 @@ from .types import (
     ScoreTick,
     Side,
 )
+
+NARRATIVE_LOG_SIZE = 16  # entries kept for the dashboard's timeline panel
 
 
 class TakerFlow:
@@ -113,6 +115,16 @@ def run(
     quotes = QuoteSet(fixture_id=feed.fixture_id, ts=0, halted=True, halt_reason="warmup")
     last_ts = feed.kickoff_ts_ms
     log = (lambda *a: None) if quiet else print
+    narrative: list[dict] = []
+    prev_breaker_state = breaker.state
+    prev_trip_count = 0
+
+    def _note(ts: int, text: str) -> None:
+        minute = max(0, (ts - feed.kickoff_ts_ms)) // 60_000
+        narrative.append({"minute": int(minute), "text": text})
+        del narrative[:-NARRATIVE_LOG_SIZE]
+
+    _note(feed.kickoff_ts_ms, "kick-off — books warming up, no quotes yet")
 
     for item in feed.stream():
         now = item.ts  # simulated clock — decisions never read the wall clock
@@ -133,6 +145,18 @@ def run(
             if item.kind in (EventKind.GOAL, EventKind.RED_CARD):
                 minute_now = (item.ts - feed.kickoff_ts_ms) // 60_000
                 log(f"[{minute_now:>3}'] !! {item.kind.value} {item.team or ''} {item.detail}")
+                _note(item.ts, f"{item.kind.value} {item.team or ''} {item.detail}".strip())
+
+        # 1b) narrate circuit-breaker transitions (trip / re-arm) for the
+        # dashboard timeline — this is the story the whole system exists to
+        # tell: quote normally, go safe on any anomaly, resume only once
+        # cool-down + fresh data both say it is safe to.
+        if breaker.state == BreakerState.TRIPPED and len(breaker.trips) > prev_trip_count:
+            _note(now, f"circuit breaker TRIPPED — {breaker.reason}")
+        elif prev_breaker_state == BreakerState.TRIPPED and breaker.state == BreakerState.ACTIVE:
+            _note(now, "circuit breaker re-armed — quoting resumed")
+        prev_breaker_state = breaker.state
+        prev_trip_count = len(breaker.trips)
 
         # 2) reprice + requote
         fair = pricer.fair_price(now)
@@ -164,13 +188,17 @@ def run(
                 for oc, p in zip(fair.outcomes, fair.probabilities)
             }
         ledger.mark(now, marks)
-        store.update(_build_state(feed, score, quotes, fair, breaker, inventory, ledger))
+        store.update(_build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrative))
 
     # settlement
     winner = feed.winning_outcome()
     ledger.settle(feed.fixture_id, winner, last_ts)
     final = ledger.snapshot()
-    store.update(_build_state(feed, score, quotes, None, breaker, inventory, ledger, final=True))
+    final["breaker"] = breaker.status()
+    _note(last_ts, f"full time {feed.final_score()[0]}-{feed.final_score()[1]} — settled ({winner})")
+    store.update(
+        _build_state(feed, score, quotes, None, breaker, inventory, ledger, narrative, final=True)
+    )
 
     log(
         f"[demo] full time {feed.final_score()[0]}-{feed.final_score()[1]} "
@@ -190,7 +218,7 @@ def run(
     return final
 
 
-def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, final=False) -> dict:
+def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrative=(), final=False) -> dict:
     by_outcome: dict[str, dict] = {}
     for q in quotes.quotes:
         d = by_outcome.setdefault(q.outcome, {"outcome": q.outcome, "fair": quotes.fair.get(q.outcome)})
@@ -202,6 +230,8 @@ def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, final=Fa
     if fair is not None:
         marks = {(feed.fixture_id, oc): p for oc, p in zip(fair.outcomes, fair.probabilities)}
     phase = "SETTLED" if final else score.phase.value
+    fixture_exp = inventory.fixture_exposure(feed.fixture_id)
+    total_exp = inventory.total_exposure()
     return {
         "status": "final" if final else "running",
         "match": {
@@ -221,8 +251,15 @@ def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, final=Fa
             "n_books": fair.n_books if fair else 0,
         },
         "positions": inventory.snapshot(),
+        "exposure": {
+            "fixture": round(fixture_exp, 2),
+            "fixture_max": inventory.max_fixture_exposure,
+            "total": round(total_exp, 2),
+            "total_max": inventory.max_total_exposure,
+        },
         "ledger": ledger.snapshot(marks),
         "equity_curve": ledger.equity_curve[-600:],
+        "log": list(narrative),
     }
 
 

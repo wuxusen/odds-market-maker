@@ -172,3 +172,40 @@ def test_demo_is_reproducible():
     a = run(seed=13, speed=0, dashboard=False, quiet=True)
     b = run(seed=13, speed=0, dashboard=False, quiet=True)
     assert a == b
+
+
+def test_demo_final_snapshot_includes_breaker_status():
+    final = run(seed=13, speed=0, dashboard=False, quiet=True)
+    assert "breaker" in final
+    assert final["breaker"]["state"] in ("ACTIVE", "TRIPPED")
+    assert final["breaker"]["trip_count"] >= 0
+
+
+def test_demo_state_snapshot_has_exposure_and_timeline():
+    """The dashboard needs exposure gauges + a narrative log; both must be
+    present on every published state, not just the final one."""
+    import odds_mm.demo as demo_mod
+
+    captured = []
+    orig_build_state = demo_mod._build_state
+
+    def spy(*args, **kwargs):
+        state = orig_build_state(*args, **kwargs)
+        captured.append(state)
+        return state
+
+    demo_mod._build_state = spy
+    try:
+        run(seed=44, speed=0, dashboard=False, quiet=True)
+    finally:
+        demo_mod._build_state = orig_build_state
+
+    assert captured, "no state was ever published"
+    mid = captured[len(captured) // 2]
+    for key in ("exposure", "log", "positions", "equity_curve"):
+        assert key in mid
+    assert set(mid["exposure"]) == {"fixture", "fixture_max", "total", "total_max"}
+    # the kick-off entry is always first and always present
+    assert captured[0]["log"][0]["text"].startswith("kick-off")
+    # incidents accumulate narrative entries as the match progresses
+    assert len(captured[-1]["log"]) >= len(captured[0]["log"])
