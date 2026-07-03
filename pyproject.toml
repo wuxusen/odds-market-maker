@@ -1,0 +1,22 @@
+[project]
+name = "odds-market-maker"
+version = "0.1.0"
+description = "In-play odds market maker agent for TxODDS TxLINE data on Solana (paper trading)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []  # stdlib only, by design
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["odds_mm*"]
