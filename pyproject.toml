@@ -9,6 +9,10 @@ dependencies = []  # stdlib only, by design
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0"]
+# Only needed for on-chain audit anchoring (odds_mm.anchor.SolanaAnchor).
+# The core agent (feeds/pricing/mm/ledger/dashboard) stays stdlib-only;
+# anchoring degrades to a logged no-op if these aren't installed.
+anchor = ["solana>=0.34", "solders>=0.21", "bip-utils>=2.9"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

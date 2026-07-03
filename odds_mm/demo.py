@@ -19,7 +19,9 @@ from __future__ import annotations
 import argparse
 import random
 import time
+from typing import Optional
 
+from .anchor import AnchorPolicy, LedgerAnchorScheduler, NullAnchor, SolanaAnchor
 from .dashboard import DashboardServer, StateStore
 from .feeds import SimulatedFeed
 from .ledger import PaperLedger
@@ -94,8 +96,15 @@ def run(
     dashboard: bool = True,
     hold_open: bool = True,
     quiet: bool = False,
+    anchor_scheduler: Optional[LedgerAnchorScheduler] = None,
 ) -> dict:
-    """Run one full simulated match. Returns the final ledger snapshot."""
+    """Run one full simulated match. Returns the final ledger snapshot.
+
+    ``anchor_scheduler``, if given, is pumped once per feed item with the
+    ledger's current chain head; it decides on its own cadence whether an
+    attempt is due (see ``odds_mm.anchor.scheduler.AnchorPolicy``) and never
+    raises — anchoring is best-effort and must never stall quoting.
+    """
     feed = SimulatedFeed(seed=seed)
     pricer = ConsensusPricer(method="power")
     inventory = InventoryBook()
@@ -188,16 +197,38 @@ def run(
                 for oc, p in zip(fair.outcomes, fair.probabilities)
             }
         ledger.mark(now, marks)
-        store.update(_build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrative))
+
+        # 5) best-effort chain-head anchoring — never allowed to affect
+        # quoting/fills; a failure here is logged and retried next window.
+        if anchor_scheduler is not None:
+            try:
+                anchor_result = anchor_scheduler.maybe_anchor(ledger, now)
+            except Exception as exc:  # belt-and-braces: see module doctrine
+                anchor_result = None
+                log(f"[demo] anchor scheduler error (ignored, market making continues): {exc}")
+            if anchor_result is not None:
+                if anchor_result.ok:
+                    log(f"[demo] anchored chain head {anchor_result.head_hash[:12]}... -> tx {anchor_result.tx_sig}")
+                else:
+                    log(f"[demo] anchor attempt failed (ignored, will retry): {anchor_result.error}")
+
+        store.update(
+            _build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrative, anchor_scheduler=anchor_scheduler)
+        )
 
     # settlement
     winner = feed.winning_outcome()
     ledger.settle(feed.fixture_id, winner, last_ts)
+    if anchor_scheduler is not None:
+        try:
+            anchor_scheduler.maybe_anchor(ledger, last_ts)
+        except Exception as exc:
+            log(f"[demo] final anchor attempt error (ignored): {exc}")
     final = ledger.snapshot()
     final["breaker"] = breaker.status()
     _note(last_ts, f"full time {feed.final_score()[0]}-{feed.final_score()[1]} — settled ({winner})")
     store.update(
-        _build_state(feed, score, quotes, None, breaker, inventory, ledger, narrative, final=True)
+        _build_state(feed, score, quotes, None, breaker, inventory, ledger, narrative, final=True, anchor_scheduler=anchor_scheduler)
     )
 
     log(
@@ -218,7 +249,7 @@ def run(
     return final
 
 
-def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrative=(), final=False) -> dict:
+def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrative=(), final=False, anchor_scheduler=None) -> dict:
     by_outcome: dict[str, dict] = {}
     for q in quotes.quotes:
         d = by_outcome.setdefault(q.outcome, {"outcome": q.outcome, "fair": quotes.fair.get(q.outcome)})
@@ -260,6 +291,7 @@ def _build_state(feed, score, quotes, fair, breaker, inventory, ledger, narrativ
         "ledger": ledger.snapshot(marks),
         "equity_curve": ledger.equity_curve[-600:],
         "log": list(narrative),
+        "anchor": anchor_scheduler.status() if anchor_scheduler is not None else None,
     }
 
 
@@ -270,13 +302,39 @@ def main() -> None:
     ap.add_argument("--port", type=int, default=8765, help="dashboard port")
     ap.add_argument("--no-dashboard", action="store_true", help="headless run, exit at full time")
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument(
+        "--anchor",
+        action="store_true",
+        help=(
+            "anchor the ledger's audit-chain head to Solana devnet periodically "
+            "(needs ODDS_MM_SOLANA_MNEMONIC_FILE, see .env.example; degrades to "
+            "a logged no-op if the wallet/RPC isn't available)"
+        ),
+    )
+    ap.add_argument("--anchor-min-fills", type=int, default=25, help="anchor at least every N new audit records")
+    ap.add_argument("--anchor-min-interval-s", type=float, default=300.0, help="anchor at least every M seconds")
     args = ap.parse_args()
+
+    anchor_scheduler = None
+    if args.anchor:
+        policy = AnchorPolicy(
+            min_fills_between=args.anchor_min_fills,
+            min_interval_ms=int(args.anchor_min_interval_s * 1000),
+        )
+        try:
+            sink = SolanaAnchor.from_env()
+        except Exception as exc:  # missing wallet file / bad mnemonic / etc.
+            print(f"[demo] --anchor requested but Solana sink unavailable ({exc}); anchoring disabled")
+            sink = NullAnchor()
+        anchor_scheduler = LedgerAnchorScheduler(sink=sink, policy=policy)
+
     run(
         seed=args.seed,
         speed=args.speed,
         port=args.port,
         dashboard=not args.no_dashboard,
         quiet=args.quiet,
+        anchor_scheduler=anchor_scheduler,
     )
 
 

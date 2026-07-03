@@ -8,11 +8,14 @@ Accounting model (binary outcome contracts, probability-space prices):
 * Settlement: the winning outcome's contracts pay 1.0, all others 0.0.
 
 Audit trail: every fill is appended as a JSON record carrying a SHA-256
-hash chained to the previous record (tamper-evident, git-style). Each record
-reserves ``anchor`` fields for Solana anchoring — the plan is to commit the
-rolling chain head (or a Merkle root of a batch of records) in a memo
-transaction, mirroring how TxLINE itself anchors odds batches on-chain, so
-a judge can verify the paper track record was not rewritten after the fact.
+hash chained to the previous record (tamper-evident, git-style). The
+rolling chain head is periodically committed to Solana devnet in a Memo
+Program transaction by ``odds_mm.anchor`` (``SolanaAnchor`` +
+``LedgerAnchorScheduler``), mirroring how TxLINE itself anchors odds
+batches on-chain — see :meth:`PaperLedger.record_anchor` and
+``docs/DESIGN.md`` section 7. A judge (or anyone) can independently verify
+the paper track record was not rewritten after the fact from nothing more
+than a transaction signature.
 """
 
 from __future__ import annotations
@@ -116,17 +119,51 @@ class PaperLedger:
         """Realised-only PnL when flat; call :meth:`equity` for MTM."""
         return self.cash - self.starting_cash
 
+    def record_anchor(
+        self, tx_sig: Optional[str], slot: Optional[int], anchored_hash: str, ts: int
+    ) -> dict:
+        """Append an on-chain anchor confirmation as a first-class chain
+        record (see ``odds_mm.anchor`` and ``docs/DESIGN.md`` section 7).
+
+        Records are immutable once hashed into the chain, so an anchor that
+        lands *after* the fact cannot be written back into the record it
+        anchors — instead it is a new ``type: "anchor"`` entry, chained
+        onward like any other, that names the hash it commits
+        (``anchored_hash``). ``verify_audit_chain`` needs no special case
+        for it; ``odds_mm.anchor.solana_anchor.verify_anchor`` independently
+        cross-checks it against the live Solana transaction.
+        """
+        return self._append_audit(
+            {
+                "type": "anchor",
+                "ts": ts,
+                "anchored_hash": anchored_hash,
+                "solana_tx_sig": tx_sig,
+                "solana_slot": slot,
+            }
+        )
+
+    @property
+    def chain_head(self) -> str:
+        """Current audit-chain head hash — what an :class:`AnchorSink` commits."""
+        return self._chain_head
+
     # -- audit chain ---------------------------------------------------------
 
     def _append_audit(self, record: dict) -> dict:
         record = dict(record)
         record["prev_hash"] = self._chain_head
-        # Reserved for on-chain anchoring of the audit chain head:
-        record["anchor"] = {
-            "solana_tx_sig": None,  # TODO: memo tx committing chain head
-            "solana_slot": None,
-            "merkle_root": None,  # TODO: batch root if we anchor in batches
-        }
+        if record.get("type") != "anchor":
+            # Reserved on fill/settlement records for symmetry with the wire
+            # schema; always null. The actual anchor is committed as its own
+            # chained ``type: "anchor"`` record via :meth:`record_anchor` —
+            # records are immutable once hashed, so this placeholder can
+            # never be filled in after the fact without breaking the chain.
+            record["anchor"] = {
+                "solana_tx_sig": None,
+                "solana_slot": None,
+                "merkle_root": None,
+            }
         payload = json.dumps(record, sort_keys=True, separators=(",", ":"))
         record["hash"] = hashlib.sha256(payload.encode("utf-8")).hexdigest()
         self._chain_head = record["hash"]

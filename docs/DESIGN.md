@@ -116,22 +116,80 @@ modes differ (there: an order resting without its protective stop; here: a
 quote resting through a goal) but the architecture is the same shape —
 which is exactly the point of reusing it.
 
-## 7. Ledger & Solana anchoring plan
+## 7. Ledger & Solana anchoring
 
 Every fill/settlement appends a JSON audit record containing the previous
 record's SHA-256 (`prev_hash`), forming a tamper-evident chain
-(`verify_audit_chain()` re-derives it). Each record reserves an `anchor`
-block:
+(`verify_audit_chain()` re-derives it). Records reserve a vestigial
+`anchor` sub-block for wire-schema symmetry (always `null` — see below for
+why it can't literally be back-filled), and periodically the chain's
+rolling head is committed to **Solana devnet** as a real Memo Program
+transaction by `odds_mm.anchor`, mirroring the pattern TxLINE itself uses
+to anchor odds batches (`/api/odds/validation` returns `subTreeProof` +
+`mainTreeProof` Merkle branches to an on-chain root).
 
-```json
-"anchor": { "solana_tx_sig": null, "solana_slot": null, "merkle_root": null }
-```
+**Anchor the head, not the whole ledger, not per-fill.** A hash chain's
+head is, by construction, a commitment to every record before it — walking
+`prev_hash` back from the head reproduces (and can verify) the entire
+history. Anchoring it is therefore equivalent to anchoring the full ledger,
+at the cost of one Memo transaction instead of one per fill. This is the
+same design choice TxLINE makes anchoring a Merkle *root* over an odds
+batch rather than every tick — we just apply it to our own hash chain
+instead of a Merkle tree, since a chain already gives us that property for
+free at our fill volumes. (At much higher volume, a batched Merkle root
+over, say, every 10k records, with the head chain unchanged underneath,
+would be the natural next step — the interface doesn't need to change,
+only what `LedgerAnchorScheduler` feeds `AnchorSink.anchor()`.)
 
-Planned iteration: periodically commit the chain head (or a Merkle root of
-a record batch) to Solana in a memo transaction — the same pattern TxLINE
-uses to anchor odds batches (`/api/odds/validation` returns `subTreeProof` +
-`mainTreeProof` Merkle branches to the on-chain root). Result: the paper
-track record and its *input data* are both third-party verifiable.
+**Why a *new* chained record, not back-filling the historical one.**
+Records are immutable the instant they're hashed into the chain — that
+immutability is the whole point. An anchor transaction necessarily lands
+*after* the record whose head it commits to, so there is no way to write
+the resulting `tx_sig`/`slot` back into that historical record without
+recomputing its hash and breaking every hash after it. Instead,
+`PaperLedger.record_anchor()` appends a new `type: "anchor"` record —
+itself chained onward exactly like a fill or settlement — naming the hash
+it anchors (`anchored_hash`) plus the transaction signature and slot.
+`verify_audit_chain()` needs no special case for it.
+
+**Why anchoring must be structurally unable to affect trading.** This is
+the same fail-safe-first doctrine as the circuit breaker (§6): quoting and
+risk gates are internal, deterministic, network-free computation; on-chain
+anchoring is external I/O layered strictly outside that boundary.
+`AnchorSink.anchor()` is a contract that *cannot raise* — every real
+failure mode (RPC timeout, devnet faucet exhausted, malformed response)
+comes back as `AnchorResult(ok=False, error=...)`, and
+`LedgerAnchorScheduler` simply leaves the head un-anchored and retries on
+the next window. `odds_mm.demo.run` additionally wraps the scheduler call
+in a belt-and-braces `try/except` even though the contract shouldn't need
+it. The alternative — anchoring synchronously as part of the fill path —
+would mean a slow or down RPC node could stall or crash the market maker
+over a feature that exists purely for auditability, which is exactly
+backwards.
+
+**Cadence: fill-count OR wall-clock, whichever comes first.**
+`AnchorPolicy(min_fills_between, min_interval_ms)` — a busy session anchors
+on activity, a quiet one still gets a fresh anchor on a timer so the chain
+is never silently unanchored for long stretches. The very first-ever
+attempt fires as soon as there is one audit record, ignoring both
+thresholds — there's no reason to wait out a warm-up window before the
+chain has ever been anchored at all.
+
+**Verification.** `verify_anchor(tx_sig, expected_hash)` independently
+re-fetches the transaction from devnet (`encoding="base64"`, decoded with
+`solders`), locates the Memo Program instruction, and checks its decoded
+text against `odds-mm-audit-head:v1:<expected_hash>`. This is exactly what
+a judge (or anyone) can run themselves from nothing but a public
+transaction signature — no access to our server, database, or process
+required. See `README.md`'s "On-chain audit anchoring" section for the
+worked example and the current live-anchoring status.
+
+**Why the wallet is devnet-only and file-path-only.** The anchoring wallet
+holds no funds beyond what it needs to pay its own Memo transaction fee
+(devnet SOL, worthless), never appears in this repository, and is never
+read from an environment variable's *value* — only from a file path
+(`ODDS_MM_SOLANA_MNEMONIC_FILE`), so the mnemonic itself can't leak into
+`.env` files, process listings, or shell history captured elsewhere.
 
 ## 8. Simulation model
 

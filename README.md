@@ -10,16 +10,20 @@ deterministic simulator), removes each bookmaker's margin to build a
 inventory-aware skew, hard exposure caps, and a **circuit breaker that
 cancels everything the instant a goal, red card, feed stall or latency spike
 is detected**. All trading is paper-only, recorded in a tamper-evident,
-hash-chained audit ledger designed to be anchored on Solana.
+hash-chained audit ledger whose rolling head is periodically anchored to
+**Solana devnet** in a real Memo Program transaction — see
+[On-chain audit anchoring](#on-chain-audit-anchoring) below.
 
 **Why it's credible, not just a script:** the risk stack (circuit breaker,
 inventory hard caps, no-naked-exposure ordering) is a direct architectural
 transplant from a production perpetual-futures execution system, not
 something written for this hackathon — see [Lineage](#lineage-a-production-trading-systems-risk-doctrine)
-below. The whole agent is zero-dependency standard-library Python, runs
+below. The core agent is zero-dependency standard-library Python, runs
 end-to-end from one command, is fully deterministic under a seed, and ships
-with 66 passing tests covering the pricing math, every breaker trip
-condition, the exposure gates, and a full reproducible match replay.
+with 90 passing tests (66 core + 24 for the on-chain anchoring path against
+a mocked RPC client, no live network required) covering the pricing math,
+every breaker trip condition, the exposure gates, a full reproducible match
+replay, and the Solana Memo transaction packing/verification logic.
 
 **See it work in one command:**
 
@@ -62,7 +66,12 @@ this scenario was built for.
       │           ledger/            │   │          dashboard/           │
       │ paper fills · PnL · settle   │──▶│ stdlib http.server + 1 page   │
       │ SHA-256 hash-chained audit   │   │ quotes · PnL · breaker state  │
-      │ (Solana anchor fields ready) │   └───────────────────────────────┘
+      └──────────────┬───────────────┘   └───────────────────────────────┘
+                     ▼ (periodic, best-effort)
+      ┌──────────────────────────────┐
+      │           anchor/            │
+      │ chain head → Memo tx on      │
+      │ Solana devnet · verify_anchor│
       └──────────────────────────────┘
 ```
 
@@ -95,7 +104,10 @@ curve, circuit-breaker state, and a running timeline of every incident and
 breaker trip.
 
 ```bash
-pip install pytest && pytest      # 66 tests
+pip install pytest && pytest      # 66 core tests (anchoring tests skip cleanly without extras)
+
+# Full coverage including the on-chain anchoring path (mocked RPC, no network):
+pip install -e ".[dev,anchor]" && pytest   # 90 tests
 ```
 
 Every run is **deterministic**: match script, bookmaker noise and taker flow
@@ -150,6 +162,101 @@ perpetual-futures execution stack whose core lessons are transplanted here:
 See [`docs/DESIGN.md`](docs/DESIGN.md) for the mathematics (de-vig, quote
 construction, exposure) and the full risk design.
 
+## On-chain audit anchoring
+
+Every fill and settlement is appended to `PaperLedger`'s SHA-256 hash chain
+(`prev_hash` + `hash` per record, git-style — see `ledger/ledger.py`). That
+makes the chain *tamper-evident to anyone holding the log*, but a judge
+still has to trust that the log they're looking at is the one that was
+actually produced live. `odds_mm/anchor/` closes that gap: it periodically
+commits the chain's rolling **head hash** to **Solana devnet** as a real
+Memo Program transaction, so the paper track record is checkable from
+nothing but a transaction signature — no access to our server or database
+required.
+
+**How it works:**
+
+* `SolanaAnchor` (`odds_mm/anchor/solana_anchor.py`) derives a devnet
+  keypair from a mnemonic file (Phantom-compatible `m/44'/501'/0'/0'`
+  derivation via `bip_utils`), and packs the current chain head into a
+  single Memo Program instruction (`odds-mm-audit-head:v1:<sha256-hex>`),
+  signs it with `solders`, and submits it via `solana.rpc.async_api`.
+* `LedgerAnchorScheduler` decides *when* an anchor is due — every
+  `min_fills_between` new audit records or every `min_interval_ms`,
+  whichever comes first, and never re-anchors an unchanged head. It is
+  driven once per feed item from `odds_mm.demo.run` when `--anchor` is
+  passed; a successful anchor is itself recorded back into the ledger as a
+  chained `type: "anchor"` record (`PaperLedger.record_anchor`) naming the
+  transaction signature and slot.
+* `verify_anchor(tx_sig, expected_hash)` independently re-fetches that
+  transaction from devnet, decodes the Memo instruction, and confirms it
+  matches the claimed hash — the same check anyone (a judge, a
+  counterparty) can run themselves against the public signature.
+
+**Why anchor the head, not the whole ledger.** A hash chain's head already
+transitively commits to every prior record; anchoring it is equivalent to
+anchoring the full history at a fraction of the cost, the same reason
+TxLINE itself anchors a Merkle *root* rather than every odds tick (see
+`GET /api/odds/validation`'s `subTreeProof`/`mainTreeProof`). Anchoring the
+ledger's own head this way is a direct structural echo of that pattern,
+just applied to our own accounting trail instead of TxLINE's odds data.
+
+**Why it can't be a bottleneck.** Anchoring is pure external I/O layered
+*outside* the trading core, matching this codebase's fail-safe-first
+doctrine (see the circuit breaker above): `AnchorSink.anchor()` is
+contractually never allowed to raise, only to return `AnchorResult(ok=False,
+error=...)`, and every call site treats a failure as "retry next window",
+never as a reason to stop quoting. Devnet RPC hiccups or an exhausted
+faucet degrade anchoring to a no-op; they cannot touch pricing, quoting or
+fills.
+
+**How to verify it yourself:**
+
+```bash
+python -c "
+from odds_mm.anchor import verify_anchor
+v = verify_anchor('<tx signature>', '<expected chain-head hex>')
+print(v)
+"
+```
+
+or just open `https://explorer.solana.com/tx/<signature>?cluster=devnet`
+and read the Memo instruction's logged text directly.
+
+**Running it yourself:** anchoring needs the optional `solana`/`solders`/
+`bip-utils` dependencies (`pip install -e ".[anchor]"`) and a devnet wallet
+mnemonic *file path* in `ODDS_MM_SOLANA_MNEMONIC_FILE` (see
+`.env.example` — never a mnemonic value in the environment or in any
+committed file). Everything is devnet-only and holds no mainnet funds or
+production credentials; see [Compliance](#compliance).
+
+```bash
+python -m odds_mm.demo --anchor --no-dashboard --speed 0       # wire it into a live session
+python scripts/anchor_devnet_demo.py                            # standalone: airdrop + anchor + verify, prints tx + explorer link
+```
+
+`scripts/anchor_devnet_demo.py` is best-effort against the *real* public
+devnet faucet and RPC: it requests an airdrop if the wallet is empty, runs
+a short simulated session to produce a real audit chain, submits the
+anchor transaction, and independently re-verifies it — printing the
+signature and an explorer link on success. Public devnet faucets are
+aggressively rate-limited and sometimes refuse outright; when that happens
+the script fails loudly and explains why rather than hanging, and none of
+that affects the mocked-RPC test coverage in `tests/test_anchor.py`, which
+is what actually gates this repo's correctness.
+
+See `docs/DESIGN.md` section 7 for the full design write-up and the
+alternatives considered.
+
+**Live status:** the anchoring code path is fully implemented and covered
+by `tests/test_anchor.py` against a mocked RPC client (no network
+required — this is what gates correctness). A first real devnet example
+signature will be added above once the linked devnet wallet has been
+funded — public devnet airdrop faucets are rate-limited per address/IP and
+were returning `429`/"airdrop faucet has run dry" at the time of this
+commit; rerun `scripts/anchor_devnet_demo.py` to populate one when the
+faucet cooperates.
+
 ## Architecture decisions at a glance
 
 | Decision | Alternative considered | Why this way |
@@ -160,7 +267,9 @@ construction, exposure) and the full risk design.
 | Probability-space pricing throughout | Decimal-odds-space math | PnL is linear, the three legs sum to a simplex, and spreads/skews are additive — decimal odds make all three combinatorially messy. |
 | Stdlib-only dashboard (`http.server` + one polled page) | A frontend framework / websockets | Zero build step, zero extra dependency surface to audit, works over a bare SSH port-forward — matches the "production-minded, not demo-flashy" thesis. |
 | Deterministic seeded simulator, not recorded fixtures | Replaying a recorded real match | A seed gives byte-identical reproducibility for regression tests and for judges re-running the same scenario, while still letting the model produce genuinely adversarial (informed) taker flow. |
-| Hash-chained audit ledger with reserved Solana anchor fields | No audit trail / plain log file | Tamper-evidence is worth little if judges have to trust the log file; anchoring the chain head on-chain (same pattern TxLINE itself uses for its own odds batches) makes the paper track record independently checkable later. |
+| Hash-chained audit ledger anchored to Solana devnet | No audit trail / plain log file | Tamper-evidence is worth little if judges have to trust the log file; anchoring the chain head on-chain (same pattern TxLINE itself uses for its own odds batches) makes the paper track record independently checkable from a bare transaction signature. |
+| Anchor the rolling chain **head**, not the full ledger | Anchor every fill, or a Merkle root per batch | The head already transitively commits to every prior record — anchoring it is equivalent to anchoring everything at a fraction of the transaction count/cost; a batched Merkle root is the natural next step at higher fill volume (see `docs/DESIGN.md` §7). |
+| Anchoring as pluggable, fail-open `AnchorSink` outside the trading core | Anchor synchronously inline with fills | External I/O fails; the breaker doctrine says the core must survive that. `AnchorSink.anchor()` is contractually non-raising and every caller treats failure as "retry next window", never as a reason to stop quoting. |
 
 ## TxLINE integration status
 
@@ -177,8 +286,13 @@ change in `demo.py`.
 ## Compliance
 
 Paper trading only — this agent never places real-money bets and holds no
-exchange or wallet credentials. It is a pricing/market-making research and
-demonstration tool.
+exchange credentials or mainnet wallet. The optional on-chain anchoring
+feature (off by default) uses a **devnet-only** Solana wallet purely to
+pay its own Memo transaction fee in worthless devnet SOL; it never touches
+mainnet, never holds or moves anyone's funds, and the mnemonic is read
+from a local file path (never committed, never logged) — see
+[On-chain audit anchoring](#on-chain-audit-anchoring). This remains a
+pricing/market-making research and demonstration tool.
 
 ## Repository layout
 
@@ -189,12 +303,15 @@ odds_mm/
   pricing/        # de-vig (multiplicative & power), consensus + confidence
   mm/             # CircuitBreaker, InventoryBook, MarketMaker
   ledger/         # paper ledger, settlement, hash-chained audit trail
+  anchor/         # AnchorSink, SolanaAnchor (devnet Memo tx), LedgerAnchorScheduler, verify_anchor
   dashboard/      # stdlib HTTP dashboard (single page, JSON polling)
-  demo.py         # end-to-end demo runner (feed -> pricing -> mm -> ledger -> dashboard)
+  demo.py         # end-to-end demo runner (feed -> pricing -> mm -> ledger -> dashboard [-> anchor])
 scripts/
-  run_demo_scenario.py  # one-command curated, narrated demo scenario (for recording)
-tests/            # 66 pytest cases: math, risk gates, breaker, accounting, demo/dashboard state
+  run_demo_scenario.py   # one-command curated, narrated demo scenario (for recording)
+  anchor_devnet_demo.py  # best-effort live devnet anchor: airdrop + anchor + verify
+tests/            # 90 pytest cases (66 core + 24 anchoring/mocked-RPC): math, risk gates,
+                  # breaker, accounting, demo/dashboard state, Solana packing + verification
 docs/
-  DESIGN.md       # formulas and risk design
+  DESIGN.md       # formulas, risk design, and the anchoring design tradeoffs (§7)
   DEMO_SCRIPT.md  # shot-by-shot narration for the demo video
 ```
