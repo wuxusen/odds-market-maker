@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>odds-market-maker demo reel</title>
+<style>
+  :root {
+    --bg: #0b0e13;
+    --panel: #12161f;
+    --panel-2: #171c27;
+    --border: #232a38;
+    --text: #e8ecf4;
+    --dim: #8a93a6;
+    --green: #35d488;
+    --red: #ff4d5e;
+    --amber: #f4b942;
+    --blue: #5aa2ff;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; width: 1920px; height: 1080px;
+    background: var(--bg); color: var(--text);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+  }
+  #stage { position: relative; width: 1920px; height: 1080px; }
+
+  /* ---- full-screen title / closing cards ---- */
+  .card {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at center, #141a24 0%, #0b0e13 70%);
+    opacity: 0; transition: opacity 0.6s ease;
+    z-index: 40;
+  }
+  .card.show { opacity: 1; }
+  .card .kicker {
+    color: var(--blue); letter-spacing: 0.18em; font-size: 22px;
+    text-transform: uppercase; margin-bottom: 28px; font-weight: 600;
+  }
+  .card h1 { font-size: 56px; font-weight: 700; max-width: 1400px; line-height: 1.25; margin: 0 0 24px; }
+  .card h2 { font-size: 26px; font-weight: 400; color: var(--dim); max-width: 1200px; margin: 0; }
+  .card .facts { margin-top: 56px; display: flex; gap: 60px; }
+  .card .fact { text-align: left; }
+  .card .fact .k { color: var(--dim); font-size: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .card .fact .v { font-size: 26px; font-weight: 600; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .card .fact a { color: var(--blue); text-decoration: none; }
+
+  /* ---- main dashboard ---- */
+  #dash { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; }
+  #dash.show { opacity: 1; }
+
+  #topbar {
+    position: absolute; top: 0; left: 0; right: 0; height: 96px;
+    display: flex; align-items: center; padding: 0 40px;
+    border-bottom: 1px solid var(--border); background: var(--panel);
+  }
+  #topbar .brand { font-size: 24px; font-weight: 700; }
+  #topbar .brand span { color: var(--dim); font-weight: 400; font-size: 16px; margin-left: 10px; }
+  #topbar .spacer { flex: 1; }
+  #breaker {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 22px;
+  }
+  #breaker .dot { width: 20px; height: 20px; border-radius: 50%; background: var(--green); box-shadow: 0 0 18px 2px var(--green); transition: all 0.25s ease; }
+  #breaker.red .dot { background: var(--red); box-shadow: 0 0 22px 4px var(--red); }
+  #breaker.amber .dot { background: var(--amber); box-shadow: 0 0 22px 4px var(--amber); }
+  #breaker .label { font-size: 20px; font-weight: 700; letter-spacing: 0.04em; }
+  #breaker .reason { color: var(--dim); font-size: 15px; max-width: 460px; }
+  #trips { color: var(--dim); font-size: 15px; margin-left: 18px; }
+
+  #matchbox { display: flex; align-items: center; gap: 26px; margin-left: 36px; }
+  #matchbox .score { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #matchbox .teams { font-size: 15px; color: var(--dim); }
+  #matchbox .clock { font-size: 22px; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+  #matchbox .reds { font-size: 14px; color: var(--red); }
+
+  #grid { position: absolute; top: 96px; left: 0; right: 0; bottom: 168px; display: flex; padding: 28px 40px; gap: 28px; }
+  .col { display: flex; flex-direction: column; gap: 28px; }
+  .col.left { width: 720px; }
+  .col.mid { flex: 1; }
+  .col.right { width: 520px; }
+
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 22px 26px; }
+  .panel h3 { margin: 0 0 16px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); font-weight: 700; }
+
+  #quotes-panel { flex: 1.1; }
+  table.quotes { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  table.quotes th { text-align: right; font-size: 13px; color: var(--dim); font-weight: 600; padding: 6px 10px; }
+  table.quotes th:first-child, table.quotes td:first-child { text-align: left; }
+  table.quotes td { text-align: right; padding: 14px 10px; font-size: 24px; border-top: 1px solid var(--border); }
+  table.quotes td.outcome { font-weight: 700; font-size: 20px; }
+  table.quotes td.bid { color: var(--green); }
+  table.quotes td.ask { color: var(--red); }
+  table.quotes td.fair { color: var(--dim); font-size: 16px; }
+  table.quotes .odds { display: block; font-size: 13px; color: var(--dim); }
+  #confidence { margin-top: 14px; font-size: 14px; color: var(--dim); }
+  #confidence b { color: var(--text); }
+
+  #pnl-panel .big { font-size: 46px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #pnl-panel .big.pos { color: var(--green); }
+  #pnl-panel .big.neg { color: var(--red); }
+  #pnl-panel .sub { color: var(--dim); font-size: 15px; margin-top: 6px; }
+  #equity-canvas { width: 100%; height: 120px; margin-top: 14px; display: block; }
+
+  .bar-row { margin-bottom: 18px; }
+  .bar-row .top { display: flex; justify-content: space-between; font-size: 14px; color: var(--dim); margin-bottom: 6px; }
+  .bar-track { height: 14px; background: var(--panel-2); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .bar-fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--blue), var(--green)); transition: width 0.2s ease; }
+  .bar-fill.warn { background: linear-gradient(90deg, var(--amber), var(--red)); }
+
+  #audit-panel .row { display: flex; justify-content: space-between; font-size: 15px; padding: 8px 0; border-top: 1px solid var(--border); }
+  #audit-panel .row:first-child { border-top: none; }
+  #audit-panel .row .k { color: var(--dim); }
+  #audit-panel .row .v { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  #log-panel { flex: 1; overflow: hidden; }
+  #log-list { display: flex; flex-direction: column; gap: 10px; }
+  #log-list .entry { font-size: 15px; display: flex; gap: 10px; }
+  #log-list .entry .m { color: var(--blue); font-weight: 700; width: 46px; flex: none; }
+  #log-list .entry .t { color: var(--text); }
+  #log-list .entry.trip .t { color: var(--red); }
+  #log-list .entry.rearm .t { color: var(--green); }
+
+  /* ---- caption / lower-third ---- */
+  #captionbar {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 168px;
+    background: linear-gradient(180deg, rgba(11,14,19,0) 0%, rgba(11,14,19,0.94) 30%, #0b0e13 100%);
+    display: flex; align-items: center; justify-content: center; padding: 0 120px;
+  }
+  #caption {
+    font-size: 34px; line-height: 1.4; font-weight: 600; text-align: center; max-width: 1560px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+  #chapter-tag {
+    position: absolute; bottom: 176px; left: 50%; transform: translateX(-50%);
+    font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim);
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <div class="card" id="card-title">
+    <div class="kicker">Autonomous market making · paper trading demo</div>
+    <h1 id="title-h1"></h1>
+    <h2 id="title-h2"></h2>
+  </div>
+
+  <div class="card" id="card-closing">
+    <div class="kicker">odds-market-maker</div>
+    <h1>Dependency-free Python. Real risk gates. Real audit trail.</h1>
+    <h2>github.com/wuxusen/odds-market-maker</h2>
+    <div class="facts">
+      <div class="fact"><div class="k">Scenario result</div><div class="v" id="fact-result"></div></div>
+      <div class="fact"><div class="k">Realized PnL</div><div class="v" id="fact-pnl"></div></div>
+      <div class="fact"><div class="k">Hash-chained fills</div><div class="v" id="fact-fills"></div></div>
+      <div class="fact"><div class="k">On-chain audit anchor (Solana devnet)</div><div class="v" id="fact-anchor"></div></div>
+    </div>
+  </div>
+
+  <div id="dash">
+    <div id="topbar">
+      <div class="brand">odds-market-maker <span>in-play 1X2 market maker · paper trading</span></div>
+      <div id="matchbox">
+        <div>
+          <div class="teams" id="mb-teams"></div>
+          <div class="score" id="mb-score"></div>
+        </div>
+        <div class="clock" id="mb-clock"></div>
+        <div class="reds" id="mb-reds"></div>
+      </div>
+      <div class="spacer"></div>
+      <div id="breaker" class="green">
+        <div class="dot"></div>
+        <div>
+          <div class="label" id="breaker-label">QUOTING</div>
+          <div class="reason" id="breaker-reason"></div>
+        </div>
+      </div>
+      <div id="trips"></div>
+    </div>
+
+    <div id="grid">
+      <div class="col left">
+        <div class="panel" id="quotes-panel">
+          <h3>Live two-sided quotes (probability / decimal odds)</h3>
+          <table class="quotes">
+            <thead><tr><th>Outcome</th><th>Fair</th><th>Bid</th><th>Ask</th></tr></thead>
+            <tbody id="quotes-body"></tbody>
+          </table>
+          <div id="confidence"></div>
+        </div>
+        <div class="panel" id="exposure-panel">
+          <h3>Inventory exposure vs. hard caps</h3>
+          <div class="bar-row">
+            <div class="top"><span>Fixture exposure</span><span id="exp-fixture-txt"></span></div>
+            <div class="bar-track"><div class="bar-fill" id="exp-fixture-bar"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="top"><span>Total exposure</span><span id="exp-total-txt"></span></div>
+            <div class="bar-track"><div class="bar-fill" id="exp-total-bar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mid">
+        <div class="panel" id="log-panel">
+          <h3>Incident &amp; breaker timeline</h3>
+          <div id="log-list"></div>
+        </div>
+      </div>
+
+      <div class="col right">
+        <div class="panel" id="pnl-panel">
+          <h3>Realized PnL &amp; equity</h3>
+          <div class="big" id="pnl-big"></div>
+          <div class="sub" id="pnl-sub"></div>
+          <canvas id="equity-canvas" width="960" height="240"></canvas>
+        </div>
+        <div class="panel" id="audit-panel">
+          <h3>Audit chain</h3>
+          <div class="row"><span class="k">Fills booked</span><span class="v" id="audit-fills"></span></div>
+          <div class="row"><span class="k">Audit records</span><span class="v" id="audit-len"></span></div>
+          <div class="row"><span class="k">Chain head (sha256)</span><span class="v" id="audit-head"></span></div>
+          <div class="row"><span class="k">Breaker trips</span><span class="v" id="audit-trips"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chapter-tag"></div>
+    <div id="captionbar"><div id="caption"></div></div>
+  </div>
+</div>
+
+<script>
+const DATA = __FRAMES_JSON__;
+
+const meta = DATA.meta;
+const frames = DATA.frames;
+
+document.getElementById('title-h1').textContent = meta.title;
+document.getElementById('title-h2').textContent = meta.subtitle;
+document.getElementById('fact-result').textContent = meta.home + ' ' + meta.final_score + ' ' + meta.away;
+document.getElementById('fact-pnl').textContent = (meta.pnl_realized >= 0 ? '+' : '') + meta.pnl_realized.toFixed(2) + ' (started 1,000.00)';
+document.getElementById('fact-fills').textContent = meta.n_fills + ' fills · ' + meta.audit_len + ' audit records';
+document.getElementById('fact-anchor').textContent = meta.on_chain_tx_short + '… (devnet, verifiable)';
+document.getElementById('mb-teams').textContent = meta.home + ' vs ' + meta.away;
+
+const TITLE_END = 8.0;           // title card visible 0..8s
+const CLOSING_START = frames[frames.length - 1].t + 2.0; // closing card fade-in
+const VIDEO_END = meta.video_end_t;
+
+const cardTitle = document.getElementById('card-title');
+const cardClosing = document.getElementById('card-closing');
+const dash = document.getElementById('dash');
+
+function fmtPct(p) { return (p * 100).toFixed(1) + '%'; }
+function fmtOdds(p) { return p > 0 ? (1 / p).toFixed(2) : '—'; }
+
+const equityHistory = [];
+let lastEquity = null;
+
+function renderFrame(f) {
+  document.getElementById('mb-score').textContent = f.score;
+  document.getElementById('mb-clock').textContent = f.clock;
+  document.getElementById('mb-reds').textContent = (f.reds !== '0-0') ? ('red cards ' + f.reds) : '';
+
+  const breakerEl = document.getElementById('breaker');
+  breakerEl.className = f.light;
+  document.getElementById('breaker-label').textContent =
+    f.light === 'green' ? 'QUOTING' : (f.light === 'amber' ? 'COOLDOWN' : 'TRIPPED — QUOTES PULLED');
+  document.getElementById('breaker-reason').textContent = f.light === 'green' ? 'all clear' : f.breaker_reason;
+  document.getElementById('trips').textContent = 'breaker trips: ' + f.trip_count;
+
+  const qb = document.getElementById('quotes-body');
+  qb.innerHTML = '';
+  const order = { HOME: 0, DRAW: 1, AWAY: 2 };
+  const qs = f.quotes.slice().sort((a, b) => order[a.outcome] - order[b.outcome]);
+  if (qs.length > 0) {
+    for (const q of qs) {
+      const tr = document.createElement('tr');
+      const hasBid = q.bid !== undefined && q.bid_size > 0;
+      const hasAsk = q.ask !== undefined && q.ask_size > 0;
+      tr.innerHTML =
+        '<td class="outcome">' + q.outcome + '</td>' +
+        '<td class="fair">' + fmtPct(q.fair) + '</td>' +
+        '<td class="bid">' + (hasBid ? fmtPct(q.bid) + '<span class="odds">' + fmtOdds(q.bid) + '</span>' : '—') + '</td>' +
+        '<td class="ask">' + (hasAsk ? fmtPct(q.ask) + '<span class="odds">' + fmtOdds(q.ask) + '</span>' : '—') + '</td>';
+      qb.appendChild(tr);
+    }
+  } else {
+    // Breaker tripped / no consensus yet: the engine holds zero resting
+    // quotes (not just zero size) — show that explicitly rather than an
+    // empty table, still surfacing the fair value it's re-pricing against.
+    for (const outcome of ['HOME', 'DRAW', 'AWAY']) {
+      const tr = document.createElement('tr');
+      const fp = f.fair_probs ? f.fair_probs[outcome] : undefined;
+      tr.innerHTML =
+        '<td class="outcome">' + outcome + '</td>' +
+        '<td class="fair">' + (fp !== undefined ? fmtPct(fp) : '—') + '</td>' +
+        '<td class="bid">—</td><td class="ask">—</td>';
+      qb.appendChild(tr);
+    }
+    const note = document.createElement('tr');
+    note.innerHTML = '<td colspan="4" style="text-align:center;color:var(--red);font-size:14px;padding-top:4px;">no resting quotes — breaker tripped, re-quoting on re-arm</td>';
+    qb.appendChild(note);
+  }
+  document.getElementById('confidence').innerHTML =
+    'consensus confidence <b>' + (f.fair_confidence !== null ? fmtPct(f.fair_confidence) : '—') + '</b> across <b>' + f.n_books + '</b> books';
+
+  const ef = f.exposure.fixture, efm = f.exposure.fixture_max;
+  const et = f.exposure.total, etm = f.exposure.total_max;
+  document.getElementById('exp-fixture-txt').textContent = ef.toFixed(1) + ' / ' + efm.toFixed(0) + ' U cap';
+  const fBar = document.getElementById('exp-fixture-bar');
+  fBar.style.width = Math.min(100, 100 * ef / efm) + '%';
+  fBar.className = 'bar-fill' + (ef / efm > 0.7 ? ' warn' : '');
+  document.getElementById('exp-total-txt').textContent = et.toFixed(1) + ' / ' + etm.toFixed(0) + ' U cap';
+  const tBar = document.getElementById('exp-total-bar');
+  tBar.style.width = Math.min(100, 100 * et / etm) + '%';
+  tBar.className = 'bar-fill' + (et / etm > 0.7 ? ' warn' : '');
+
+  const pnlBig = document.getElementById('pnl-big');
+  pnlBig.textContent = (f.pnl_realized >= 0 ? '+' : '') + f.pnl_realized.toFixed(2);
+  pnlBig.className = 'big ' + (f.pnl_realized >= 0 ? 'pos' : 'neg');
+  document.getElementById('pnl-sub').textContent = 'equity ' + f.equity.toFixed(2) + '  ·  ' + f.n_fills + ' fills booked';
+
+  if (lastEquity !== f.equity) {
+    equityHistory.push(f.equity);
+    if (equityHistory.length > 240) equityHistory.shift();
+    lastEquity = f.equity;
+  }
+  drawEquity();
+
+  document.getElementById('audit-fills').textContent = f.n_fills;
+  document.getElementById('audit-len').textContent = f.audit_len;
+  document.getElementById('audit-head').textContent = f.audit_head + '…';
+  document.getElementById('audit-trips').textContent = f.trip_count;
+
+  const logList = document.getElementById('log-list');
+  logList.innerHTML = '';
+  for (const entry of f.log) {
+    const div = document.createElement('div');
+    let cls = 'entry';
+    if (/TRIPPED/.test(entry.text)) cls += ' trip';
+    if (/re-armed/.test(entry.text)) cls += ' rearm';
+    div.className = cls;
+    div.innerHTML = '<span class="m">' + entry.minute + "'</span><span class=\"t\">" + entry.text + '</span>';
+    logList.appendChild(div);
+  }
+
+  document.getElementById('caption').textContent = f.caption;
+  document.getElementById('chapter-tag').textContent = f.clock + ' match time';
+}
+
+function drawEquity() {
+  const c = document.getElementById('equity-canvas');
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, c.width, c.height);
+  if (equityHistory.length < 2) return;
+  const min = Math.min(...equityHistory), max = Math.max(...equityHistory);
+  const span = Math.max(1e-6, max - min);
+  ctx.beginPath();
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = '#35d488';
+  equityHistory.forEach((v, i) => {
+    const x = (i / (equityHistory.length - 1)) * c.width;
+    const y = c.height - ((v - min) / span) * (c.height - 20) - 10;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgba(138,147,166,0.4)';
+  ctx.lineWidth = 1;
+  const y0 = c.height - ((1000 - min) / span) * (c.height - 20) - 10;
+  ctx.moveTo(0, y0); ctx.lineTo(c.width, y0);
+  ctx.stroke();
+}
+
+// -- playback driver: wall-clock-paced, monotonic video time in seconds --
+let frameIdx = 0;
+const start = performance.now();
+
+function tick() {
+  const t = (performance.now() - start) / 1000.0;
+
+  if (t < TITLE_END) {
+    cardTitle.classList.add('show');
+    dash.classList.remove('show');
+  } else if (t < CLOSING_START) {
+    cardTitle.classList.remove('show');
+    dash.classList.add('show');
+    while (frameIdx < frames.length - 1 && frames[frameIdx + 1].t <= t) frameIdx++;
+    renderFrame(frames[frameIdx]);
+  } else {
+    dash.classList.remove('show');
+    cardClosing.classList.add('show');
+  }
+
+  if (t >= VIDEO_END) {
+    document.title = 'DONE';
+    window.__done = true;
+    return;
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
