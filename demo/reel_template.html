@@ -40,10 +40,13 @@
   }
   .card h1 { font-size: 56px; font-weight: 700; max-width: 1400px; line-height: 1.25; margin: 0 0 24px; }
   .card h2 { font-size: 26px; font-weight: 400; color: var(--dim); max-width: 1200px; margin: 0; }
-  .card .facts { margin-top: 56px; display: flex; gap: 60px; }
-  .card .fact { text-align: left; }
+  .card .facts {
+    margin-top: 56px; display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 34px 72px; max-width: 1180px;
+  }
+  .card .fact { text-align: left; width: 480px; }
   .card .fact .k { color: var(--dim); font-size: 16px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .card .fact .v { font-size: 26px; font-weight: 600; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .card .fact .v { font-size: 24px; font-weight: 600; margin-top: 6px; }
   .card .fact a { color: var(--blue); text-decoration: none; }
 
   /* ---- main dashboard ---- */
@@ -75,6 +78,20 @@
   #matchbox .teams { font-size: 15px; color: var(--dim); }
   #matchbox .clock { font-size: 22px; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
   #matchbox .reds { font-size: 14px; color: var(--red); }
+
+  /* ---- data-source badge (honest per-segment labelling) ---- */
+  #source-badge {
+    position: absolute; top: 108px; left: 40px; z-index: 30;
+    display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 8px 18px; font-size: 15px; color: var(--text);
+  }
+  #source-badge .live-dot {
+    width: 11px; height: 11px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 12px 1px var(--green);
+  }
+  #source-badge.stress .live-dot { background: var(--amber); box-shadow: 0 0 12px 1px var(--amber); }
+  #source-badge .txt { letter-spacing: 0.01em; }
 
   #grid { position: absolute; top: 96px; left: 0; right: 0; bottom: 168px; display: flex; padding: 28px 40px; gap: 28px; }
   .col { display: flex; flex-direction: column; gap: 28px; }
@@ -142,22 +159,11 @@
 <body>
 <div id="stage">
 
-  <div class="card" id="card-title">
-    <div class="kicker">Autonomous market making · paper trading demo</div>
-    <h1 id="title-h1"></h1>
-    <h2 id="title-h2"></h2>
-  </div>
-
-  <div class="card" id="card-closing">
-    <div class="kicker">odds-market-maker</div>
-    <h1>Dependency-free Python. Real risk gates. Real audit trail.</h1>
-    <h2>github.com/wuxusen/odds-market-maker</h2>
-    <div class="facts">
-      <div class="fact"><div class="k">Scenario result</div><div class="v" id="fact-result"></div></div>
-      <div class="fact"><div class="k">Realized PnL</div><div class="v" id="fact-pnl"></div></div>
-      <div class="fact"><div class="k">Hash-chained fills</div><div class="v" id="fact-fills"></div></div>
-      <div class="fact"><div class="k">On-chain audit anchor (Solana devnet)</div><div class="v" id="fact-anchor"></div></div>
-    </div>
+  <div class="card" id="card">
+    <div class="kicker" id="card-kicker"></div>
+    <h1 id="card-h1"></h1>
+    <h2 id="card-h2"></h2>
+    <div class="facts" id="card-facts" style="display:none;"></div>
   </div>
 
   <div id="dash">
@@ -181,6 +187,8 @@
       </div>
       <div id="trips"></div>
     </div>
+
+    <div id="source-badge"><span class="live-dot"></span><span class="txt" id="source-badge-txt"></span></div>
 
     <div id="grid">
       <div class="col left">
@@ -239,33 +247,60 @@ const DATA = __FRAMES_JSON__;
 
 const meta = DATA.meta;
 const frames = DATA.frames;
+const cards = meta.cards;
+const R = meta.real, S = meta.stress;
 
-document.getElementById('title-h1').textContent = meta.title;
-document.getElementById('title-h2').textContent = meta.subtitle;
-document.getElementById('fact-result').textContent = meta.home + ' ' + meta.final_score + ' ' + meta.away;
-document.getElementById('fact-pnl').textContent = (meta.pnl_realized >= 0 ? '+' : '') + meta.pnl_realized.toFixed(2) + ' (started 1,000.00)';
-document.getElementById('fact-fills').textContent = meta.n_fills + ' fills · ' + meta.audit_len + ' audit records';
-document.getElementById('fact-anchor').textContent = meta.on_chain_tx_short + '… (devnet, verifiable)';
-document.getElementById('mb-teams').textContent = meta.home + ' vs ' + meta.away;
-
-const TITLE_END = 8.0;           // title card visible 0..8s
-const CLOSING_START = frames[frames.length - 1].t + 2.0; // closing card fade-in
 const VIDEO_END = meta.video_end_t;
 
-const cardTitle = document.getElementById('card-title');
-const cardClosing = document.getElementById('card-closing');
+const cardEl = document.getElementById('card');
 const dash = document.getElementById('dash');
+const badgeEl = document.getElementById('source-badge');
 
 function fmtPct(p) { return (p * 100).toFixed(1) + '%'; }
 function fmtOdds(p) { return p > 0 ? (1 / p).toFixed(2) : '—'; }
+function signed(x) { return (x >= 0 ? '+' : '') + x.toFixed(2); }
+
+// -- full-screen cards (title / segment divider / closing) --
+function renderCard(card) {
+  document.getElementById('card-kicker').textContent = card.kicker;
+  document.getElementById('card-h1').textContent = card.h1;
+  document.getElementById('card-h2').textContent = card.h2;
+  const facts = document.getElementById('card-facts');
+  if (card.kind === 'closing') {
+    facts.style.display = 'flex';
+    facts.innerHTML =
+      fact('Live segment (real TxLINE)', R.fixture + ' · ' + signed(R.pnl_realized) + ' PnL · ' + R.n_fills + ' fills') +
+      fact('Stress segment (seed ' + '299' + ')', S.home + ' ' + S.final_score + ' ' + S.away + ' · ' + signed(S.pnl_realized) + ' PnL') +
+      fact('Hash-chained audit', (R.audit_len + S.audit_len) + ' records across both runs') +
+      fact('On-chain anchor (Solana devnet)', meta.on_chain_tx_short + '… · real, verifiable');
+  } else {
+    facts.style.display = 'none';
+  }
+}
+function fact(k, v) {
+  return '<div class="fact"><div class="k">' + k + '</div><div class="v">' + v + '</div></div>';
+}
 
 const equityHistory = [];
 let lastEquity = null;
+let lastSegment = null;
 
 function renderFrame(f) {
-  document.getElementById('mb-score').textContent = f.score;
+  // Reset the equity curve at a segment boundary so each run reads on its own.
+  if (f.segment !== lastSegment) {
+    equityHistory.length = 0;
+    lastEquity = null;
+    lastSegment = f.segment;
+  }
+  badgeEl.className = (f.segment === 'stress') ? 'stress' : '';
+  document.getElementById('source-badge-txt').textContent = f.source_badge;
+
+  const isLive = (f.score === 'live');
+  document.getElementById('mb-teams').textContent =
+    (f.segment === 'real') ? (R.home + ' vs ' + R.away + ' · live') : (S.home + ' vs ' + S.away);
+  document.getElementById('mb-score').textContent = isLive ? 'IN-PLAY' : f.score;
   document.getElementById('mb-clock').textContent = f.clock;
-  document.getElementById('mb-reds').textContent = (f.reds !== '0-0') ? ('red cards ' + f.reds) : '';
+  document.getElementById('mb-reds').textContent = (!isLive && f.reds !== '0-0') ? ('red cards ' + f.reds) : '';
 
   const breakerEl = document.getElementById('breaker');
   breakerEl.className = f.light;
@@ -380,22 +415,30 @@ function drawEquity() {
 
 // -- playback driver: wall-clock-paced, monotonic video time in seconds --
 let frameIdx = 0;
+let shownCardStart = null;
 const start = performance.now();
+
+function activeCard(t) {
+  for (const c of cards) if (t >= c.start && t < c.end) return c;
+  return null;
+}
 
 function tick() {
   const t = (performance.now() - start) / 1000.0;
+  const card = activeCard(t);
 
-  if (t < TITLE_END) {
-    cardTitle.classList.add('show');
+  if (card) {
     dash.classList.remove('show');
-  } else if (t < CLOSING_START) {
-    cardTitle.classList.remove('show');
+    if (shownCardStart !== card.start) { renderCard(card); shownCardStart = card.start; }
+    cardEl.classList.add('show');
+  } else {
+    cardEl.classList.remove('show');
+    shownCardStart = null;
     dash.classList.add('show');
     while (frameIdx < frames.length - 1 && frames[frameIdx + 1].t <= t) frameIdx++;
+    // Keep the frame index aligned if we ever step back across a boundary.
+    while (frameIdx > 0 && frames[frameIdx].t > t) frameIdx--;
     renderFrame(frames[frameIdx]);
-  } else {
-    dash.classList.remove('show');
-    cardClosing.classList.add('show');
   }
 
   if (t >= VIDEO_END) {

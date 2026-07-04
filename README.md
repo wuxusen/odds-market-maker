@@ -37,6 +37,39 @@ full time — against a live dashboard at http://127.0.0.1:8765/. See
 [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) for the shot-by-shot narration
 this scenario was built for.
 
+### Demo reel — real TxLINE odds, then a controlled stress test
+
+The recorded reel (`demo/odds_market_maker_demo.mp4`, ~3.5 min, 1080p) has
+two honestly-labelled segments, both driven by the **same** engine:
+
+1. **Live data (real).** The agent runs on a captured, *real* TxODDS TxLINE
+   World Cup odds timeline — the in-play 1X2 line of **Portugal v Croatia**,
+   the actual decimal odds and millisecond timestamps the feed served. Every
+   fair value, quote, paper fill, PnL figure and breaker trip on screen is
+   what the engine produced consuming that real line. The two circuit-breaker
+   trips are driven by **genuine goal-time line dislocations** in the feed
+   (a goal against the favourite, then the equaliser) — nothing hand-authored;
+   with no separate score channel the breaker senses the discontinuous price
+   move itself. On the devnet free tier this is a single demarginalised book
+   with ~60s delay, so the de-vig/consensus layer runs over one real source —
+   the caption says so.
+2. **Controlled stress test.** The deterministic seed-299 multi-book scenario
+   (goals + a red card on demand), labelled on-screen as a controlled
+   scenario, to exercise the risk engine harder than one real free-tier book
+   can.
+
+Reproduce it end to end:
+
+```bash
+python demo/capture_real_odds.py   # pull + de-sensitise a real TxLINE odds timeline (needs creds)
+python demo/gen_frames.py          # replay both segments through the engine (offline)
+python demo/build_reel.py          # inline into a self-contained demo/reel.html
+```
+
+`demo/real_odds_capture.json` is the captured real odds series (odds,
+timestamps and in-play moves only — no token or secret), so the reel is fully
+reproducible offline without re-hitting the network.
+
 ```
                         ┌──────────────────────────────────────────────┐
                         │                  feeds/                      │
@@ -280,7 +313,7 @@ faucet cooperates.
 | Inventory skew, not caps alone | Hard caps only | Caps stop catastrophe but pin the book at the cap earning nothing; skew makes the market pay us to de-risk continuously, so caps rarely bind in practice. |
 | Probability-space pricing throughout | Decimal-odds-space math | PnL is linear, the three legs sum to a simplex, and spreads/skews are additive — decimal odds make all three combinatorially messy. |
 | Stdlib-only dashboard (`http.server` + one polled page) | A frontend framework / websockets | Zero build step, zero extra dependency surface to audit, works over a bare SSH port-forward — matches the "production-minded, not demo-flashy" thesis. |
-| Deterministic seeded simulator, not recorded fixtures | Replaying a recorded real match | A seed gives byte-identical reproducibility for regression tests and for judges re-running the same scenario, while still letting the model produce genuinely adversarial (informed) taker flow. |
+| Demo runs on **real captured TxLINE odds** *and* a seeded simulator | Only recorded fixtures, or only a simulator | The reel leads with a real World Cup odds timeline (real prices, real goal-driven line dislocations) so the agent is visibly consuming real data; the seeded simulator backs it up with byte-identical reproducibility for regression tests and a controllable multi-book stress scenario the free-tier single book can't produce. Best of both, each labelled for what it is. |
 | Hash-chained audit ledger anchored to Solana devnet | No audit trail / plain log file | Tamper-evidence is worth little if judges have to trust the log file; anchoring the chain head on-chain (same pattern TxLINE itself uses for its own odds batches) makes the paper track record independently checkable from a bare transaction signature. |
 | Anchor the rolling chain **head**, not the full ledger | Anchor every fill, or a Merkle root per batch | The head already transitively commits to every prior record — anchoring it is equivalent to anchoring everything at a fraction of the transaction count/cost; a batched Merkle root is the natural next step at higher fill volume (see `docs/DESIGN.md` §7). |
 | Anchoring as pluggable, fail-open `AnchorSink` outside the trading core | Anchor synchronously inline with fills | External I/O fails; the breaker doctrine says the core must survive that. `AnchorSink.anchor()` is contractually non-raising and every caller treats failure as "retry next window", never as a reason to stop quoting. |
