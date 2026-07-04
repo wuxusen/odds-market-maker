@@ -73,6 +73,36 @@ def test_txline_payload_normalisation():
     assert tick.in_running
 
 
+def test_txline_parses_live_devnet_1x2_payload():
+    # Verbatim OddsPayload captured from the live devnet World Cup feed
+    # (fixture 17588229, Paraguay v Australia). The 1X2 market uses
+    # SuperOddsType "1X2_PARTICIPANT_RESULT" with PriceNames part1/draw/part2,
+    # and Prices are decimal odds x1000 (2264 -> 2.264; 1/2.264 == 44.170%).
+    payload = {
+        "FixtureId": 17588229,
+        "MessageId": "1830818059:00003:000164-10021-stab",
+        "Ts": 1779861877339,
+        "Bookmaker": "TXLineStablePriceDemargined",
+        "BookmakerId": 10021,
+        "SuperOddsType": "1X2_PARTICIPANT_RESULT",
+        "GameState": None,
+        "InRunning": False,
+        "MarketParameters": None,
+        "MarketPeriod": None,
+        "PriceNames": ["part1", "draw", "part2"],
+        "Prices": [2264, 3444, 3732],
+        "Pct": ["44.170", "29.036", "26.795"],
+    }
+    tick = TxLineAdapter.parse_odds_payload(payload)
+    assert isinstance(tick, OddsTick)
+    assert tick.prices == (2.264, 3.444, 3.732)
+    assert tuple(tick.outcomes) == ("HOME", "DRAW", "AWAY")  # part1/draw/part2 normalised
+    assert tick.bookmaker_id == 10021
+    assert tick.market_period == "FT"  # null MarketPeriod defaulted, not "None"
+    # implied prob of the home price matches the feed's own Pct field
+    assert tick.implied()[0] == pytest.approx(0.44170, abs=1e-4)
+
+
 def test_txline_skips_unknown_markets_and_bad_prices():
     base = {
         "FixtureId": 1, "MessageId": "m", "Ts": 1, "Bookmaker": "b",

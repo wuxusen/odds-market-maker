@@ -107,7 +107,7 @@ breaker trip.
 pip install pytest && pytest      # 66 core tests (anchoring tests skip cleanly without extras)
 
 # Full coverage including the on-chain anchoring path (mocked RPC, no network):
-pip install -e ".[dev,anchor]" && pytest   # 90 tests
+pip install -e ".[dev,anchor]" && pytest   # 91 tests (+1 live TxLINE smoke, skipped without creds)
 ```
 
 Every run is **deterministic**: match script, bookmaker noise and taker flow
@@ -287,15 +287,24 @@ faucet cooperates.
 
 ## TxLINE integration status
 
-`feeds/txline.py` implements the real TxLINE surface from the published
-OpenAPI spec: dual-token auth headers (`Authorization: Bearer <jwt>` +
-`X-Api-Token`), `GET /api/odds/updates/{fixtureId}` polling,
-`GET /api/odds/stream` (SSE) as the target transport, and `OddsPayload`
-normalisation (`FixtureId/MessageId/Ts/Bookmaker/SuperOddsType/Prices/Pct/
-InRunning`). Remaining TODOs (wallet-signed token activation, price-scale
-confirmation, scores mapping) are marked in the module docstring. The
-engine is feed-agnostic: swapping the simulator for TxLINE is a one-line
-change in `demo.py`.
+`feeds/txline.py` is a working adapter against the live TxLINE devnet
+service (free World Cup tier). The one-off auth flow — on-chain
+`subscribe(serviceLevelId, weeks)` on the TxLINE program, guest JWT, wallet
+signature, and `POST /api/token/activate` — yields the dual-token
+credentials the adapter reads from a local, git-ignored creds file (never
+from source). It then calls the real endpoints: `GET /api/fixtures/snapshot`,
+`GET /api/odds/snapshot/{fixtureId}?asOf=`, and `GET /api/odds/updates/
+{fixtureId}` polling, with automatic guest-JWT renewal on 401.
+
+`OddsPayload` normalisation is confirmed against live data: the 1X2 market
+is `SuperOddsType == "1X2_PARTICIPANT_RESULT"` (`PriceNames`
+`part1/draw/part2`), and `Prices` are decimal odds x1000 (verified against
+the sibling `Pct` field). `tests/test_txline_live.py` exercises the full
+pull end-to-end and is skipped automatically unless a creds file is present,
+so the default suite stays offline and network-free. The engine is
+feed-agnostic: swapping the simulator for TxLINE is a one-line change in
+`demo.py`. Remaining extensions (SSE streaming transport, handicap/totals
+markets, scores mapping) are marked in the module docstring.
 
 ## Compliance
 
@@ -323,8 +332,9 @@ odds_mm/
 scripts/
   run_demo_scenario.py   # one-command curated, narrated demo scenario (for recording)
   anchor_devnet_demo.py  # best-effort live devnet anchor: airdrop + anchor + verify
-tests/            # 90 pytest cases (66 core + 24 anchoring/mocked-RPC): math, risk gates,
-                  # breaker, accounting, demo/dashboard state, Solana packing + verification
+tests/            # 91 offline pytest cases (+1 live TxLINE smoke, skipped without creds):
+                  # math, risk gates, breaker, accounting, demo/dashboard state,
+                  # Solana packing + verification, TxLINE payload normalisation
 docs/
   DESIGN.md       # formulas, risk design, and the anchoring design tradeoffs (§7)
   DEMO_SCRIPT.md  # shot-by-shot narration for the demo video

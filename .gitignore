@@ -11,3 +11,7 @@ build/
 *.mp4
 .videobuild/
 demo/.rawvideo/
+# TxLINE auth build sandbox (node deps, cloned IDL repo) and any credentials.
+.txline-build/
+*.creds.json
+.txline_creds.json
