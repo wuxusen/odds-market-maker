@@ -104,6 +104,16 @@ def _new_async_client(rpc_url: str) -> Any:
     return AsyncClient(rpc_url)
 
 
+def _skip_preflight_opts() -> Any:
+    """TxOpts skipping preflight simulation (lazy import so the module stays
+    importable without ``solana`` installed). Preflight on the public devnet
+    endpoint is unreliable because the simulating node is load-balanced and may
+    lag the node that issued the blockhash; the cluster still accepts the tx."""
+    from solana.rpc.models import TxOpts
+
+    return TxOpts(skip_preflight=True)
+
+
 def build_memo_instruction(payer_pubkey: Any, memo_bytes: bytes) -> Any:
     """Pure, offline: one Memo Program instruction carrying ``memo_bytes``."""
     from solders.instruction import AccountMeta, Instruction
@@ -195,10 +205,17 @@ class SolanaAnchor(AnchorSink):
         try:
             memo_bytes = (self._memo_prefix + head_hash).encode("utf-8")
             instruction = build_memo_instruction(self._keypair.pubkey(), memo_bytes)
-            bh_resp = await client.get_latest_blockhash(commitment=self._commitment)
+            # Fetch the blockhash at "finalized" rather than the (fresher) session
+            # commitment: on the public devnet endpoint, get_latest_blockhash and the
+            # send-preflight simulation can land on different load-balanced nodes, and
+            # a too-recent blockhash may not yet exist on the simulating node
+            # ("Blockhash not found"). A finalized blockhash is guaranteed present
+            # cluster-wide. We also skip preflight so a lagging simulation node can't
+            # reject a transaction the cluster will happily accept.
+            bh_resp = await client.get_latest_blockhash(commitment="finalized")
             blockhash = bh_resp.value.blockhash
             tx = build_anchor_transaction(instruction, self._keypair, blockhash)
-            send_resp = await client.send_raw_transaction(bytes(tx))
+            send_resp = await client.send_raw_transaction(bytes(tx), _skip_preflight_opts())
             sig = send_resp.value
             slot: Optional[int] = None
             try:

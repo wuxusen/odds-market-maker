@@ -174,6 +174,20 @@ Memo Program transaction, so the paper track record is checkable from
 nothing but a transaction signature — no access to our server or database
 required.
 
+**Live anchor (devnet, verifiable right now):** a full headless session was
+run and its audit-chain head anchored on devnet — decode the Memo and it
+matches the ledger head byte-for-byte:
+
+| field | value |
+| --- | --- |
+| tx | [`a1HPa9V9k8Q8ckFJoNLckSjCC7yNRsEUU8NSsfpnj6UfTxuWtpPDn4rpGLZegmMifLak7zwADh9LNB5s598D2MG`](https://explorer.solana.com/tx/a1HPa9V9k8Q8ckFJoNLckSjCC7yNRsEUU8NSsfpnj6UfTxuWtpPDn4rpGLZegmMifLak7zwADh9LNB5s598D2MG?cluster=devnet) |
+| slot | 473814127 |
+| anchored head | `3bec697170a5369a1395e79d4462d50f898d89850d5f5a5afca403cd44b05b48` |
+
+Open the explorer link, read the Memo instruction, and you'll see the prefix
+followed by exactly that hex — the `verify_anchor()` helper below does the
+same check programmatically.
+
 **How it works:**
 
 * `SolanaAnchor` (`odds_mm/anchor/solana_anchor.py`) derives a devnet
