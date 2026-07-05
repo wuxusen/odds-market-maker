@@ -343,7 +343,7 @@ function renderFrame(f) {
     qb.appendChild(note);
   }
   document.getElementById('confidence').innerHTML =
-    'consensus confidence <b>' + (f.fair_confidence !== null ? fmtPct(f.fair_confidence) : '—') + '</b> across <b>' + f.n_books + '</b> books';
+    'consensus confidence <b>' + (f.fair_confidence !== null ? fmtPct(f.fair_confidence) : '—') + '</b> across <b>' + f.n_books + '</b> ' + (f.n_books === 1 ? 'book' : 'books');
 
   const ef = f.exposure.fixture, efm = f.exposure.fixture_max;
   const et = f.exposure.total, etm = f.exposure.total_max;

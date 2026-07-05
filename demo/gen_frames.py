@@ -507,7 +507,7 @@ def main() -> None:
             "kind": "title",
             "kicker": "Autonomous market making · live odds · paper trading",
             "h1": "An in-play odds market maker, run on real World Cup prices",
-            "h2": "Real TxODDS TxLINE odds in · de-vig, consensus, guarded quoting · paper execution, real audit trail",
+            "h2": "Real TxODDS TxLINE odds · de-vig consensus pricing · guarded two-sided quoting · paper execution, real audit trail",
         },
         {
             "start": seg2_card_start,
