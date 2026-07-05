@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>odds-market-maker — in-play odds market maker</title>
+<meta name="description" content="An autonomous in-play odds market maker, running on real TxODDS TxLINE World Cup data.">
+<style>
+  :root {
+    --bg: #0b0e13;
+    --panel: #12161f;
+    --panel-2: #171c27;
+    --border: #232a38;
+    --text: #e8ecf4;
+    --dim: #8a93a6;
+    --green: #35d488;
+    --red: #ff4d5e;
+    --amber: #f4b942;
+    --blue: #5aa2ff;
+    --link: #7ab4ff;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f4f6fa;
+      --panel: #ffffff;
+      --panel-2: #eef1f6;
+      --border: #d8deea;
+      --text: #121722;
+      --dim: #5c667a;
+      --link: #1f6feb;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b0e13; --panel: #12161f; --panel-2: #171c27; --border: #232a38;
+    --text: #e8ecf4; --dim: #8a93a6; --link: #7ab4ff;
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f6fa; --panel: #ffffff; --panel-2: #eef1f6; --border: #d8deea;
+    --text: #121722; --dim: #5c667a; --link: #1f6feb;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- header ---- */
+  header {
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+  header .wrap {
+    display: flex; align-items: center; gap: 16px;
+    padding-top: 18px; padding-bottom: 18px;
+  }
+  .logo { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+  .logo .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  header .spacer { flex: 1; }
+  header a.ghlink {
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    color: var(--text); border: 1px solid var(--border);
+    padding: 8px 14px; border-radius: 8px; background: var(--panel-2);
+    white-space: nowrap;
+  }
+  header a.ghlink:hover { border-color: var(--link); }
+
+  /* ---- hero ---- */
+  .hero { padding: 64px 0 40px; text-align: center; }
+  .hero .kicker {
+    color: var(--blue); letter-spacing: 0.16em; font-size: 13px;
+    text-transform: uppercase; font-weight: 700; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 42px; line-height: 1.15; font-weight: 800;
+    letter-spacing: -0.02em; margin: 0 auto 20px; max-width: 860px;
+  }
+  .hero p.lede {
+    font-size: 19px; color: var(--dim); max-width: 720px; margin: 0 auto;
+  }
+  .hero .cta { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 12px 22px; border-radius: 10px; border: 1px solid transparent;
+  }
+  .btn.primary { background: var(--blue); color: #06111f; }
+  .btn.primary:hover { filter: brightness(1.07); }
+  .btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn.ghost:hover { border-color: var(--link); }
+
+  /* ---- reel embed ---- */
+  .reel-section { padding: 8px 0 8px; }
+  #reel-frame {
+    position: relative; width: 100%;
+    /* fixed 16:9 canvas; the reel renders at 1920x1080 and is scaled to fit */
+    aspect-ratio: 16 / 9;
+    background: #0b0e13;
+    border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 24px 60px -30px rgba(0,0,0,0.6);
+  }
+  #reel-scaler {
+    position: absolute; top: 0; left: 0;
+    width: 1920px; height: 1080px;
+    transform-origin: top left;
+  }
+  #reel-scaler iframe {
+    width: 1920px; height: 1080px; border: 0; display: block;
+  }
+  .reel-caption {
+    margin-top: 14px; text-align: center; font-size: 14px; color: var(--dim);
+  }
+  .reel-caption a { text-decoration: none; }
+
+  /* ---- facts ---- */
+  .facts { padding: 52px 0 8px; }
+  .facts h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--dim); font-weight: 700; text-align: center; margin: 0 0 28px;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  }
+  .fact {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 14px; padding: 22px 24px;
+  }
+  .fact .h { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .fact .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .fact.g .dot { background: var(--green); box-shadow: 0 0 10px 0 var(--green); }
+  .fact.r .dot { background: var(--red); box-shadow: 0 0 10px 0 var(--red); }
+  .fact.a .dot { background: var(--amber); box-shadow: 0 0 10px 0 var(--amber); }
+  .fact.b .dot { background: var(--blue); box-shadow: 0 0 10px 0 var(--blue); }
+  .fact .t { font-size: 16px; font-weight: 700; }
+  .fact p { margin: 0; font-size: 15px; color: var(--dim); }
+  .fact p .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px; word-break: break-all;
+  }
+  .fact a { text-decoration: none; font-weight: 600; }
+  .fact a:hover { text-decoration: underline; }
+
+  /* ---- how it works strip ---- */
+  .flow { padding: 44px 0 8px; }
+  .flow h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--dim); font-weight: 700; text-align: center; margin: 0 0 28px;
+  }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .step {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 18px;
+  }
+  .step .n {
+    font-family: ui-monospace, Menlo, monospace; font-size: 12px;
+    color: var(--blue); font-weight: 700; letter-spacing: 0.06em;
+  }
+  .step .s { font-size: 15px; font-weight: 700; margin: 6px 0 6px; }
+  .step p { margin: 0; font-size: 13.5px; color: var(--dim); }
+
+  /* ---- footer ---- */
+  footer {
+    margin-top: 64px; border-top: 1px solid var(--border);
+    background: var(--panel); padding: 28px 0;
+  }
+  footer .wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer .muted { color: var(--dim); font-size: 14px; }
+  footer .spacer { flex: 1; }
+  footer a { font-size: 14px; font-weight: 600; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 760px) {
+    .hero { padding: 44px 0 28px; }
+    .hero h1 { font-size: 30px; }
+    .hero p.lede { font-size: 17px; }
+    .grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="logo"><span class="mono">odds-market-maker</span></div>
+      <div class="spacer"></div>
+      <a class="ghlink" href="https://github.com/wuxusen/odds-market-maker">View source on GitHub</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Autonomous market making · live odds · paper trading</div>
+      <h1>An autonomous in-play odds market maker, running on real TxODDS TxLINE World Cup data</h1>
+      <p class="lede">
+        It ingests a real in-play 1X2 odds line, prices a de-vigged consensus fair value,
+        quotes two-sided with inventory skew and hard exposure caps, and cancels everything
+        the instant a goal, red card, feed stall or latency spike hits. Execution is paper-only,
+        written to a hash-chained audit ledger that is anchored on-chain.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="reel.html">Watch it run full-screen</a>
+        <a class="btn ghost" href="https://github.com/wuxusen/odds-market-maker">Read the code</a>
+      </div>
+    </section>
+
+    <section class="reel-section">
+      <div id="reel-frame">
+        <div id="reel-scaler">
+          <iframe id="reel" src="reel.html" title="odds-market-maker running on real TxLINE odds" loading="eager" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="reel-caption">
+        Live dashboard, playing automatically. The first segment runs on a captured
+        <b>real</b> TxLINE line — Portugal v Croatia. Want it larger? <a href="reel.html">Open full-screen&nbsp;→</a>
+      </div>
+    </section>
+
+    <section class="facts">
+      <h2>What you're looking at</h2>
+      <div class="grid">
+        <div class="fact g">
+          <div class="h"><span class="dot"></span><span class="t">Real TxLINE odds</span></div>
+          <p>The first segment replays a captured, real TxODDS TxLINE in-play line for Portugal v Croatia.
+          Every fair value, quote, paper fill and PnL figure is what the engine produced from that feed —
+          nothing hand-authored.</p>
+        </div>
+        <div class="fact r">
+          <div class="h"><span class="dot"></span><span class="t">Circuit breaker on real goals</span></div>
+          <p>Both breaker trips you see are driven by genuine goal-time line dislocations in the feed —
+          a goal against the favourite, then the equaliser. The engine flattens and stops quoting through
+          the discontinuity, then resumes.</p>
+        </div>
+        <div class="fact b">
+          <div class="h"><span class="dot"></span><span class="t">Paper execution, real audit trail</span></div>
+          <p>All trading is paper-only. Every fill and settlement is appended to a SHA-256 hash-chained
+          ledger, so the track record is tamper-evident — you can't rewrite a fill without breaking the chain.</p>
+        </div>
+        <div class="fact a">
+          <div class="h"><span class="dot"></span><span class="t">On-chain anchor (verify it yourself)</span></div>
+          <p>The ledger's rolling head hash is anchored to Solana devnet in a real Memo transaction. Decode
+          the memo and it matches the head byte-for-byte —
+          <a href="https://explorer.solana.com/tx/a1HPa9V9k8Q8ckFJoNLckSjCC7yNRsEUU8NSsfpnj6UfTxuWtpPDn4rpGLZegmMifLak7zwADh9LNB5s598D2MG?cluster=devnet">open the transaction on Solana Explorer&nbsp;→</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow">
+      <h2>The pipeline</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="n">01 · FEED</div>
+          <div class="s">Ingest</div>
+          <p>Read the in-play 1X2 line from TxODDS TxLINE (SSE/REST), normalise per book.</p>
+        </div>
+        <div class="step">
+          <div class="n">02 · PRICE</div>
+          <div class="s">De-vig &amp; quote</div>
+          <p>Strip the overround to a consensus fair value, then quote two-sided with inventory skew.</p>
+        </div>
+        <div class="step">
+          <div class="n">03 · GUARD</div>
+          <div class="s">Circuit breaker</div>
+          <p>Goal, red card, feed stall or latency spike → cancel everything, flatten, pause.</p>
+        </div>
+        <div class="step">
+          <div class="n">04 · PROVE</div>
+          <div class="s">Ledger &amp; anchor</div>
+          <p>Hash-chain every fill; periodically anchor the chain head on Solana devnet.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="muted">odds-market-maker · in-play 1X2 market maker · paper trading</span>
+      <span class="spacer"></span>
+      <a href="https://github.com/wuxusen/odds-market-maker">github.com/wuxusen/odds-market-maker</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scale the fixed 1920x1080 reel canvas to fit its responsive 16:9 frame.
+    (function () {
+      var frame = document.getElementById('reel-frame');
+      var scaler = document.getElementById('reel-scaler');
+      function fit() {
+        var w = frame.clientWidth;
+        scaler.style.transform = 'scale(' + (w / 1920) + ')';
+      }
+      fit();
+      window.addEventListener('resize', fit);
+      // Re-fit shortly after load in case fonts/layout shift the frame width.
+      window.addEventListener('load', fit);
+      setTimeout(fit, 200);
+    })();
+  </script>
+</body>
+</html>
