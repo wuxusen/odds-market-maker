@@ -1,0 +1,8746 @@
+{
+ "meta": {
+  "source": "TxODDS TxLINE devnet \u2014 World Cup free tier",
+  "competition": "World Cup",
+  "competition_id": 72,
+  "fixture_id": 18179549,
+  "home": "Colombia",
+  "away": "Ghana",
+  "bookmaker": "TXLineStablePriceDemargined",
+  "market": "1X2 full-time (match result)",
+  "captured_at": "2026-07-05T03:22:44Z",
+  "kickoff_ts": 1783128603996,
+  "start_time": 1783128600000,
+  "bucket_ms": 5000,
+  "window_min": 95,
+  "n_raw_1x2_ticks": 7229,
+  "n_ticks": 793,
+  "price_scale": 1000,
+  "tier_note": "Devnet free tier: a single demarginalised synthetic book (public label above) with ~60s delay. The odds values, millisecond timestamps and in-play moves below are the real TxLINE World Cup feed; no token or secret is stored here."
+ },
+ "ticks": [
+  {
+   "ts": 1783128605258,
+   "prices": [
+    1497,
+    4567,
+    8863
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214364:00003:000420-10021-stab"
+  },
+  {
+   "ts": 1783128614193,
+   "prices": [
+    1503,
+    4392,
+    9354
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214362:00003:000862-1-10021-stab"
+  },
+  {
+   "ts": 1783128623415,
+   "prices": [
+    1506,
+    4393,
+    9223
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214397:00003:000210-10021-stab"
+  },
+  {
+   "ts": 1783128625145,
+   "prices": [
+    1507,
+    4409,
+    9136
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214400:00003:000328-10021-stab"
+  },
+  {
+   "ts": 1783128629493,
+   "prices": [
+    1502,
+    4452,
+    9127
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214407:00003:000621-10021-stab"
+  },
+  {
+   "ts": 1783128636708,
+   "prices": [
+    1505,
+    4438,
+    9078
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214421:00003:000525-10021-stab"
+  },
+  {
+   "ts": 1783128640495,
+   "prices": [
+    1507,
+    4447,
+    8963
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214428:00003:000140-10021-stab"
+  },
+  {
+   "ts": 1783128645715,
+   "prices": [
+    1509,
+    4431,
+    8968
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214438:00003:000592-10021-stab"
+  },
+  {
+   "ts": 1783128652722,
+   "prices": [
+    1505,
+    4466,
+    8962
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214452:00003:001070-10021-stab"
+  },
+  {
+   "ts": 1783128656724,
+   "prices": [
+    1506,
+    4459,
+    8937
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214460:00003:000683-10021-stab"
+  },
+  {
+   "ts": 1783128661724,
+   "prices": [
+    1513,
+    4424,
+    8845
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214467:00003:001081-10021-stab"
+  },
+  {
+   "ts": 1783128665500,
+   "prices": [
+    1513,
+    4407,
+    8902
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214474:00003:001116-10021-stab"
+  },
+  {
+   "ts": 1783128676735,
+   "prices": [
+    1514,
+    4402,
+    8889
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214493:00003:000838-10021-stab"
+  },
+  {
+   "ts": 1783128679741,
+   "prices": [
+    1516,
+    4396,
+    8867
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214499:00003:000092-10021-stab"
+  },
+  {
+   "ts": 1783128686138,
+   "prices": [
+    1521,
+    4386,
+    8741
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214510:00003:000220-10021-stab"
+  },
+  {
+   "ts": 1783128692131,
+   "prices": [
+    1521,
+    4383,
+    8733
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214519:00003:000199-10021-stab"
+  },
+  {
+   "ts": 1783128697838,
+   "prices": [
+    1522,
+    4376,
+    8752
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214528:00003:000213-10021-stab"
+  },
+  {
+   "ts": 1783128700752,
+   "prices": [
+    1513,
+    4412,
+    8883
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214534:00003:000111-10021-stab"
+  },
+  {
+   "ts": 1783128707750,
+   "prices": [
+    1514,
+    4431,
+    8785
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214546:00003:000428-10021-stab"
+  },
+  {
+   "ts": 1783128712516,
+   "prices": [
+    1516,
+    4368,
+    8955
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214554:00003:000351-10021-stab"
+  },
+  {
+   "ts": 1783128717760,
+   "prices": [
+    1512,
+    4379,
+    9076
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214565:00003:000082-10021-stab"
+  },
+  {
+   "ts": 1783128719760,
+   "prices": [
+    1512,
+    4358,
+    9169
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214568:00003:000969-10021-stab"
+  },
+  {
+   "ts": 1783128724774,
+   "prices": [
+    1509,
+    4394,
+    9097
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214578:00003:000741-10021-stab"
+  },
+  {
+   "ts": 1783128729787,
+   "prices": [
+    1515,
+    4367,
+    9000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214587:00003:000139-10021-stab"
+  },
+  {
+   "ts": 1783128738808,
+   "prices": [
+    1526,
+    4315,
+    8853
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214604:00003:000114-10021-stab"
+  },
+  {
+   "ts": 1783128743479,
+   "prices": [
+    1521,
+    4331,
+    8964
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214612:00003:000175-10021-stab"
+  },
+  {
+   "ts": 1783128744109,
+   "prices": [
+    1521,
+    4347,
+    8903
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214614:00003:000032-10021-stab"
+  },
+  {
+   "ts": 1783128749797,
+   "prices": [
+    1523,
+    4370,
+    8725
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214622:00003:000302-10021-stab"
+  },
+  {
+   "ts": 1783128754135,
+   "prices": [
+    1525,
+    4366,
+    8668
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214629:00003:000093-10021-stab"
+  },
+  {
+   "ts": 1783128762134,
+   "prices": [
+    1523,
+    4358,
+    8766
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214637:00003:000055-1-10021-stab"
+  },
+  {
+   "ts": 1783128765135,
+   "prices": [
+    1520,
+    4374,
+    8800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214651:00003:000073-10021-stab"
+  },
+  {
+   "ts": 1783128772133,
+   "prices": [
+    1532,
+    4337,
+    8564
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214664:00003:000117-10021-stab"
+  },
+  {
+   "ts": 1783128778132,
+   "prices": [
+    1526,
+    4360,
+    8674
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214673:00003:000065-10021-stab"
+  },
+  {
+   "ts": 1783128783867,
+   "prices": [
+    1531,
+    4335,
+    8600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214681:00003:000132-10021-stab"
+  },
+  {
+   "ts": 1783128787077,
+   "prices": [
+    1531,
+    4337,
+    8594
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214687:00003:000242-10021-stab"
+  },
+  {
+   "ts": 1783128794870,
+   "prices": [
+    1533,
+    4324,
+    8576
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214696:00003:001081-10021-stab"
+  },
+  {
+   "ts": 1783128801811,
+   "prices": [
+    1539,
+    4304,
+    8472
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214707:00003:000182-10021-stab"
+  },
+  {
+   "ts": 1783128804253,
+   "prices": [
+    1541,
+    4293,
+    8478
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214712:00003:000353-10021-stab"
+  },
+  {
+   "ts": 1783128812421,
+   "prices": [
+    1549,
+    4257,
+    8368
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214724:00003:000378-10021-stab"
+  },
+  {
+   "ts": 1783128818138,
+   "prices": [
+    1546,
+    4278,
+    8386
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214733:00003:000066-10021-stab"
+  },
+  {
+   "ts": 1783128820887,
+   "prices": [
+    1550,
+    4260,
+    8321
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214737:00003:000671-10021-stab"
+  },
+  {
+   "ts": 1783128825892,
+   "prices": [
+    1550,
+    4269,
+    8299
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214746:00003:000346-10021-stab"
+  },
+  {
+   "ts": 1783128833548,
+   "prices": [
+    1556,
+    4246,
+    8205
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214760:00003:000411-10021-stab"
+  },
+  {
+   "ts": 1783128834141,
+   "prices": [
+    1554,
+    4246,
+    8278
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214762:00003:000127-10021-stab"
+  },
+  {
+   "ts": 1783128840899,
+   "prices": [
+    1554,
+    4234,
+    8316
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214775:00003:000227-10021-stab"
+  },
+  {
+   "ts": 1783128844586,
+   "prices": [
+    1554,
+    4234,
+    8314
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214782:00003:000608-10021-stab"
+  },
+  {
+   "ts": 1783128855913,
+   "prices": [
+    1558,
+    4250,
+    8147
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214804:00003:000269-10021-stab"
+  },
+  {
+   "ts": 1783128864503,
+   "prices": [
+    1561,
+    4240,
+    8095
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214820:00003:000364-10021-stab"
+  },
+  {
+   "ts": 1783128871561,
+   "prices": [
+    1561,
+    4240,
+    8095
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214834:00003:000519-10021-stab"
+  },
+  {
+   "ts": 1783128875559,
+   "prices": [
+    1561,
+    4246,
+    8074
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214842:00003:000249-10021-stab"
+  },
+  {
+   "ts": 1783128882145,
+   "prices": [
+    1564,
+    4242,
+    8016
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214856:00003:000204-10021-stab"
+  },
+  {
+   "ts": 1783128886426,
+   "prices": [
+    1564,
+    4241,
+    8020
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214862:00003:000432-10021-stab"
+  },
+  {
+   "ts": 1783128890180,
+   "prices": [
+    1566,
+    4235,
+    7992
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214869:00003:000157-10021-stab"
+  },
+  {
+   "ts": 1783128898359,
+   "prices": [
+    1565,
+    4243,
+    7974
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214878:00003:000563-10021-stab"
+  },
+  {
+   "ts": 1783128901073,
+   "prices": [
+    1558,
+    4262,
+    8100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214882:00003:000085-10021-stab"
+  },
+  {
+   "ts": 1783128906220,
+   "prices": [
+    1570,
+    4188,
+    8058
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214891:00003:000135-10021-stab"
+  },
+  {
+   "ts": 1783128911445,
+   "prices": [
+    1571,
+    4195,
+    8007
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214898:00003:000177-10021-stab"
+  },
+  {
+   "ts": 1783128917449,
+   "prices": [
+    1572,
+    4199,
+    7947
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214908:00003:000501-10021-stab"
+  },
+  {
+   "ts": 1783128920571,
+   "prices": [
+    1567,
+    4215,
+    8018
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214913:00003:000327-10021-stab"
+  },
+  {
+   "ts": 1783128925892,
+   "prices": [
+    1560,
+    4239,
+    8125
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214922:00003:000110-10021-stab"
+  },
+  {
+   "ts": 1783128934180,
+   "prices": [
+    1560,
+    4240,
+    8113
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214937:00003:000200-10021-stab"
+  },
+  {
+   "ts": 1783128943575,
+   "prices": [
+    1568,
+    4217,
+    7994
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214956:00003:000049-10021-stab"
+  },
+  {
+   "ts": 1783128946536,
+   "prices": [
+    1560,
+    4247,
+    8087
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214961:00003:000531-10021-stab"
+  },
+  {
+   "ts": 1783128949774,
+   "prices": [
+    1561,
+    4244,
+    8080
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836214968:00003:000542-10021-stab"
+  },
+  {
+   "ts": 1783128967476,
+   "prices": [
+    1561,
+    4252,
+    8054
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215001:00003:000150-10021-stab"
+  },
+  {
+   "ts": 1783128977237,
+   "prices": [
+    1563,
+    4224,
+    8114
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215018:00003:000111-10021-stab"
+  },
+  {
+   "ts": 1783128983488,
+   "prices": [
+    1559,
+    4242,
+    8151
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215030:00003:000657-10021-stab"
+  },
+  {
+   "ts": 1783128985422,
+   "prices": [
+    1557,
+    4246,
+    8188
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215033:00003:000602-10021-stab"
+  },
+  {
+   "ts": 1783128992192,
+   "prices": [
+    1556,
+    4227,
+    8276
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215031:00003:000040-1-10021-stab"
+  },
+  {
+   "ts": 1783128997415,
+   "prices": [
+    1556,
+    4256,
+    8185
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215053:00003:000262-10021-stab"
+  },
+  {
+   "ts": 1783128999504,
+   "prices": [
+    1557,
+    4253,
+    8164
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215057:00003:000445-10021-stab"
+  },
+  {
+   "ts": 1783129004186,
+   "prices": [
+    1561,
+    4249,
+    8067
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215067:00003:000021-10021-stab"
+  },
+  {
+   "ts": 1783129015602,
+   "prices": [
+    1562,
+    4238,
+    8073
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215088:00003:000115-10021-stab"
+  },
+  {
+   "ts": 1783129019602,
+   "prices": [
+    1562,
+    4240,
+    8061
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215095:00003:000065-10021-stab"
+  },
+  {
+   "ts": 1783129024192,
+   "prices": [
+    1561,
+    4242,
+    8080
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215103:00003:000475-10021-stab"
+  },
+  {
+   "ts": 1783129030520,
+   "prices": [
+    1563,
+    4216,
+    8125
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215114:00003:000221-10021-stab"
+  },
+  {
+   "ts": 1783129034532,
+   "prices": [
+    1566,
+    4210,
+    8080
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215121:00003:000021-10021-stab"
+  },
+  {
+   "ts": 1783129039529,
+   "prices": [
+    1569,
+    4196,
+    8042
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215130:00003:000093-10021-stab"
+  },
+  {
+   "ts": 1783129045858,
+   "prices": [
+    1577,
+    4165,
+    7942
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215141:00003:000188-10021-stab"
+  },
+  {
+   "ts": 1783129058662,
+   "prices": [
+    1571,
+    4185,
+    8026
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215161:00003:000688-10021-stab"
+  },
+  {
+   "ts": 1783129061544,
+   "prices": [
+    1569,
+    4182,
+    8090
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215168:00003:000065-10021-stab"
+  },
+  {
+   "ts": 1783129065554,
+   "prices": [
+    1569,
+    4177,
+    8103
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215173:00003:000268-10021-stab"
+  },
+  {
+   "ts": 1783129076378,
+   "prices": [
+    1579,
+    4179,
+    7856
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215188:00003:000279-10021-stab"
+  },
+  {
+   "ts": 1783129082028,
+   "prices": [
+    1580,
+    4154,
+    7908
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215198:00003:000012-10021-stab"
+  },
+  {
+   "ts": 1783129086197,
+   "prices": [
+    1581,
+    4145,
+    7927
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215206:00003:000059-10021-stab"
+  },
+  {
+   "ts": 1783129092565,
+   "prices": [
+    1582,
+    4150,
+    7890
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215217:00003:000009-10021-stab"
+  },
+  {
+   "ts": 1783129096202,
+   "prices": [
+    1582,
+    4136,
+    7940
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215223:00003:000121-10021-stab"
+  },
+  {
+   "ts": 1783129118204,
+   "prices": [
+    1579,
+    4163,
+    7908
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215264:00003:000175-10021-stab"
+  },
+  {
+   "ts": 1783129119317,
+   "prices": [
+    1570,
+    4167,
+    8122
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215266:00003:000091-10021-stab"
+  },
+  {
+   "ts": 1783129128204,
+   "prices": [
+    1573,
+    4166,
+    8055
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215283:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783129129632,
+   "prices": [
+    1572,
+    4170,
+    8064
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215285:00003:000216-10021-stab"
+  },
+  {
+   "ts": 1783129135675,
+   "prices": [
+    1581,
+    4128,
+    7982
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215272:00003:000208-1-10021-stab"
+  },
+  {
+   "ts": 1783129148206,
+   "prices": [
+    1581,
+    4127,
+    7997
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215321:00003:000636-10021-stab"
+  },
+  {
+   "ts": 1783129152643,
+   "prices": [
+    1580,
+    4135,
+    7976
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215330:00003:000003-10021-stab"
+  },
+  {
+   "ts": 1783129154814,
+   "prices": [
+    1577,
+    4143,
+    8029
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215334:00003:000302-10021-stab"
+  },
+  {
+   "ts": 1783129163125,
+   "prices": [
+    1581,
+    4111,
+    8037
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215351:00003:000018-10021-stab"
+  },
+  {
+   "ts": 1783129164643,
+   "prices": [
+    1581,
+    4106,
+    8074
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215353:00003:000236-10021-stab"
+  },
+  {
+   "ts": 1783129173615,
+   "prices": [
+    1582,
+    4099,
+    8077
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215370:00003:000354-10021-stab"
+  },
+  {
+   "ts": 1783129175648,
+   "prices": [
+    1581,
+    4099,
+    8093
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215373:00003:000554-10021-stab"
+  },
+  {
+   "ts": 1783129182402,
+   "prices": [
+    1582,
+    4112,
+    8023
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215385:00003:000260-10021-stab"
+  },
+  {
+   "ts": 1783129184970,
+   "prices": [
+    1585,
+    4090,
+    8023
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215388:00003:000671-10021-stab"
+  },
+  {
+   "ts": 1783129190631,
+   "prices": [
+    1585,
+    4091,
+    8029
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215397:00003:000416-10021-stab"
+  },
+  {
+   "ts": 1783129198966,
+   "prices": [
+    1586,
+    4078,
+    8034
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215414:00003:000039-10021-stab"
+  },
+  {
+   "ts": 1783129200217,
+   "prices": [
+    1586,
+    4077,
+    8048
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215417:00003:000147-10021-stab"
+  },
+  {
+   "ts": 1783129207106,
+   "prices": [
+    1587,
+    4062,
+    8080
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215428:00003:000050-10021-stab"
+  },
+  {
+   "ts": 1783129210598,
+   "prices": [
+    1576,
+    4094,
+    8239
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215433:00003:000207-10021-stab"
+  },
+  {
+   "ts": 1783129234660,
+   "prices": [
+    1577,
+    4088,
+    8244
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215479:00003:000565-10021-stab"
+  },
+  {
+   "ts": 1783129242662,
+   "prices": [
+    1578,
+    4077,
+    8253
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215495:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783129244764,
+   "prices": [
+    1579,
+    4058,
+    8305
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215499:00003:000165-10021-stab"
+  },
+  {
+   "ts": 1783129253663,
+   "prices": [
+    1578,
+    4069,
+    8293
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215517:00003:000002-10021-stab"
+  },
+  {
+   "ts": 1783129254669,
+   "prices": [
+    1578,
+    4069,
+    8309
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215518:00003:000286-10021-stab"
+  },
+  {
+   "ts": 1783129260891,
+   "prices": [
+    1573,
+    4059,
+    8490
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215529:00003:000133-10021-stab"
+  },
+  {
+   "ts": 1783129267676,
+   "prices": [
+    1573,
+    4054,
+    8498
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215542:00003:000458-10021-stab"
+  },
+  {
+   "ts": 1783129272244,
+   "prices": [
+    1576,
+    4065,
+    8376
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215551:00003:000137-10021-stab"
+  },
+  {
+   "ts": 1783129279486,
+   "prices": [
+    1576,
+    4059,
+    8381
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215562:00003:000558-10021-stab"
+  },
+  {
+   "ts": 1783129288729,
+   "prices": [
+    1572,
+    4066,
+    8470
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215581:00003:000090-10021-stab"
+  },
+  {
+   "ts": 1783129289695,
+   "prices": [
+    1572,
+    4065,
+    8474
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215582:00003:000296-10021-stab"
+  },
+  {
+   "ts": 1783129294250,
+   "prices": [
+    1576,
+    4062,
+    8380
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215591:00003:000060-10021-stab"
+  },
+  {
+   "ts": 1783129301933,
+   "prices": [
+    1575,
+    4074,
+    8356
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215604:00003:000567-10021-stab"
+  },
+  {
+   "ts": 1783129304906,
+   "prices": [
+    1573,
+    4078,
+    8391
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215608:00003:000944-10021-stab"
+  },
+  {
+   "ts": 1783129310965,
+   "prices": [
+    1574,
+    4077,
+    8365
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215620:00003:000390-10021-stab"
+  },
+  {
+   "ts": 1783129314706,
+   "prices": [
+    1575,
+    4070,
+    8370
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215626:00003:000397-10021-stab"
+  },
+  {
+   "ts": 1783129325714,
+   "prices": [
+    1576,
+    4062,
+    8375
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215647:00003:000002-10021-stab"
+  },
+  {
+   "ts": 1783129330000,
+   "prices": [
+    1576,
+    4070,
+    8363
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215655:00003:000191-10021-stab"
+  },
+  {
+   "ts": 1783129336324,
+   "prices": [
+    1574,
+    4070,
+    8391
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215668:00003:000367-10021-stab"
+  },
+  {
+   "ts": 1783129339919,
+   "prices": [
+    1575,
+    4062,
+    8403
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215674:00003:000117-10021-stab"
+  },
+  {
+   "ts": 1783129356340,
+   "prices": [
+    1577,
+    4059,
+    8360
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215704:00003:000547-10021-stab"
+  },
+  {
+   "ts": 1783129360258,
+   "prices": [
+    1579,
+    4067,
+    8272
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215709:00003:000487-10021-stab"
+  },
+  {
+   "ts": 1783129367222,
+   "prices": [
+    1577,
+    4059,
+    8366
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215722:00003:000199-10021-stab"
+  },
+  {
+   "ts": 1783129378762,
+   "prices": [
+    1578,
+    4091,
+    8219
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215741:00003:000829-10021-stab"
+  },
+  {
+   "ts": 1783129380281,
+   "prices": [
+    1578,
+    4086,
+    8225
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215744:00003:000351-10021-stab"
+  },
+  {
+   "ts": 1783129384363,
+   "prices": [
+    1579,
+    4081,
+    8231
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215751:00003:000143-10021-stab"
+  },
+  {
+   "ts": 1783129390264,
+   "prices": [
+    1577,
+    4083,
+    8254
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215763:00003:000415-10021-stab"
+  },
+  {
+   "ts": 1783129397793,
+   "prices": [
+    1588,
+    4057,
+    8080
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215776:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783129403791,
+   "prices": [
+    1594,
+    4051,
+    7952
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215787:00003:000103-10021-stab"
+  },
+  {
+   "ts": 1783129407423,
+   "prices": [
+    1595,
+    4054,
+    7912
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215793:00003:000346-10021-stab"
+  },
+  {
+   "ts": 1783129411707,
+   "prices": [
+    1592,
+    4051,
+    7993
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215798:00003:000749-10021-stab"
+  },
+  {
+   "ts": 1783129416265,
+   "prices": [
+    1591,
+    4040,
+    8057
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215808:00003:000134-10021-stab"
+  },
+  {
+   "ts": 1783129422436,
+   "prices": [
+    1589,
+    4011,
+    8230
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215820:00003:000174-10021-stab"
+  },
+  {
+   "ts": 1783129426263,
+   "prices": [
+    1590,
+    4019,
+    8186
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215827:00003:000129-10021-stab"
+  },
+  {
+   "ts": 1783129433806,
+   "prices": [
+    1591,
+    4018,
+    8159
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215841:00003:000145-10021-stab"
+  },
+  {
+   "ts": 1783129444722,
+   "prices": [
+    1587,
+    4006,
+    8317
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215811:00003:000005-1-10021-stab"
+  },
+  {
+   "ts": 1783129507735,
+   "prices": [
+    1188,
+    8345,
+    26000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215980:00003:000163-10021-stab"
+  },
+  {
+   "ts": 1783129511733,
+   "prices": [
+    1192,
+    8222,
+    25200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215987:00003:000134-10021-stab"
+  },
+  {
+   "ts": 1783129516317,
+   "prices": [
+    1191,
+    8290,
+    25100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836215996:00003:000145-10021-stab"
+  },
+  {
+   "ts": 1783129520181,
+   "prices": [
+    1189,
+    8435,
+    24700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216003:00003:000018-10021-stab"
+  },
+  {
+   "ts": 1783129528870,
+   "prices": [
+    1182,
+    8455,
+    27800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216016:00003:000473-10021-stab"
+  },
+  {
+   "ts": 1783129530270,
+   "prices": [
+    1183,
+    8440,
+    27700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216018:00003:000106-10021-stab"
+  },
+  {
+   "ts": 1783129536869,
+   "prices": [
+    1182,
+    8320,
+    29400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216028:00003:000079-10021-stab"
+  },
+  {
+   "ts": 1783129541876,
+   "prices": [
+    1184,
+    8257,
+    29200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216037:00003:000225-10021-stab"
+  },
+  {
+   "ts": 1783129544270,
+   "prices": [
+    1188,
+    8164,
+    27700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216042:00003:000436-10021-stab"
+  },
+  {
+   "ts": 1783129553882,
+   "prices": [
+    1188,
+    8188,
+    27600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216057:00003:001753-10021-stab"
+  },
+  {
+   "ts": 1783129558272,
+   "prices": [
+    1190,
+    8064,
+    27900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216065:00003:000145-10021-stab"
+  },
+  {
+   "ts": 1783129562932,
+   "prices": [
+    1189,
+    8117,
+    27900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216072:00003:000451-10021-stab"
+  },
+  {
+   "ts": 1783129566888,
+   "prices": [
+    1189,
+    8129,
+    27600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216080:00003:000241-10021-stab"
+  },
+  {
+   "ts": 1783129573895,
+   "prices": [
+    1187,
+    8189,
+    28100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216090:00003:000893-10021-stab"
+  },
+  {
+   "ts": 1783129576889,
+   "prices": [
+    1186,
+    8241,
+    28300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216094:00003:000856-10021-stab"
+  },
+  {
+   "ts": 1783129581892,
+   "prices": [
+    1184,
+    8295,
+    28800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216104:00003:000076-10021-stab"
+  },
+  {
+   "ts": 1783129585363,
+   "prices": [
+    1183,
+    8321,
+    29100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216109:00003:000553-10021-stab"
+  },
+  {
+   "ts": 1783129592895,
+   "prices": [
+    1182,
+    8355,
+    29000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216122:00003:000190-10021-stab"
+  },
+  {
+   "ts": 1783129595685,
+   "prices": [
+    1182,
+    8376,
+    29200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216126:00003:000262-10021-stab"
+  },
+  {
+   "ts": 1783129602278,
+   "prices": [
+    1180,
+    8452,
+    29500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216139:00003:000180-10021-stab"
+  },
+  {
+   "ts": 1783129606911,
+   "prices": [
+    1178,
+    8517,
+    29600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216147:00003:000768-10021-stab"
+  },
+  {
+   "ts": 1783129611411,
+   "prices": [
+    1179,
+    8506,
+    29200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216156:00003:000255-10021-stab"
+  },
+  {
+   "ts": 1783129617829,
+   "prices": [
+    1178,
+    8490,
+    29800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216168:00003:000133-10021-stab"
+  },
+  {
+   "ts": 1783129622415,
+   "prices": [
+    1177,
+    8532,
+    29900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216176:00003:000222-10021-stab"
+  },
+  {
+   "ts": 1783129628812,
+   "prices": [
+    1178,
+    8510,
+    29800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216189:00003:000095-10021-stab"
+  },
+  {
+   "ts": 1783129632283,
+   "prices": [
+    1178,
+    8503,
+    30000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216196:00003:000082-10021-stab"
+  },
+  {
+   "ts": 1783129637432,
+   "prices": [
+    1178,
+    8447,
+    30400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216203:00003:000927-10021-stab"
+  },
+  {
+   "ts": 1783129643433,
+   "prices": [
+    1179,
+    8417,
+    30500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216214:00003:000401-10021-stab"
+  },
+  {
+   "ts": 1783129653440,
+   "prices": [
+    1178,
+    8458,
+    30600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216228:00003:000344-10021-stab"
+  },
+  {
+   "ts": 1783129654824,
+   "prices": [
+    1176,
+    8523,
+    30900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216229:00003:001097-10021-stab"
+  },
+  {
+   "ts": 1783129663823,
+   "prices": [
+    1175,
+    8577,
+    30900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216243:00003:000491-10021-stab"
+  },
+  {
+   "ts": 1783129668449,
+   "prices": [
+    1173,
+    8636,
+    31500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216250:00003:000341-10021-stab"
+  },
+  {
+   "ts": 1783129672286,
+   "prices": [
+    1174,
+    8578,
+    31500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216257:00003:000139-10021-stab"
+  },
+  {
+   "ts": 1783129675545,
+   "prices": [
+    1173,
+    8627,
+    31600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216261:00003:000498-10021-stab"
+  },
+  {
+   "ts": 1783129687457,
+   "prices": [
+    1170,
+    8717,
+    32299
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216280:00003:000143-10021-stab"
+  },
+  {
+   "ts": 1783129691461,
+   "prices": [
+    1169,
+    8744,
+    33100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216289:00003:000004-10021-stab"
+  },
+  {
+   "ts": 1783129696460,
+   "prices": [
+    1169,
+    8750,
+    32900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216297:00003:000275-10021-stab"
+  },
+  {
+   "ts": 1783129700289,
+   "prices": [
+    1169,
+    8764,
+    32600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216304:00003:000046-10021-stab"
+  },
+  {
+   "ts": 1783129706863,
+   "prices": [
+    1171,
+    8718,
+    32100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216317:00003:000272-10021-stab"
+  },
+  {
+   "ts": 1783129713787,
+   "prices": [
+    1168,
+    8786,
+    32900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216331:00003:000226-10021-stab"
+  },
+  {
+   "ts": 1783129718846,
+   "prices": [
+    1168,
+    8842,
+    32400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216341:00003:000205-10021-stab"
+  },
+  {
+   "ts": 1783129730290,
+   "prices": [
+    1169,
+    8786,
+    32400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216360:00003:000543-10021-stab"
+  },
+  {
+   "ts": 1783129739490,
+   "prices": [
+    1169,
+    8794,
+    32500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216375:00003:000969-10021-stab"
+  },
+  {
+   "ts": 1783129745417,
+   "prices": [
+    1168,
+    8855,
+    32400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216386:00003:000630-10021-stab"
+  },
+  {
+   "ts": 1783129751493,
+   "prices": [
+    1169,
+    8808,
+    32100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216396:00003:000290-10021-stab"
+  },
+  {
+   "ts": 1783129755499,
+   "prices": [
+    1171,
+    8704,
+    31800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216403:00003:000584-10021-stab"
+  },
+  {
+   "ts": 1783129759502,
+   "prices": [
+    1171,
+    8685,
+    32700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216410:00003:000025-10021-stab"
+  },
+  {
+   "ts": 1783129764505,
+   "prices": [
+    1169,
+    8756,
+    32900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216417:00003:000112-10021-stab"
+  },
+  {
+   "ts": 1783129772073,
+   "prices": [
+    1173,
+    8532,
+    32700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216430:00003:000243-10021-stab"
+  },
+  {
+   "ts": 1783129774504,
+   "prices": [
+    1173,
+    8542,
+    32800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216435:00003:000016-10021-stab"
+  },
+  {
+   "ts": 1783129782073,
+   "prices": [
+    1171,
+    8653,
+    33000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216450:00003:000306-10021-stab"
+  },
+  {
+   "ts": 1783129786296,
+   "prices": [
+    1170,
+    8657,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216456:00003:000185-10021-stab"
+  },
+  {
+   "ts": 1783129792300,
+   "prices": [
+    1171,
+    8662,
+    33000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216468:00003:000528-10021-stab"
+  },
+  {
+   "ts": 1783129801520,
+   "prices": [
+    1171,
+    8657,
+    33000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216483:00003:000314-10021-stab"
+  },
+  {
+   "ts": 1783129804520,
+   "prices": [
+    1171,
+    8650,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216489:00003:000178-10021-stab"
+  },
+  {
+   "ts": 1783129811529,
+   "prices": [
+    1172,
+    8624,
+    32500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216503:00003:000075-10021-stab"
+  },
+  {
+   "ts": 1783129814272,
+   "prices": [
+    1175,
+    8528,
+    31300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216508:00003:000273-10021-stab"
+  },
+  {
+   "ts": 1783129826297,
+   "prices": [
+    1177,
+    8438,
+    31300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216530:00003:000250-10021-stab"
+  },
+  {
+   "ts": 1783129838297,
+   "prices": [
+    1179,
+    8370,
+    31200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216549:00003:000021-10021-stab"
+  },
+  {
+   "ts": 1783129845593,
+   "prices": [
+    1175,
+    8581,
+    31000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216562:00003:000148-10021-stab"
+  },
+  {
+   "ts": 1783129853862,
+   "prices": [
+    1177,
+    8628,
+    29200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216575:00003:000620-10021-stab"
+  },
+  {
+   "ts": 1783129856547,
+   "prices": [
+    1178,
+    8533,
+    29700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216580:00003:000691-10021-stab"
+  },
+  {
+   "ts": 1783129866562,
+   "prices": [
+    1179,
+    8404,
+    30500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216595:00003:000125-10021-stab"
+  },
+  {
+   "ts": 1783129873558,
+   "prices": [
+    1178,
+    8421,
+    30600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216607:00003:000373-10021-stab"
+  },
+  {
+   "ts": 1783129878886,
+   "prices": [
+    1178,
+    8464,
+    30500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216615:00003:001069-10021-stab"
+  },
+  {
+   "ts": 1783129880809,
+   "prices": [
+    1175,
+    8576,
+    31000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216619:00003:000496-10021-stab"
+  },
+  {
+   "ts": 1783129888307,
+   "prices": [
+    1175,
+    8570,
+    31200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216631:00003:000072-10021-stab"
+  },
+  {
+   "ts": 1783129892574,
+   "prices": [
+    1176,
+    8487,
+    31700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216607:00003:000373-1-10021-stab"
+  },
+  {
+   "ts": 1783129894895,
+   "prices": [
+    1177,
+    8410,
+    31600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216641:00003:000445-10021-stab"
+  },
+  {
+   "ts": 1783129908092,
+   "prices": [
+    1178,
+    8430,
+    31000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216664:00003:000009-10021-stab"
+  },
+  {
+   "ts": 1783129912585,
+   "prices": [
+    1175,
+    8513,
+    31500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216672:00003:000526-10021-stab"
+  },
+  {
+   "ts": 1783129918305,
+   "prices": [
+    1173,
+    8608,
+    32299
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216682:00003:000388-10021-stab"
+  },
+  {
+   "ts": 1783129926308,
+   "prices": [
+    1169,
+    8767,
+    32700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216694:00003:000262-10021-stab"
+  },
+  {
+   "ts": 1783129932309,
+   "prices": [
+    1169,
+    8782,
+    32500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216704:00003:000042-10021-stab"
+  },
+  {
+   "ts": 1783129936826,
+   "prices": [
+    1166,
+    8893,
+    33100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216711:00003:000194-10021-stab"
+  },
+  {
+   "ts": 1783129942311,
+   "prices": [
+    1166,
+    8883,
+    33400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216722:00003:000094-10021-stab"
+  },
+  {
+   "ts": 1783129950824,
+   "prices": [
+    1167,
+    8862,
+    33400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216737:00003:000527-10021-stab"
+  },
+  {
+   "ts": 1783129955261,
+   "prices": [
+    1169,
+    8731,
+    33300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216745:00003:000098-10021-stab"
+  },
+  {
+   "ts": 1783129960111,
+   "prices": [
+    1169,
+    8734,
+    33600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216753:00003:000234-10021-stab"
+  },
+  {
+   "ts": 1783129967233,
+   "prices": [
+    1169,
+    8746,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216766:00003:000047-10021-stab"
+  },
+  {
+   "ts": 1783129974915,
+   "prices": [
+    1169,
+    8746,
+    33400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216778:00003:000303-10021-stab"
+  },
+  {
+   "ts": 1783129980616,
+   "prices": [
+    1169,
+    8740,
+    33400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216787:00003:000437-10021-stab"
+  },
+  {
+   "ts": 1783129988317,
+   "prices": [
+    1168,
+    8744,
+    33700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216800:00003:000075-10021-stab"
+  },
+  {
+   "ts": 1783129989920,
+   "prices": [
+    1168,
+    8749,
+    33600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216803:00003:000113-10021-stab"
+  },
+  {
+   "ts": 1783129999622,
+   "prices": [
+    1169,
+    8707,
+    33400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216822:00003:000039-10021-stab"
+  },
+  {
+   "ts": 1783130008315,
+   "prices": [
+    1169,
+    8704,
+    33600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216838:00003:000380-10021-stab"
+  },
+  {
+   "ts": 1783130010318,
+   "prices": [
+    1165,
+    8948,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216838:00003:000380-1-10021-stab"
+  },
+  {
+   "ts": 1783130015837,
+   "prices": [
+    1167,
+    8902,
+    32900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216849:00003:000374-10021-stab"
+  },
+  {
+   "ts": 1783130020605,
+   "prices": [
+    1165,
+    8989,
+    33300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216856:00003:000497-10021-stab"
+  },
+  {
+   "ts": 1783130028316,
+   "prices": [
+    1164,
+    8968,
+    33900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216869:00003:000122-10021-stab"
+  },
+  {
+   "ts": 1783130035115,
+   "prices": [
+    1163,
+    8979,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216881:00003:000077-10021-stab"
+  },
+  {
+   "ts": 1783130043660,
+   "prices": [
+    1165,
+    8883,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216894:00003:000404-10021-stab"
+  },
+  {
+   "ts": 1783130047662,
+   "prices": [
+    1164,
+    8894,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216902:00003:000589-10021-stab"
+  },
+  {
+   "ts": 1783130050933,
+   "prices": [
+    1164,
+    8889,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216908:00003:000301-10021-stab"
+  },
+  {
+   "ts": 1783130054939,
+   "prices": [
+    1164,
+    8885,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216916:00003:000294-10021-stab"
+  },
+  {
+   "ts": 1783130062324,
+   "prices": [
+    1163,
+    8925,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216930:00003:000633-10021-stab"
+  },
+  {
+   "ts": 1783130068322,
+   "prices": [
+    1164,
+    8885,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216942:00003:000179-10021-stab"
+  },
+  {
+   "ts": 1783130075646,
+   "prices": [
+    1164,
+    8888,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216954:00003:000556-10021-stab"
+  },
+  {
+   "ts": 1783130080743,
+   "prices": [
+    1164,
+    8904,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216963:00003:000504-10021-stab"
+  },
+  {
+   "ts": 1783130087942,
+   "prices": [
+    1166,
+    8796,
+    34700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216977:00003:000106-10021-stab"
+  },
+  {
+   "ts": 1783130100141,
+   "prices": [
+    1166,
+    8782,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836216999:00003:000060-10021-stab"
+  },
+  {
+   "ts": 1783130105558,
+   "prices": [
+    1165,
+    8826,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217007:00003:000297-10021-stab"
+  },
+  {
+   "ts": 1783130118951,
+   "prices": [
+    1168,
+    8703,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217031:00003:000213-10021-stab"
+  },
+  {
+   "ts": 1783130138713,
+   "prices": [
+    1161,
+    8985,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217066:00003:000636-10021-stab"
+  },
+  {
+   "ts": 1783130151141,
+   "prices": [
+    1161,
+    9008,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217090:00003:000067-10021-stab"
+  },
+  {
+   "ts": 1783130159960,
+   "prices": [
+    1162,
+    8982,
+    35600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217105:00003:000040-10021-stab"
+  },
+  {
+   "ts": 1783130168748,
+   "prices": [
+    1164,
+    8941,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217118:00003:000556-10021-stab"
+  },
+  {
+   "ts": 1783130202631,
+   "prices": [
+    1166,
+    8821,
+    34300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217172:00003:001260-10021-stab"
+  },
+  {
+   "ts": 1783130210765,
+   "prices": [
+    1165,
+    8898,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217185:00003:000001-10021-stab"
+  },
+  {
+   "ts": 1783130221819,
+   "prices": [
+    1169,
+    8742,
+    32900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217200:00003:001293-10021-stab"
+  },
+  {
+   "ts": 1783130227254,
+   "prices": [
+    1171,
+    8612,
+    33700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217210:00003:000155-10021-stab"
+  },
+  {
+   "ts": 1783130240785,
+   "prices": [
+    1171,
+    8621,
+    33600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217234:00003:000096-10021-stab"
+  },
+  {
+   "ts": 1783130244784,
+   "prices": [
+    1170,
+    8695,
+    33300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217242:00003:000634-10021-stab"
+  },
+  {
+   "ts": 1783130251216,
+   "prices": [
+    1167,
+    8760,
+    34300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217251:00003:000130-10021-stab"
+  },
+  {
+   "ts": 1783130256996,
+   "prices": [
+    1165,
+    8837,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217261:00003:000529-10021-stab"
+  },
+  {
+   "ts": 1783130262995,
+   "prices": [
+    1165,
+    8842,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217268:00003:001220-10021-stab"
+  },
+  {
+   "ts": 1783130281809,
+   "prices": [
+    1166,
+    8775,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217301:00003:000791-10021-stab"
+  },
+  {
+   "ts": 1783130287207,
+   "prices": [
+    1166,
+    8796,
+    34600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217311:00003:000040-10021-stab"
+  },
+  {
+   "ts": 1783130292344,
+   "prices": [
+    1166,
+    8784,
+    34600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217320:00003:000294-10021-stab"
+  },
+  {
+   "ts": 1783130297374,
+   "prices": [
+    1165,
+    8839,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217329:00003:000787-10021-stab"
+  },
+  {
+   "ts": 1783130300344,
+   "prices": [
+    1163,
+    8877,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217335:00003:000395-10021-stab"
+  },
+  {
+   "ts": 1783130305821,
+   "prices": [
+    1163,
+    8888,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217344:00003:000669-10021-stab"
+  },
+  {
+   "ts": 1783130312819,
+   "prices": [
+    1163,
+    8891,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217358:00003:000207-10021-stab"
+  },
+  {
+   "ts": 1783130318247,
+   "prices": [
+    1163,
+    8902,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217367:00003:000076-10021-stab"
+  },
+  {
+   "ts": 1783130328188,
+   "prices": [
+    1169,
+    8668,
+    33900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217382:00003:000053-10021-stab"
+  },
+  {
+   "ts": 1783130330834,
+   "prices": [
+    1169,
+    8666,
+    33900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217385:00003:000219-10021-stab"
+  },
+  {
+   "ts": 1783130334348,
+   "prices": [
+    1166,
+    8794,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217393:00003:000344-10021-stab"
+  },
+  {
+   "ts": 1783130352853,
+   "prices": [
+    1165,
+    8815,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217422:00003:000882-10021-stab"
+  },
+  {
+   "ts": 1783130358193,
+   "prices": [
+    1167,
+    8787,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217429:00003:000062-10021-stab"
+  },
+  {
+   "ts": 1783130359019,
+   "prices": [
+    1165,
+    8865,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217431:00003:000001-10021-stab"
+  },
+  {
+   "ts": 1783130369030,
+   "prices": [
+    1166,
+    8813,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217450:00003:000002-10021-stab"
+  },
+  {
+   "ts": 1783130375030,
+   "prices": [
+    1166,
+    8808,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217461:00003:000001-10021-stab"
+  },
+  {
+   "ts": 1783130382283,
+   "prices": [
+    1164,
+    8933,
+    34700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217475:00003:000050-10021-stab"
+  },
+  {
+   "ts": 1783130386872,
+   "prices": [
+    1164,
+    8916,
+    34600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217482:00003:000242-10021-stab"
+  },
+  {
+   "ts": 1783130392034,
+   "prices": [
+    1166,
+    8815,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217491:00003:000001-10021-stab"
+  },
+  {
+   "ts": 1783130396354,
+   "prices": [
+    1166,
+    8807,
+    34600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217497:00003:000667-10021-stab"
+  },
+  {
+   "ts": 1783130402355,
+   "prices": [
+    1166,
+    8771,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217507:00003:000394-10021-stab"
+  },
+  {
+   "ts": 1783130404895,
+   "prices": [
+    1166,
+    8768,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217511:00003:000051-10021-stab"
+  },
+  {
+   "ts": 1783130409139,
+   "prices": [
+    1163,
+    8929,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217518:00003:000185-10021-stab"
+  },
+  {
+   "ts": 1783130415048,
+   "prices": [
+    1163,
+    8929,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217527:00003:000017-10021-stab"
+  },
+  {
+   "ts": 1783130420357,
+   "prices": [
+    1162,
+    8974,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217537:00003:000254-10021-stab"
+  },
+  {
+   "ts": 1783130425468,
+   "prices": [
+    1165,
+    8835,
+    35300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217547:00003:000966-10021-stab"
+  },
+  {
+   "ts": 1783130430076,
+   "prices": [
+    1165,
+    8831,
+    35300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217555:00003:000005-10021-stab"
+  },
+  {
+   "ts": 1783130434358,
+   "prices": [
+    1165,
+    8841,
+    35300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217563:00003:000319-10021-stab"
+  },
+  {
+   "ts": 1783130439564,
+   "prices": [
+    1162,
+    8982,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217572:00003:000545-10021-stab"
+  },
+  {
+   "ts": 1783130460364,
+   "prices": [
+    1163,
+    8953,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217606:00003:000211-10021-stab"
+  },
+  {
+   "ts": 1783130468905,
+   "prices": [
+    1163,
+    8965,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217621:00003:001217-10021-stab"
+  },
+  {
+   "ts": 1783130471429,
+   "prices": [
+    1162,
+    9037,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217626:00003:000841-10021-stab"
+  },
+  {
+   "ts": 1783130478426,
+   "prices": [
+    1166,
+    8777,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217637:00003:000294-10021-stab"
+  },
+  {
+   "ts": 1783130483984,
+   "prices": [
+    1163,
+    8952,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217648:00003:000120-10021-stab"
+  },
+  {
+   "ts": 1783130487438,
+   "prices": [
+    1163,
+    8952,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217654:00003:000244-10021-stab"
+  },
+  {
+   "ts": 1783130494370,
+   "prices": [
+    1163,
+    8963,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217667:00003:000627-10021-stab"
+  },
+  {
+   "ts": 1783130499368,
+   "prices": [
+    1163,
+    9008,
+    34700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217676:00003:000237-10021-stab"
+  },
+  {
+   "ts": 1783130504392,
+   "prices": [
+    1162,
+    8987,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217686:00003:000152-10021-stab"
+  },
+  {
+   "ts": 1783130512371,
+   "prices": [
+    1161,
+    9039,
+    35600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217700:00003:002395-10021-stab"
+  },
+  {
+   "ts": 1783130516455,
+   "prices": [
+    1161,
+    9036,
+    35700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217707:00003:000762-10021-stab"
+  },
+  {
+   "ts": 1783130524652,
+   "prices": [
+    1161,
+    9051,
+    35700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217722:00003:001497-10021-stab"
+  },
+  {
+   "ts": 1783130532077,
+   "prices": [
+    1161,
+    8974,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217738:00003:000039-10021-stab"
+  },
+  {
+   "ts": 1783130538375,
+   "prices": [
+    1161,
+    8980,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217748:00003:000508-10021-stab"
+  },
+  {
+   "ts": 1783130541081,
+   "prices": [
+    1161,
+    8975,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217753:00003:000042-10021-stab"
+  },
+  {
+   "ts": 1783130550473,
+   "prices": [
+    1161,
+    8986,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217767:00003:000358-10021-stab"
+  },
+  {
+   "ts": 1783130556377,
+   "prices": [
+    1161,
+    8982,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217776:00003:000213-10021-stab"
+  },
+  {
+   "ts": 1783130560004,
+   "prices": [
+    1162,
+    8956,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217782:00003:000184-10021-stab"
+  },
+  {
+   "ts": 1783130567091,
+   "prices": [
+    1163,
+    8900,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217796:00003:000097-10021-stab"
+  },
+  {
+   "ts": 1783130578489,
+   "prices": [
+    1161,
+    8981,
+    36900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217817:00003:000901-10021-stab"
+  },
+  {
+   "ts": 1783130579699,
+   "prices": [
+    1159,
+    9089,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217819:00003:001254-10021-stab"
+  },
+  {
+   "ts": 1783130585567,
+   "prices": [
+    1158,
+    9128,
+    37700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217830:00003:000379-10021-stab"
+  },
+  {
+   "ts": 1783130594372,
+   "prices": [
+    1156,
+    9183,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217848:00003:000299-10021-stab"
+  },
+  {
+   "ts": 1783130602380,
+   "prices": [
+    1157,
+    9185,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217859:00003:000580-10021-stab"
+  },
+  {
+   "ts": 1783130608510,
+   "prices": [
+    1160,
+    9067,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217870:00003:000307-10021-stab"
+  },
+  {
+   "ts": 1783130610377,
+   "prices": [
+    1161,
+    9019,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217874:00003:000217-10021-stab"
+  },
+  {
+   "ts": 1783130617284,
+   "prices": [
+    1161,
+    8964,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217887:00003:000118-10021-stab"
+  },
+  {
+   "ts": 1783130622341,
+   "prices": [
+    1162,
+    8908,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217897:00003:000117-10021-stab"
+  },
+  {
+   "ts": 1783130625112,
+   "prices": [
+    1164,
+    8855,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217902:00003:000015-10021-stab"
+  },
+  {
+   "ts": 1783130629112,
+   "prices": [
+    1164,
+    8819,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217909:00003:000123-10021-stab"
+  },
+  {
+   "ts": 1783130636637,
+   "prices": [
+    1164,
+    8825,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217920:00003:000360-10021-stab"
+  },
+  {
+   "ts": 1783130639539,
+   "prices": [
+    1164,
+    8822,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217926:00003:000433-10021-stab"
+  },
+  {
+   "ts": 1783130647348,
+   "prices": [
+    1163,
+    8887,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217940:00003:000166-10021-stab"
+  },
+  {
+   "ts": 1783130650536,
+   "prices": [
+    1164,
+    8850,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217944:00003:000328-10021-stab"
+  },
+  {
+   "ts": 1783130656546,
+   "prices": [
+    1165,
+    8798,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217954:00003:000156-10021-stab"
+  },
+  {
+   "ts": 1783130664127,
+   "prices": [
+    1164,
+    8841,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217967:00003:000007-10021-stab"
+  },
+  {
+   "ts": 1783130673548,
+   "prices": [
+    1164,
+    8870,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217984:00003:000595-10021-stab"
+  },
+  {
+   "ts": 1783130681813,
+   "prices": [
+    1166,
+    8744,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836217996:00003:000690-10021-stab"
+  },
+  {
+   "ts": 1783130693169,
+   "prices": [
+    1165,
+    8806,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218017:00003:000112-10021-stab"
+  },
+  {
+   "ts": 1783130696127,
+   "prices": [
+    1164,
+    8847,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218023:00003:000074-10021-stab"
+  },
+  {
+   "ts": 1783130701996,
+   "prices": [
+    1165,
+    8807,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218033:00003:000128-10021-stab"
+  },
+  {
+   "ts": 1783130704642,
+   "prices": [
+    1164,
+    8852,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218039:00003:000023-10021-stab"
+  },
+  {
+   "ts": 1783130711580,
+   "prices": [
+    1163,
+    8882,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218049:00003:000433-10021-stab"
+  },
+  {
+   "ts": 1783130718435,
+   "prices": [
+    1164,
+    8816,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218062:00003:000206-10021-stab"
+  },
+  {
+   "ts": 1783130728582,
+   "prices": [
+    1162,
+    8945,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218081:00003:000040-10021-stab"
+  },
+  {
+   "ts": 1783130731136,
+   "prices": [
+    1162,
+    8894,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218085:00003:000062-10021-stab"
+  },
+  {
+   "ts": 1783130741964,
+   "prices": [
+    1163,
+    8889,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218102:00003:000123-10021-stab"
+  },
+  {
+   "ts": 1783130744143,
+   "prices": [
+    1162,
+    8942,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218107:00003:000068-10021-stab"
+  },
+  {
+   "ts": 1783130749594,
+   "prices": [
+    1162,
+    8952,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218116:00003:000027-10021-stab"
+  },
+  {
+   "ts": 1783130756612,
+   "prices": [
+    1161,
+    8998,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218126:00003:000351-10021-stab"
+  },
+  {
+   "ts": 1783130766892,
+   "prices": [
+    1160,
+    9071,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218143:00003:001006-10021-stab"
+  },
+  {
+   "ts": 1783130771020,
+   "prices": [
+    1162,
+    8948,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218150:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783130776647,
+   "prices": [
+    1162,
+    8936,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218157:00003:000122-10021-stab"
+  },
+  {
+   "ts": 1783130782097,
+   "prices": [
+    1161,
+    8953,
+    36700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218164:00003:000093-10021-stab"
+  },
+  {
+   "ts": 1783130794649,
+   "prices": [
+    1162,
+    8958,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218184:00003:000169-10021-stab"
+  },
+  {
+   "ts": 1783130799819,
+   "prices": [
+    1162,
+    8920,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218193:00003:000137-10021-stab"
+  },
+  {
+   "ts": 1783130807627,
+   "prices": [
+    1165,
+    8743,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218207:00003:000642-10021-stab"
+  },
+  {
+   "ts": 1783130809126,
+   "prices": [
+    1167,
+    8675,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218210:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783130814648,
+   "prices": [
+    1168,
+    8669,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218219:00003:000277-10021-stab"
+  },
+  {
+   "ts": 1783130821263,
+   "prices": [
+    1165,
+    8795,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218230:00003:000171-10021-stab"
+  },
+  {
+   "ts": 1783130826648,
+   "prices": [
+    1165,
+    8784,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218240:00003:000874-10021-stab"
+  },
+  {
+   "ts": 1783130838633,
+   "prices": [
+    1168,
+    8660,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218263:00003:000001-10021-stab"
+  },
+  {
+   "ts": 1783130839596,
+   "prices": [
+    1167,
+    8694,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218264:00003:000302-10021-stab"
+  },
+  {
+   "ts": 1783130846564,
+   "prices": [
+    1172,
+    8474,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218278:00003:000231-10021-stab"
+  },
+  {
+   "ts": 1783130855176,
+   "prices": [
+    1172,
+    8465,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218295:00003:000112-10021-stab"
+  },
+  {
+   "ts": 1783130861757,
+   "prices": [
+    1169,
+    8577,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218307:00003:000674-10021-stab"
+  },
+  {
+   "ts": 1783130872649,
+   "prices": [
+    1169,
+    8619,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218326:00003:000304-10021-stab"
+  },
+  {
+   "ts": 1783130877100,
+   "prices": [
+    1168,
+    8654,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218336:00003:000074-10021-stab"
+  },
+  {
+   "ts": 1783130882670,
+   "prices": [
+    1166,
+    8701,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218344:00003:001397-10021-stab"
+  },
+  {
+   "ts": 1783130887669,
+   "prices": [
+    1169,
+    8592,
+    35700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218353:00003:000091-10021-stab"
+  },
+  {
+   "ts": 1783130890630,
+   "prices": [
+    1169,
+    8597,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218358:00003:000696-10021-stab"
+  },
+  {
+   "ts": 1783130902411,
+   "prices": [
+    1168,
+    8612,
+    35700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218379:00003:000895-10021-stab"
+  },
+  {
+   "ts": 1783130907273,
+   "prices": [
+    1169,
+    8619,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218388:00003:000766-10021-stab"
+  },
+  {
+   "ts": 1783130913420,
+   "prices": [
+    1169,
+    8619,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218398:00003:000313-10021-stab"
+  },
+  {
+   "ts": 1783130917803,
+   "prices": [
+    1169,
+    8608,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218405:00003:000251-10021-stab"
+  },
+  {
+   "ts": 1783130922686,
+   "prices": [
+    1169,
+    8574,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218414:00003:000581-10021-stab"
+  },
+  {
+   "ts": 1783130924411,
+   "prices": [
+    1167,
+    8641,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218417:00003:000360-10021-stab"
+  },
+  {
+   "ts": 1783130930711,
+   "prices": [
+    1167,
+    8646,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218429:00003:000119-10021-stab"
+  },
+  {
+   "ts": 1783130937628,
+   "prices": [
+    1168,
+    8574,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218441:00003:000314-10021-stab"
+  },
+  {
+   "ts": 1783130939703,
+   "prices": [
+    1168,
+    8586,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218445:00003:000128-10021-stab"
+  },
+  {
+   "ts": 1783130947797,
+   "prices": [
+    1167,
+    8617,
+    36900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218456:00003:000198-10021-stab"
+  },
+  {
+   "ts": 1783130955709,
+   "prices": [
+    1167,
+    8630,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218468:00003:000723-10021-stab"
+  },
+  {
+   "ts": 1783130966969,
+   "prices": [
+    1165,
+    8765,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218486:00003:000425-10021-stab"
+  },
+  {
+   "ts": 1783130970659,
+   "prices": [
+    1165,
+    8757,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218492:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783130974719,
+   "prices": [
+    1165,
+    8741,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218499:00003:001419-10021-stab"
+  },
+  {
+   "ts": 1783130982638,
+   "prices": [
+    1168,
+    8582,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218513:00003:000664-10021-stab"
+  },
+  {
+   "ts": 1783130987217,
+   "prices": [
+    1170,
+    8514,
+    35600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218523:00003:000229-10021-stab"
+  },
+  {
+   "ts": 1783130993230,
+   "prices": [
+    1169,
+    8545,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218533:00003:000084-10021-stab"
+  },
+  {
+   "ts": 1783130995730,
+   "prices": [
+    1170,
+    8533,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218537:00003:000203-10021-stab"
+  },
+  {
+   "ts": 1783131002662,
+   "prices": [
+    1170,
+    8529,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218548:00003:001056-10021-stab"
+  },
+  {
+   "ts": 1783131010741,
+   "prices": [
+    1170,
+    8517,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218565:00003:000315-10021-stab"
+  },
+  {
+   "ts": 1783131016234,
+   "prices": [
+    1170,
+    8493,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218576:00003:002371-10021-stab"
+  },
+  {
+   "ts": 1783131021468,
+   "prices": [
+    1169,
+    8578,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218587:00003:000019-10021-stab"
+  },
+  {
+   "ts": 1783131028239,
+   "prices": [
+    1169,
+    8573,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218598:00003:000186-10021-stab"
+  },
+  {
+   "ts": 1783131031239,
+   "prices": [
+    1169,
+    8574,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218603:00003:000232-10021-stab"
+  },
+  {
+   "ts": 1783131034665,
+   "prices": [
+    1168,
+    8581,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218609:00003:000209-10021-stab"
+  },
+  {
+   "ts": 1783131040664,
+   "prices": [
+    1168,
+    8577,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218620:00003:000308-10021-stab"
+  },
+  {
+   "ts": 1783131047252,
+   "prices": [
+    1169,
+    8543,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218632:00003:000497-10021-stab"
+  },
+  {
+   "ts": 1783131055770,
+   "prices": [
+    1170,
+    8506,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218645:00003:000101-10021-stab"
+  },
+  {
+   "ts": 1783131064432,
+   "prices": [
+    1171,
+    8482,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218660:00003:000886-10021-stab"
+  },
+  {
+   "ts": 1783131078789,
+   "prices": [
+    1171,
+    8483,
+    35600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218685:00003:000790-10021-stab"
+  },
+  {
+   "ts": 1783131082961,
+   "prices": [
+    1169,
+    8545,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218691:00003:000499-10021-stab"
+  },
+  {
+   "ts": 1783131086792,
+   "prices": [
+    1169,
+    8537,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218696:00003:000663-10021-stab"
+  },
+  {
+   "ts": 1783131096258,
+   "prices": [
+    1168,
+    8582,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218715:00003:000226-10021-stab"
+  },
+  {
+   "ts": 1783131100674,
+   "prices": [
+    1167,
+    8636,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218723:00003:000632-10021-stab"
+  },
+  {
+   "ts": 1783131106957,
+   "prices": [
+    1167,
+    8633,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218733:00003:000923-10021-stab"
+  },
+  {
+   "ts": 1783131110676,
+   "prices": [
+    1168,
+    8572,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218739:00003:000342-10021-stab"
+  },
+  {
+   "ts": 1783131116814,
+   "prices": [
+    1167,
+    8596,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218749:00003:000728-10021-stab"
+  },
+  {
+   "ts": 1783131123272,
+   "prices": [
+    1167,
+    8592,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218760:00003:000120-10021-stab"
+  },
+  {
+   "ts": 1783131124680,
+   "prices": [
+    1167,
+    8594,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218762:00003:000400-10021-stab"
+  },
+  {
+   "ts": 1783131131225,
+   "prices": [
+    1168,
+    8548,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218775:00003:000193-10021-stab"
+  },
+  {
+   "ts": 1783131135310,
+   "prices": [
+    1169,
+    8560,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218782:00003:000392-10021-stab"
+  },
+  {
+   "ts": 1783131149830,
+   "prices": [
+    1168,
+    8560,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218806:00003:000600-10021-stab"
+  },
+  {
+   "ts": 1783131156679,
+   "prices": [
+    1168,
+    8589,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218818:00003:000021-10021-stab"
+  },
+  {
+   "ts": 1783131162287,
+   "prices": [
+    1170,
+    8518,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218829:00003:000036-10021-stab"
+  },
+  {
+   "ts": 1783131165348,
+   "prices": [
+    1171,
+    8459,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218835:00003:000767-10021-stab"
+  },
+  {
+   "ts": 1783131176469,
+   "prices": [
+    1169,
+    8500,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218855:00003:000504-10021-stab"
+  },
+  {
+   "ts": 1783131182854,
+   "prices": [
+    1169,
+    8499,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218865:00003:000405-10021-stab"
+  },
+  {
+   "ts": 1783131192343,
+   "prices": [
+    1169,
+    8482,
+    37600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218881:00003:000086-10021-stab"
+  },
+  {
+   "ts": 1783131197298,
+   "prices": [
+    1167,
+    8585,
+    37800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218889:00003:000268-10021-stab"
+  },
+  {
+   "ts": 1783131202029,
+   "prices": [
+    1167,
+    8591,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218899:00003:000060-10021-stab"
+  },
+  {
+   "ts": 1783131208294,
+   "prices": [
+    1168,
+    8531,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218910:00003:000068-10021-stab"
+  },
+  {
+   "ts": 1783131211638,
+   "prices": [
+    1168,
+    8535,
+    37700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218915:00003:000018-10021-stab"
+  },
+  {
+   "ts": 1783131217867,
+   "prices": [
+    1167,
+    8549,
+    38800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218926:00003:000174-10021-stab"
+  },
+  {
+   "ts": 1783131220687,
+   "prices": [
+    1167,
+    8538,
+    38800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218930:00003:000736-10021-stab"
+  },
+  {
+   "ts": 1783131224301,
+   "prices": [
+    1167,
+    8511,
+    38900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218937:00003:000421-10021-stab"
+  },
+  {
+   "ts": 1783131229386,
+   "prices": [
+    1167,
+    8551,
+    38100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218946:00003:000201-10021-stab"
+  },
+  {
+   "ts": 1783131240681,
+   "prices": [
+    1168,
+    8524,
+    37700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218963:00003:000030-10021-stab"
+  },
+  {
+   "ts": 1783131248075,
+   "prices": [
+    1168,
+    8543,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218976:00003:000084-10021-stab"
+  },
+  {
+   "ts": 1783131251898,
+   "prices": [
+    1169,
+    8508,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218981:00003:002361-10021-stab"
+  },
+  {
+   "ts": 1783131260399,
+   "prices": [
+    1171,
+    8464,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836218995:00003:000193-10021-stab"
+  },
+  {
+   "ts": 1783131265396,
+   "prices": [
+    1169,
+    8521,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219001:00003:000806-10021-stab"
+  },
+  {
+   "ts": 1783131272340,
+   "prices": [
+    1169,
+    8513,
+    36700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219014:00003:000324-10021-stab"
+  },
+  {
+   "ts": 1783131278690,
+   "prices": [
+    1173,
+    8358,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219025:00003:001360-10021-stab"
+  },
+  {
+   "ts": 1783131282066,
+   "prices": [
+    1172,
+    8421,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219031:00003:000037-10021-stab"
+  },
+  {
+   "ts": 1783131288318,
+   "prices": [
+    1171,
+    8446,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219042:00003:000313-10021-stab"
+  },
+  {
+   "ts": 1783131290400,
+   "prices": [
+    1171,
+    8461,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219045:00003:001177-10021-stab"
+  },
+  {
+   "ts": 1783131298415,
+   "prices": [
+    1170,
+    8519,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219060:00003:000348-10021-stab"
+  },
+  {
+   "ts": 1783131299327,
+   "prices": [
+    1168,
+    8586,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219061:00003:000315-10021-stab"
+  },
+  {
+   "ts": 1783131305328,
+   "prices": [
+    1164,
+    8761,
+    37600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219073:00003:000327-10021-stab"
+  },
+  {
+   "ts": 1783131313324,
+   "prices": [
+    1167,
+    8581,
+    37700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219089:00003:000372-10021-stab"
+  },
+  {
+   "ts": 1783131318440,
+   "prices": [
+    1167,
+    8535,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219098:00003:000551-10021-stab"
+  },
+  {
+   "ts": 1783131322687,
+   "prices": [
+    1168,
+    8543,
+    37800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219106:00003:000003-10021-stab"
+  },
+  {
+   "ts": 1783131326692,
+   "prices": [
+    1168,
+    8545,
+    37700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219112:00003:001339-10021-stab"
+  },
+  {
+   "ts": 1783131336694,
+   "prices": [
+    1166,
+    8602,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219129:00003:000881-10021-stab"
+  },
+  {
+   "ts": 1783131346165,
+   "prices": [
+    1168,
+    8540,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219148:00003:000316-10021-stab"
+  },
+  {
+   "ts": 1783131352343,
+   "prices": [
+    1168,
+    8527,
+    37600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219158:00003:000857-10021-stab"
+  },
+  {
+   "ts": 1783131358210,
+   "prices": [
+    1164,
+    8674,
+    38600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219169:00003:000277-10021-stab"
+  },
+  {
+   "ts": 1783131360695,
+   "prices": [
+    1165,
+    8704,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219174:00003:000995-10021-stab"
+  },
+  {
+   "ts": 1783131372524,
+   "prices": [
+    1164,
+    8758,
+    36900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219196:00003:000167-10021-stab"
+  },
+  {
+   "ts": 1783131378471,
+   "prices": [
+    1168,
+    8491,
+    38800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219206:00003:000795-10021-stab"
+  },
+  {
+   "ts": 1783131386477,
+   "prices": [
+    1167,
+    8497,
+    39000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219220:00003:000522-10021-stab"
+  },
+  {
+   "ts": 1783131390700,
+   "prices": [
+    1167,
+    8490,
+    39400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219228:00003:000606-10021-stab"
+  },
+  {
+   "ts": 1783131399348,
+   "prices": [
+    1168,
+    8435,
+    39000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219243:00003:000916-10021-stab"
+  },
+  {
+   "ts": 1783131419360,
+   "prices": [
+    1169,
+    8447,
+    38500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219276:00003:000113-10021-stab"
+  },
+  {
+   "ts": 1783131432359,
+   "prices": [
+    1170,
+    8413,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219298:00003:000271-10021-stab"
+  },
+  {
+   "ts": 1783131442363,
+   "prices": [
+    1170,
+    8460,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219313:00003:000411-10021-stab"
+  },
+  {
+   "ts": 1783131452708,
+   "prices": [
+    1168,
+    8566,
+    37200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219330:00003:000521-10021-stab"
+  },
+  {
+   "ts": 1783131460098,
+   "prices": [
+    1164,
+    8628,
+    39700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219344:00003:000304-10021-stab"
+  },
+  {
+   "ts": 1783131469533,
+   "prices": [
+    1165,
+    8591,
+    39200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219360:00003:000335-10021-stab"
+  },
+  {
+   "ts": 1783131475179,
+   "prices": [
+    1167,
+    8542,
+    39000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219369:00003:000094-10021-stab"
+  },
+  {
+   "ts": 1783131482386,
+   "prices": [
+    1167,
+    8541,
+    38700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219382:00003:000427-10021-stab"
+  },
+  {
+   "ts": 1783131495436,
+   "prices": [
+    1166,
+    8568,
+    38600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219408:00003:000292-10021-stab"
+  },
+  {
+   "ts": 1783131499558,
+   "prices": [
+    1166,
+    8549,
+    38800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219415:00003:000494-10021-stab"
+  },
+  {
+   "ts": 1783131504377,
+   "prices": [
+    1166,
+    8575,
+    38700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219422:00003:000656-10021-stab"
+  },
+  {
+   "ts": 1783131517563,
+   "prices": [
+    1168,
+    8500,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219445:00003:000027-10021-stab"
+  },
+  {
+   "ts": 1783131520280,
+   "prices": [
+    1170,
+    8386,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219449:00003:000037-10021-stab"
+  },
+  {
+   "ts": 1783131525492,
+   "prices": [
+    1164,
+    8639,
+    39400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219458:00003:000769-10021-stab"
+  },
+  {
+   "ts": 1783131530715,
+   "prices": [
+    1164,
+    8635,
+    39600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219468:00003:000041-10021-stab"
+  },
+  {
+   "ts": 1783131543389,
+   "prices": [
+    1162,
+    8729,
+    40500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219492:00003:000353-10021-stab"
+  },
+  {
+   "ts": 1783131544456,
+   "prices": [
+    1160,
+    8799,
+    41200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219494:00003:000299-10021-stab"
+  },
+  {
+   "ts": 1783131553409,
+   "prices": [
+    1161,
+    8720,
+    41100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219511:00003:000600-10021-stab"
+  },
+  {
+   "ts": 1783131556719,
+   "prices": [
+    1162,
+    8696,
+    41300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219518:00003:000044-10021-stab"
+  },
+  {
+   "ts": 1783131560586,
+   "prices": [
+    1161,
+    8702,
+    41500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219526:00003:000320-10021-stab"
+  },
+  {
+   "ts": 1783131566350,
+   "prices": [
+    1161,
+    8746,
+    41400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219535:00003:000303-10021-stab"
+  },
+  {
+   "ts": 1783131574724,
+   "prices": [
+    1161,
+    8749,
+    41200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219551:00003:000314-10021-stab"
+  },
+  {
+   "ts": 1783131580900,
+   "prices": [
+    1161,
+    8728,
+    41100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219561:00003:001002-10021-stab"
+  },
+  {
+   "ts": 1783131595618,
+   "prices": [
+    1165,
+    8541,
+    40800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219587:00003:000529-10021-stab"
+  },
+  {
+   "ts": 1783131600724,
+   "prices": [
+    1164,
+    8579,
+    41400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219596:00003:000209-10021-stab"
+  },
+  {
+   "ts": 1783131604723,
+   "prices": [
+    1163,
+    8588,
+    41600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219601:00003:001157-10021-stab"
+  },
+  {
+   "ts": 1783131611638,
+   "prices": [
+    1166,
+    8500,
+    40900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219613:00003:001212-10021-stab"
+  },
+  {
+   "ts": 1783131615629,
+   "prices": [
+    1168,
+    8376,
+    41400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219622:00003:000060-10021-stab"
+  },
+  {
+   "ts": 1783131622732,
+   "prices": [
+    1168,
+    8383,
+    41100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219635:00003:000063-10021-stab"
+  },
+  {
+   "ts": 1783131625823,
+   "prices": [
+    1165,
+    8465,
+    42500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219641:00003:000461-10021-stab"
+  },
+  {
+   "ts": 1783131637643,
+   "prices": [
+    1165,
+    8465,
+    42800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219662:00003:000067-10021-stab"
+  },
+  {
+   "ts": 1783131640847,
+   "prices": [
+    1164,
+    8554,
+    41800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219668:00003:001267-10021-stab"
+  },
+  {
+   "ts": 1783131648861,
+   "prices": [
+    1166,
+    8477,
+    41300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219682:00003:000065-10021-stab"
+  },
+  {
+   "ts": 1783131651658,
+   "prices": [
+    1165,
+    8493,
+    41400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219688:00003:000098-10021-stab"
+  },
+  {
+   "ts": 1783131658734,
+   "prices": [
+    1165,
+    8493,
+    41400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219696:00003:000425-10021-stab"
+  },
+  {
+   "ts": 1783131660727,
+   "prices": [
+    1165,
+    8498,
+    41200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219700:00003:000271-10021-stab"
+  },
+  {
+   "ts": 1783131665001,
+   "prices": [
+    1169,
+    8356,
+    39800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219706:00003:000645-10021-stab"
+  },
+  {
+   "ts": 1783131671309,
+   "prices": [
+    1166,
+    8510,
+    39700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219715:00003:001066-10021-stab"
+  },
+  {
+   "ts": 1783131675671,
+   "prices": [
+    1167,
+    8503,
+    39700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219721:00003:000696-10021-stab"
+  },
+  {
+   "ts": 1783131686125,
+   "prices": [
+    1164,
+    8560,
+    41000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219740:00003:002071-10021-stab"
+  },
+  {
+   "ts": 1783131691684,
+   "prices": [
+    1168,
+    8430,
+    39900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219748:00003:000618-10021-stab"
+  },
+  {
+   "ts": 1783131695153,
+   "prices": [
+    1164,
+    8547,
+    41700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219755:00003:000324-10021-stab"
+  },
+  {
+   "ts": 1783131702732,
+   "prices": [
+    1164,
+    8538,
+    41600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219766:00003:000342-10021-stab"
+  },
+  {
+   "ts": 1783131706731,
+   "prices": [
+    1165,
+    8495,
+    41300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219774:00003:000917-10021-stab"
+  },
+  {
+   "ts": 1783131712731,
+   "prices": [
+    1165,
+    8523,
+    40700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219785:00003:000112-10021-stab"
+  },
+  {
+   "ts": 1783131716735,
+   "prices": [
+    1167,
+    8465,
+    39900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219792:00003:000185-10021-stab"
+  },
+  {
+   "ts": 1783131721907,
+   "prices": [
+    1167,
+    8474,
+    40100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219801:00003:000931-10021-stab"
+  },
+  {
+   "ts": 1783131725698,
+   "prices": [
+    1167,
+    8469,
+    40000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219808:00003:000100-10021-stab"
+  },
+  {
+   "ts": 1783131733330,
+   "prices": [
+    1171,
+    8291,
+    39600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219822:00003:000358-10021-stab"
+  },
+  {
+   "ts": 1783131736733,
+   "prices": [
+    1171,
+    8298,
+    39300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219828:00003:000367-10021-stab"
+  },
+  {
+   "ts": 1783131739377,
+   "prices": [
+    1171,
+    8286,
+    40000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219834:00003:000309-10021-stab"
+  },
+  {
+   "ts": 1783131745706,
+   "prices": [
+    1170,
+    8318,
+    39900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219845:00003:000277-10021-stab"
+  },
+  {
+   "ts": 1783131762730,
+   "prices": [
+    1173,
+    8273,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219873:00003:000375-10021-stab"
+  },
+  {
+   "ts": 1783131766736,
+   "prices": [
+    1172,
+    8306,
+    38300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219880:00003:000379-10021-stab"
+  },
+  {
+   "ts": 1783131770741,
+   "prices": [
+    1173,
+    8257,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219887:00003:000178-10021-stab"
+  },
+  {
+   "ts": 1783131826355,
+   "prices": [
+    1186,
+    7819,
+    34600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219988:00003:000108-10021-stab"
+  },
+  {
+   "ts": 1783131830573,
+   "prices": [
+    1177,
+    8085,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836219995:00003:001468-10021-stab"
+  },
+  {
+   "ts": 1783131851086,
+   "prices": [
+    1177,
+    8167,
+    36100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220033:00003:000093-10021-stab"
+  },
+  {
+   "ts": 1783131860744,
+   "prices": [
+    1181,
+    7981,
+    35900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220051:00003:000183-10021-stab"
+  },
+  {
+   "ts": 1783131886745,
+   "prices": [
+    1185,
+    7731,
+    37400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220095:00003:000169-10021-stab"
+  },
+  {
+   "ts": 1783131890750,
+   "prices": [
+    1186,
+    7691,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220102:00003:000917-10021-stab"
+  },
+  {
+   "ts": 1783131908747,
+   "prices": [
+    1185,
+    7719,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220135:00003:000118-10021-stab"
+  },
+  {
+   "ts": 1783131921892,
+   "prices": [
+    1177,
+    8042,
+    38100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220160:00003:000350-10021-stab"
+  },
+  {
+   "ts": 1783131927891,
+   "prices": [
+    1177,
+    8050,
+    38100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220172:00003:000014-10021-stab"
+  },
+  {
+   "ts": 1783131942755,
+   "prices": [
+    1177,
+    8058,
+    37600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220197:00003:000202-10021-stab"
+  },
+  {
+   "ts": 1783131948526,
+   "prices": [
+    1172,
+    8299,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220206:00003:000904-10021-stab"
+  },
+  {
+   "ts": 1783131970763,
+   "prices": [
+    1172,
+    8306,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220238:00003:000314-10021-stab"
+  },
+  {
+   "ts": 1783131978423,
+   "prices": [
+    1172,
+    8301,
+    37700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220251:00003:000283-10021-stab"
+  },
+  {
+   "ts": 1783131988762,
+   "prices": [
+    1175,
+    8232,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220268:00003:001334-10021-stab"
+  },
+  {
+   "ts": 1783132008757,
+   "prices": [
+    1179,
+    8066,
+    36400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220306:00003:001778-10021-stab"
+  },
+  {
+   "ts": 1783132009246,
+   "prices": [
+    1177,
+    8132,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220307:00003:000464-10021-stab"
+  },
+  {
+   "ts": 1783132018760,
+   "prices": [
+    1176,
+    8124,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220325:00003:000160-10021-stab"
+  },
+  {
+   "ts": 1783132030501,
+   "prices": [
+    1177,
+    8125,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220345:00003:000154-10021-stab"
+  },
+  {
+   "ts": 1783132044761,
+   "prices": [
+    1177,
+    8118,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220371:00003:000254-10021-stab"
+  },
+  {
+   "ts": 1783132134773,
+   "prices": [
+    1177,
+    8147,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220532:00003:000658-10021-stab"
+  },
+  {
+   "ts": 1783132142026,
+   "prices": [
+    1186,
+    7773,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220545:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783132168804,
+   "prices": [
+    1186,
+    7760,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220592:00003:000635-10021-stab"
+  },
+  {
+   "ts": 1783132208615,
+   "prices": [
+    1183,
+    7929,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220658:00003:000966-10021-stab"
+  },
+  {
+   "ts": 1783132212611,
+   "prices": [
+    1188,
+    7764,
+    33900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220666:00003:000473-10021-stab"
+  },
+  {
+   "ts": 1783132216617,
+   "prices": [
+    1190,
+    7743,
+    32900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220674:00003:000661-10021-stab"
+  },
+  {
+   "ts": 1783132226801,
+   "prices": [
+    1190,
+    7756,
+    32400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220691:00003:000953-10021-stab"
+  },
+  {
+   "ts": 1783132240625,
+   "prices": [
+    1185,
+    7939,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220716:00003:000097-10021-stab"
+  },
+  {
+   "ts": 1783132250624,
+   "prices": [
+    1184,
+    7956,
+    33700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220732:00003:000294-10021-stab"
+  },
+  {
+   "ts": 1783132309644,
+   "prices": [
+    1185,
+    7939,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220833:00003:000002-10021-stab"
+  },
+  {
+   "ts": 1783132322766,
+   "prices": [
+    1168,
+    8614,
+    36000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220852:00003:000463-10021-stab"
+  },
+  {
+   "ts": 1783132325814,
+   "prices": [
+    1167,
+    8670,
+    36300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220858:00003:000083-10021-stab"
+  },
+  {
+   "ts": 1783132344808,
+   "prices": [
+    1175,
+    8267,
+    35700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220893:00003:001127-10021-stab"
+  },
+  {
+   "ts": 1783132362234,
+   "prices": [
+    1172,
+    8353,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220926:00003:000115-10021-stab"
+  },
+  {
+   "ts": 1783132370982,
+   "prices": [
+    1166,
+    8581,
+    38600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220940:00003:001640-10021-stab"
+  },
+  {
+   "ts": 1783132384814,
+   "prices": [
+    1166,
+    8587,
+    38300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220966:00003:000035-10021-stab"
+  },
+  {
+   "ts": 1783132391042,
+   "prices": [
+    1171,
+    8363,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220979:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783132406826,
+   "prices": [
+    1157,
+    9034,
+    40000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836220966:00003:000035-1-10021-stab"
+  },
+  {
+   "ts": 1783132478705,
+   "prices": [
+    1170,
+    8579,
+    34500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221122:00003:000024-10021-stab"
+  },
+  {
+   "ts": 1783132560837,
+   "prices": [
+    1170,
+    8568,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221271:00003:000176-10021-stab"
+  },
+  {
+   "ts": 1783132580840,
+   "prices": [
+    1170,
+    8579,
+    34500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221307:00003:000528-10021-stab"
+  },
+  {
+   "ts": 1783132592841,
+   "prices": [
+    1170,
+    8568,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221330:00003:000187-10021-stab"
+  },
+  {
+   "ts": 1783132635878,
+   "prices": [
+    1185,
+    7937,
+    33000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221412:00003:000078-10021-stab"
+  },
+  {
+   "ts": 1783132651754,
+   "prices": [
+    1180,
+    8183,
+    33200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221440:00003:000058-10021-stab"
+  },
+  {
+   "ts": 1783132662843,
+   "prices": [
+    1180,
+    8198,
+    32700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221461:00003:000472-10021-stab"
+  },
+  {
+   "ts": 1783132668762,
+   "prices": [
+    1176,
+    8335,
+    33900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221471:00003:000065-10021-stab"
+  },
+  {
+   "ts": 1783132688849,
+   "prices": [
+    1163,
+    8731,
+    38700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221461:00003:000472-1-10021-stab"
+  },
+  {
+   "ts": 1783132694900,
+   "prices": [
+    1172,
+    8472,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221521:00003:000453-10021-stab"
+  },
+  {
+   "ts": 1783132726086,
+   "prices": [
+    1172,
+    8472,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221579:00003:000118-10021-stab"
+  },
+  {
+   "ts": 1783132729535,
+   "prices": [
+    1174,
+    8366,
+    34800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221585:00003:000319-10021-stab"
+  },
+  {
+   "ts": 1783132752543,
+   "prices": [
+    1169,
+    8581,
+    35600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221628:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783132762806,
+   "prices": [
+    1162,
+    8811,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221641:00003:001130-10021-stab"
+  },
+  {
+   "ts": 1783132767655,
+   "prices": [
+    1169,
+    8599,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221649:00003:000454-10021-stab"
+  },
+  {
+   "ts": 1783132769562,
+   "prices": [
+    1170,
+    8507,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221652:00003:000434-10021-stab"
+  },
+  {
+   "ts": 1783132782558,
+   "prices": [
+    1170,
+    8506,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221673:00003:000307-10021-stab"
+  },
+  {
+   "ts": 1783132784634,
+   "prices": [
+    1170,
+    8523,
+    35800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221677:00003:000549-10021-stab"
+  },
+  {
+   "ts": 1783132797575,
+   "prices": [
+    1171,
+    8523,
+    34700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221702:00003:000788-10021-stab"
+  },
+  {
+   "ts": 1783132800859,
+   "prices": [
+    1171,
+    8503,
+    34900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221709:00003:000021-10021-stab"
+  },
+  {
+   "ts": 1783132805860,
+   "prices": [
+    1171,
+    8575,
+    34200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221719:00003:000110-10021-stab"
+  },
+  {
+   "ts": 1783132817650,
+   "prices": [
+    1171,
+    8591,
+    34000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221741:00003:000479-10021-stab"
+  },
+  {
+   "ts": 1783132822805,
+   "prices": [
+    1171,
+    8528,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221750:00003:000476-10021-stab"
+  },
+  {
+   "ts": 1783132826868,
+   "prices": [
+    1172,
+    8499,
+    34200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221756:00003:000248-10021-stab"
+  },
+  {
+   "ts": 1783132838285,
+   "prices": [
+    1173,
+    8441,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221778:00003:001112-10021-stab"
+  },
+  {
+   "ts": 1783132840811,
+   "prices": [
+    1173,
+    8441,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221783:00003:000168-10021-stab"
+  },
+  {
+   "ts": 1783132844602,
+   "prices": [
+    1173,
+    8433,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221788:00003:000810-10021-stab"
+  },
+  {
+   "ts": 1783132849873,
+   "prices": [
+    1172,
+    8508,
+    34400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221798:00003:000959-10021-stab"
+  },
+  {
+   "ts": 1783132858648,
+   "prices": [
+    1172,
+    8525,
+    34100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221816:00003:000142-10021-stab"
+  },
+  {
+   "ts": 1783132861622,
+   "prices": [
+    1172,
+    8524,
+    34200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221821:00003:001483-10021-stab"
+  },
+  {
+   "ts": 1783132864870,
+   "prices": [
+    1171,
+    8547,
+    34500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221827:00003:000458-10021-stab"
+  },
+  {
+   "ts": 1783132871107,
+   "prices": [
+    1170,
+    8549,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221838:00003:000069-10021-stab"
+  },
+  {
+   "ts": 1783132877761,
+   "prices": [
+    1170,
+    8561,
+    34700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221851:00003:000367-10021-stab"
+  },
+  {
+   "ts": 1783132879726,
+   "prices": [
+    1170,
+    8549,
+    35100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221854:00003:001346-10021-stab"
+  },
+  {
+   "ts": 1783132888658,
+   "prices": [
+    1170,
+    8528,
+    35400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221871:00003:000237-10021-stab"
+  },
+  {
+   "ts": 1783132892106,
+   "prices": [
+    1170,
+    8578,
+    35200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221878:00003:000054-10021-stab"
+  },
+  {
+   "ts": 1783132894866,
+   "prices": [
+    1169,
+    8585,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221883:00003:000821-10021-stab"
+  },
+  {
+   "ts": 1783132901000,
+   "prices": [
+    1169,
+    8585,
+    35500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221895:00003:000756-10021-stab"
+  },
+  {
+   "ts": 1783132905644,
+   "prices": [
+    1168,
+    8630,
+    36200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221904:00003:000626-10021-stab"
+  },
+  {
+   "ts": 1783132914872,
+   "prices": [
+    1167,
+    8626,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221920:00003:000600-10021-stab"
+  },
+  {
+   "ts": 1783132920648,
+   "prices": [
+    1167,
+    8617,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221932:00003:000199-10021-stab"
+  },
+  {
+   "ts": 1783132926872,
+   "prices": [
+    1167,
+    8621,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221944:00003:000058-10021-stab"
+  },
+  {
+   "ts": 1783132935834,
+   "prices": [
+    1167,
+    8603,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221961:00003:000314-10021-stab"
+  },
+  {
+   "ts": 1783132940871,
+   "prices": [
+    1167,
+    8605,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221970:00003:000969-10021-stab"
+  },
+  {
+   "ts": 1783132948872,
+   "prices": [
+    1168,
+    8556,
+    37600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221984:00003:000341-10021-stab"
+  },
+  {
+   "ts": 1783132952879,
+   "prices": [
+    1168,
+    8560,
+    37400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836221992:00003:000315-10021-stab"
+  },
+  {
+   "ts": 1783132958661,
+   "prices": [
+    1167,
+    8607,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222001:00003:000133-10021-stab"
+  },
+  {
+   "ts": 1783132966872,
+   "prices": [
+    1169,
+    8514,
+    36700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222015:00003:000797-10021-stab"
+  },
+  {
+   "ts": 1783132972671,
+   "prices": [
+    1168,
+    8571,
+    36500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222026:00003:000372-10021-stab"
+  },
+  {
+   "ts": 1783132976786,
+   "prices": [
+    1167,
+    8636,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222033:00003:000505-10021-stab"
+  },
+  {
+   "ts": 1783132980845,
+   "prices": [
+    1169,
+    8483,
+    37200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222041:00003:000555-10021-stab"
+  },
+  {
+   "ts": 1783132986875,
+   "prices": [
+    1166,
+    8646,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222054:00003:000039-10021-stab"
+  },
+  {
+   "ts": 1783132992874,
+   "prices": [
+    1165,
+    8683,
+    38300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222066:00003:000641-10021-stab"
+  },
+  {
+   "ts": 1783132995695,
+   "prices": [
+    1166,
+    8639,
+    37800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222071:00003:001498-10021-stab"
+  },
+  {
+   "ts": 1783133000600,
+   "prices": [
+    1167,
+    8580,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222082:00003:000060-10021-stab"
+  },
+  {
+   "ts": 1783133008698,
+   "prices": [
+    1167,
+    8571,
+    37800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222097:00003:000110-10021-stab"
+  },
+  {
+   "ts": 1783133010880,
+   "prices": [
+    1167,
+    8572,
+    37600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222100:00003:000435-10021-stab"
+  },
+  {
+   "ts": 1783133018876,
+   "prices": [
+    1167,
+    8566,
+    37800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222114:00003:000060-10021-stab"
+  },
+  {
+   "ts": 1783133020876,
+   "prices": [
+    1167,
+    8561,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222117:00003:001220-10021-stab"
+  },
+  {
+   "ts": 1783133024378,
+   "prices": [
+    1167,
+    8573,
+    37500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222124:00003:000535-10021-stab"
+  },
+  {
+   "ts": 1783133035729,
+   "prices": [
+    1167,
+    8596,
+    37200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222142:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783133040878,
+   "prices": [
+    1167,
+    8601,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222150:00003:000516-10021-stab"
+  },
+  {
+   "ts": 1783133046710,
+   "prices": [
+    1169,
+    8510,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222162:00003:000189-10021-stab"
+  },
+  {
+   "ts": 1783133056629,
+   "prices": [
+    1173,
+    8312,
+    36600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222182:00003:000335-10021-stab"
+  },
+  {
+   "ts": 1783133063654,
+   "prices": [
+    1173,
+    8411,
+    35000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222194:00003:000007-10021-stab"
+  },
+  {
+   "ts": 1783133066731,
+   "prices": [
+    1169,
+    8514,
+    36800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222200:00003:000671-10021-stab"
+  },
+  {
+   "ts": 1783133079672,
+   "prices": [
+    1169,
+    8498,
+    37400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222225:00003:000540-10021-stab"
+  },
+  {
+   "ts": 1783133090888,
+   "prices": [
+    1170,
+    8448,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222246:00003:000099-10021-stab"
+  },
+  {
+   "ts": 1783133097731,
+   "prices": [
+    1170,
+    8444,
+    37300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222258:00003:000410-10021-stab"
+  },
+  {
+   "ts": 1783133102893,
+   "prices": [
+    1168,
+    8515,
+    38100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222266:00003:000983-10021-stab"
+  },
+  {
+   "ts": 1783133104885,
+   "prices": [
+    1168,
+    8510,
+    38400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222269:00003:000919-10021-stab"
+  },
+  {
+   "ts": 1783133110887,
+   "prices": [
+    1168,
+    8515,
+    38100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222276:00003:001130-10021-stab"
+  },
+  {
+   "ts": 1783133123759,
+   "prices": [
+    1172,
+    8425,
+    35700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222299:00003:000677-10021-stab"
+  },
+  {
+   "ts": 1783133127763,
+   "prices": [
+    1169,
+    8482,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222306:00003:000516-10021-stab"
+  },
+  {
+   "ts": 1783133138891,
+   "prices": [
+    1169,
+    8505,
+    36900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222326:00003:000919-10021-stab"
+  },
+  {
+   "ts": 1783133140897,
+   "prices": [
+    1169,
+    8499,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222330:00003:000263-10021-stab"
+  },
+  {
+   "ts": 1783133147352,
+   "prices": [
+    1165,
+    8675,
+    38300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222342:00003:000443-10021-stab"
+  },
+  {
+   "ts": 1783133153779,
+   "prices": [
+    1164,
+    8684,
+    38400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222354:00003:000143-10021-stab"
+  },
+  {
+   "ts": 1783133156892,
+   "prices": [
+    1165,
+    8689,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222359:00003:001114-10021-stab"
+  },
+  {
+   "ts": 1783133166893,
+   "prices": [
+    1167,
+    8549,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222378:00003:000472-10021-stab"
+  },
+  {
+   "ts": 1783133171898,
+   "prices": [
+    1170,
+    8419,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222386:00003:000677-10021-stab"
+  },
+  {
+   "ts": 1783133180810,
+   "prices": [
+    1171,
+    8387,
+    37800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222404:00003:000174-10021-stab"
+  },
+  {
+   "ts": 1783133187791,
+   "prices": [
+    1171,
+    8391,
+    37400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222417:00003:000153-10021-stab"
+  },
+  {
+   "ts": 1783133190408,
+   "prices": [
+    1173,
+    8316,
+    37000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222422:00003:000347-10021-stab"
+  },
+  {
+   "ts": 1783133194828,
+   "prices": [
+    1173,
+    8315,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222431:00003:000469-10021-stab"
+  },
+  {
+   "ts": 1783133203773,
+   "prices": [
+    1173,
+    8314,
+    37100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222448:00003:000003-10021-stab"
+  },
+  {
+   "ts": 1783133204898,
+   "prices": [
+    1173,
+    8302,
+    37200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222449:00003:000572-10021-stab"
+  },
+  {
+   "ts": 1783133213058,
+   "prices": [
+    1168,
+    8492,
+    37900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222464:00003:000115-10021-stab"
+  },
+  {
+   "ts": 1783133218849,
+   "prices": [
+    1169,
+    8476,
+    38000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222475:00003:000307-10021-stab"
+  },
+  {
+   "ts": 1783133223090,
+   "prices": [
+    1166,
+    8613,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222482:00003:000068-10021-stab"
+  },
+  {
+   "ts": 1783133224847,
+   "prices": [
+    1166,
+    8610,
+    38200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222484:00003:000612-10021-stab"
+  },
+  {
+   "ts": 1783133236896,
+   "prices": [
+    1166,
+    8614,
+    38300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222508:00003:000067-10021-stab"
+  },
+  {
+   "ts": 1783133242899,
+   "prices": [
+    1166,
+    8588,
+    38500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222516:00003:000498-10021-stab"
+  },
+  {
+   "ts": 1783133248857,
+   "prices": [
+    1166,
+    8591,
+    38400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222525:00003:000359-10021-stab"
+  },
+  {
+   "ts": 1783133254464,
+   "prices": [
+    1166,
+    8583,
+    38700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222535:00003:000867-10021-stab"
+  },
+  {
+   "ts": 1783133259158,
+   "prices": [
+    1167,
+    8545,
+    38500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222545:00003:000119-10021-stab"
+  },
+  {
+   "ts": 1783133273878,
+   "prices": [
+    1168,
+    8507,
+    38400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222572:00003:000112-10021-stab"
+  },
+  {
+   "ts": 1783133281884,
+   "prices": [
+    1167,
+    8492,
+    39000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222588:00003:000753-10021-stab"
+  },
+  {
+   "ts": 1783133285342,
+   "prices": [
+    1165,
+    8556,
+    40400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222595:00003:000198-10021-stab"
+  },
+  {
+   "ts": 1783133289491,
+   "prices": [
+    1166,
+    8521,
+    39900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222602:00003:000311-10021-stab"
+  },
+  {
+   "ts": 1783133298890,
+   "prices": [
+    1168,
+    8422,
+    40100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222619:00003:000140-10021-stab"
+  },
+  {
+   "ts": 1783133302902,
+   "prices": [
+    1167,
+    8446,
+    40300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222627:00003:000347-10021-stab"
+  },
+  {
+   "ts": 1783133307896,
+   "prices": [
+    1165,
+    8573,
+    40300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222636:00003:001635-10021-stab"
+  },
+  {
+   "ts": 1783133311939,
+   "prices": [
+    1166,
+    8519,
+    40100
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222644:00003:001202-10021-stab"
+  },
+  {
+   "ts": 1783133320758,
+   "prices": [
+    1166,
+    8526,
+    39700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222661:00003:000017-10021-stab"
+  },
+  {
+   "ts": 1783133326917,
+   "prices": [
+    1166,
+    8547,
+    39900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222671:00003:001722-10021-stab"
+  },
+  {
+   "ts": 1783133329774,
+   "prices": [
+    1165,
+    8521,
+    41200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222677:00003:000119-10021-stab"
+  },
+  {
+   "ts": 1783133335439,
+   "prices": [
+    1165,
+    8508,
+    41400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222687:00003:000413-10021-stab"
+  },
+  {
+   "ts": 1783133339089,
+   "prices": [
+    1164,
+    8548,
+    41600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222694:00003:000026-10021-stab"
+  },
+  {
+   "ts": 1783133346886,
+   "prices": [
+    1164,
+    8567,
+    40800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222706:00003:000332-10021-stab"
+  },
+  {
+   "ts": 1783133349037,
+   "prices": [
+    1164,
+    8564,
+    40900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222710:00003:000056-10021-stab"
+  },
+  {
+   "ts": 1783133365893,
+   "prices": [
+    1164,
+    8527,
+    41900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222738:00003:001299-10021-stab"
+  },
+  {
+   "ts": 1783133371958,
+   "prices": [
+    1164,
+    8548,
+    41800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222748:00003:001204-10021-stab"
+  },
+  {
+   "ts": 1783133377028,
+   "prices": [
+    1165,
+    8469,
+    42500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222758:00003:000004-10021-stab"
+  },
+  {
+   "ts": 1783133448979,
+   "prices": [
+    1163,
+    8510,
+    44300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222875:00003:000431-10021-stab"
+  },
+  {
+   "ts": 1783133453025,
+   "prices": [
+    1154,
+    8865,
+    47600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222881:00003:000021-10021-stab"
+  },
+  {
+   "ts": 1783133456926,
+   "prices": [
+    1153,
+    8962,
+    47900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222886:00003:000165-10021-stab"
+  },
+  {
+   "ts": 1783133461369,
+   "prices": [
+    1157,
+    8729,
+    47400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222894:00003:000214-10021-stab"
+  },
+  {
+   "ts": 1783133466936,
+   "prices": [
+    1157,
+    8713,
+    47700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222904:00003:000140-10021-stab"
+  },
+  {
+   "ts": 1783133473038,
+   "prices": [
+    1157,
+    8713,
+    47700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222915:00003:000033-10021-stab"
+  },
+  {
+   "ts": 1783133475256,
+   "prices": [
+    1157,
+    8720,
+    47200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222919:00003:000393-10021-stab"
+  },
+  {
+   "ts": 1783133481430,
+   "prices": [
+    1159,
+    8637,
+    46600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222929:00003:000394-10021-stab"
+  },
+  {
+   "ts": 1783133486931,
+   "prices": [
+    1159,
+    8621,
+    46900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222938:00003:000048-10021-stab"
+  },
+  {
+   "ts": 1783133493041,
+   "prices": [
+    1159,
+    8627,
+    46500
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222950:00003:000023-10021-stab"
+  },
+  {
+   "ts": 1783133495037,
+   "prices": [
+    1160,
+    8615,
+    46300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222954:00003:000004-10021-stab"
+  },
+  {
+   "ts": 1783133507033,
+   "prices": [
+    1159,
+    8649,
+    46400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222976:00003:000006-10021-stab"
+  },
+  {
+   "ts": 1783133511039,
+   "prices": [
+    1168,
+    8205,
+    45000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222984:00003:000116-10021-stab"
+  },
+  {
+   "ts": 1783133517010,
+   "prices": [
+    1165,
+    8361,
+    45300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836222994:00003:000002-10021-stab"
+  },
+  {
+   "ts": 1783133521036,
+   "prices": [
+    1166,
+    8330,
+    44200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223002:00003:000073-10021-stab"
+  },
+  {
+   "ts": 1783133524452,
+   "prices": [
+    1164,
+    8393,
+    45700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223008:00003:000504-10021-stab"
+  },
+  {
+   "ts": 1783133533044,
+   "prices": [
+    1166,
+    8281,
+    45900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223026:00003:000176-10021-stab"
+  },
+  {
+   "ts": 1783133535038,
+   "prices": [
+    1166,
+    8288,
+    45400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223030:00003:000008-10021-stab"
+  },
+  {
+   "ts": 1783133542648,
+   "prices": [
+    1161,
+    8527,
+    46800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223043:00003:000074-10021-stab"
+  },
+  {
+   "ts": 1783133547043,
+   "prices": [
+    1168,
+    8226,
+    44900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223051:00003:000035-10021-stab"
+  },
+  {
+   "ts": 1783133551043,
+   "prices": [
+    1169,
+    8197,
+    45000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223059:00003:000014-10021-stab"
+  },
+  {
+   "ts": 1783133566046,
+   "prices": [
+    1167,
+    8281,
+    44600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223086:00003:000025-10021-stab"
+  },
+  {
+   "ts": 1783133573048,
+   "prices": [
+    1168,
+    8256,
+    44700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223098:00003:000008-10021-stab"
+  },
+  {
+   "ts": 1783133575183,
+   "prices": [
+    1167,
+    8248,
+    45200
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223102:00003:000508-10021-stab"
+  },
+  {
+   "ts": 1783133579030,
+   "prices": [
+    1167,
+    8223,
+    45900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223110:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783133591048,
+   "prices": [
+    1166,
+    8302,
+    46300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223134:00003:000016-10021-stab"
+  },
+  {
+   "ts": 1783133597472,
+   "prices": [
+    1162,
+    8523,
+    44900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223146:00003:000554-10021-stab"
+  },
+  {
+   "ts": 1783133599677,
+   "prices": [
+    1162,
+    8506,
+    45900
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223150:00003:000418-10021-stab"
+  },
+  {
+   "ts": 1783133605580,
+   "prices": [
+    1162,
+    8489,
+    45600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223163:00003:000017-10021-stab"
+  },
+  {
+   "ts": 1783133612580,
+   "prices": [
+    1159,
+    8629,
+    46800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223176:00003:000987-10021-stab"
+  },
+  {
+   "ts": 1783133615050,
+   "prices": [
+    1159,
+    8625,
+    47000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223181:00003:000023-10021-stab"
+  },
+  {
+   "ts": 1783133620584,
+   "prices": [
+    1158,
+    8680,
+    46300
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223190:00003:001841-10021-stab"
+  },
+  {
+   "ts": 1783133625027,
+   "prices": [
+    1151,
+    8984,
+    49400
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223199:00003:000176-10021-stab"
+  },
+  {
+   "ts": 1783133638877,
+   "prices": [
+    1151,
+    8997,
+    49800
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223223:00003:000152-10021-stab"
+  },
+  {
+   "ts": 1783133639079,
+   "prices": [
+    1149,
+    9091,
+    51000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223224:00003:000229-10021-stab"
+  },
+  {
+   "ts": 1783133657105,
+   "prices": [
+    1149,
+    9088,
+    51000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223260:00003:000139-10021-stab"
+  },
+  {
+   "ts": 1783133659052,
+   "prices": [
+    1149,
+    9068,
+    51000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223263:00003:000014-10021-stab"
+  },
+  {
+   "ts": 1783133665057,
+   "prices": [
+    1149,
+    9053,
+    51000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223274:00003:000101-10021-stab"
+  },
+  {
+   "ts": 1783133670089,
+   "prices": [
+    1150,
+    8978,
+    52000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223284:00003:000122-10021-stab"
+  },
+  {
+   "ts": 1783133675054,
+   "prices": [
+    1150,
+    8990,
+    52000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223293:00003:000009-10021-stab"
+  },
+  {
+   "ts": 1783133683633,
+   "prices": [
+    1148,
+    9048,
+    53000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223309:00003:000557-10021-stab"
+  },
+  {
+   "ts": 1783133687055,
+   "prices": [
+    1162,
+    8462,
+    47700
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223317:00003:000019-10021-stab"
+  },
+  {
+   "ts": 1783133692100,
+   "prices": [
+    1158,
+    8687,
+    47600
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223326:00003:000042-10021-stab"
+  },
+  {
+   "ts": 1783133696092,
+   "prices": [
+    1149,
+    8994,
+    53000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223334:00003:000308-10021-stab"
+  },
+  {
+   "ts": 1783133700082,
+   "prices": [
+    1151,
+    8908,
+    53000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223342:00003:000051-10021-stab"
+  },
+  {
+   "ts": 1783133707061,
+   "prices": [
+    1150,
+    8950,
+    54000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223356:00003:000050-10021-stab"
+  },
+  {
+   "ts": 1783133711093,
+   "prices": [
+    1151,
+    8961,
+    51000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223364:00003:000174-10021-stab"
+  },
+  {
+   "ts": 1783133714356,
+   "prices": [
+    1145,
+    9192,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223370:00003:000774-10021-stab"
+  },
+  {
+   "ts": 1783133723098,
+   "prices": [
+    1148,
+    9015,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223388:00003:000172-10021-stab"
+  },
+  {
+   "ts": 1783133726084,
+   "prices": [
+    1148,
+    8980,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223394:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783133733403,
+   "prices": [
+    1148,
+    8972,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223406:00003:000246-10021-stab"
+  },
+  {
+   "ts": 1783133738669,
+   "prices": [
+    1147,
+    9030,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223415:00003:000698-10021-stab"
+  },
+  {
+   "ts": 1783133739425,
+   "prices": [
+    1152,
+    8857,
+    53000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223417:00003:000383-10021-stab"
+  },
+  {
+   "ts": 1783133753128,
+   "prices": [
+    1155,
+    8729,
+    51000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223444:00003:000227-10021-stab"
+  },
+  {
+   "ts": 1783133756102,
+   "prices": [
+    1153,
+    8781,
+    52000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223448:00003:000705-10021-stab"
+  },
+  {
+   "ts": 1783133761067,
+   "prices": [
+    1154,
+    8769,
+    52000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223457:00003:000289-10021-stab"
+  },
+  {
+   "ts": 1783133766654,
+   "prices": [
+    1146,
+    9098,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223468:00003:000022-10021-stab"
+  },
+  {
+   "ts": 1783133772689,
+   "prices": [
+    1146,
+    9102,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223478:00003:001309-10021-stab"
+  },
+  {
+   "ts": 1783133776096,
+   "prices": [
+    1145,
+    9103,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223485:00003:000097-10021-stab"
+  },
+  {
+   "ts": 1783133781098,
+   "prices": [
+    1141,
+    9394,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223493:00003:000093-10021-stab"
+  },
+  {
+   "ts": 1783133786098,
+   "prices": [
+    1141,
+    9402,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223502:00003:000573-10021-stab"
+  },
+  {
+   "ts": 1783133790700,
+   "prices": [
+    1143,
+    9317,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223509:00003:000029-10021-stab"
+  },
+  {
+   "ts": 1783133796097,
+   "prices": [
+    1142,
+    9354,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223518:00003:000038-10021-stab"
+  },
+  {
+   "ts": 1783133801063,
+   "prices": [
+    1141,
+    9428,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223527:00003:000053-10021-stab"
+  },
+  {
+   "ts": 1783133805146,
+   "prices": [
+    1141,
+    9421,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223534:00003:000107-10021-stab"
+  },
+  {
+   "ts": 1783133810713,
+   "prices": [
+    1141,
+    9420,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223544:00003:000001-10021-stab"
+  },
+  {
+   "ts": 1783133817102,
+   "prices": [
+    1137,
+    9703,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223556:00003:000181-10021-stab"
+  },
+  {
+   "ts": 1783133821152,
+   "prices": [
+    1137,
+    9681,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223563:00003:000128-10021-stab"
+  },
+  {
+   "ts": 1783133827726,
+   "prices": [
+    1138,
+    9675,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223574:00003:000074-10021-stab"
+  },
+  {
+   "ts": 1783133829067,
+   "prices": [
+    1137,
+    9735,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223577:00003:000326-10021-stab"
+  },
+  {
+   "ts": 1783133837066,
+   "prices": [
+    1137,
+    9730,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223591:00003:000014-10021-stab"
+  },
+  {
+   "ts": 1783133841739,
+   "prices": [
+    1136,
+    9753,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223597:00003:000067-10021-stab"
+  },
+  {
+   "ts": 1783133847109,
+   "prices": [
+    1137,
+    9669,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223606:00003:000293-10021-stab"
+  },
+  {
+   "ts": 1783133852745,
+   "prices": [
+    1136,
+    9712,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223615:00003:000073-10021-stab"
+  },
+  {
+   "ts": 1783133856752,
+   "prices": [
+    1136,
+    9726,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223621:00003:000490-10021-stab"
+  },
+  {
+   "ts": 1783133861067,
+   "prices": [
+    1135,
+    9737,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223629:00003:000106-10021-stab"
+  },
+  {
+   "ts": 1783133865072,
+   "prices": [
+    1135,
+    9739,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223634:00003:000117-10021-stab"
+  },
+  {
+   "ts": 1783133869759,
+   "prices": [
+    1135,
+    9776,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223641:00003:000587-10021-stab"
+  },
+  {
+   "ts": 1783133874163,
+   "prices": [
+    1135,
+    9778,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223650:00003:000110-10021-stab"
+  },
+  {
+   "ts": 1783133883766,
+   "prices": [
+    1144,
+    9244,
+    55000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223666:00003:000006-10021-stab"
+  },
+  {
+   "ts": 1783133887074,
+   "prices": [
+    1144,
+    9229,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223673:00003:000075-10021-stab"
+  },
+  {
+   "ts": 1783133891076,
+   "prices": [
+    1144,
+    9232,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223680:00003:000077-10021-stab"
+  },
+  {
+   "ts": 1783133898984,
+   "prices": [
+    1142,
+    9353,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223690:00003:000803-10021-stab"
+  },
+  {
+   "ts": 1783133901194,
+   "prices": [
+    1143,
+    9309,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223693:00003:000178-10021-stab"
+  },
+  {
+   "ts": 1783133908114,
+   "prices": [
+    1144,
+    9235,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223703:00003:000107-10021-stab"
+  },
+  {
+   "ts": 1783133913072,
+   "prices": [
+    1140,
+    9492,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223711:00003:000022-10021-stab"
+  },
+  {
+   "ts": 1783133914796,
+   "prices": [
+    1140,
+    9474,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223713:00003:000553-10021-stab"
+  },
+  {
+   "ts": 1783133921230,
+   "prices": [
+    1140,
+    9455,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223726:00003:000194-10021-stab"
+  },
+  {
+   "ts": 1783133926222,
+   "prices": [
+    1141,
+    9417,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223735:00003:000051-10021-stab"
+  },
+  {
+   "ts": 1783133938116,
+   "prices": [
+    1141,
+    9332,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223755:00003:000266-10021-stab"
+  },
+  {
+   "ts": 1783133953013,
+   "prices": [
+    1143,
+    9233,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223780:00003:000008-10021-stab"
+  },
+  {
+   "ts": 1783133956603,
+   "prices": [
+    1140,
+    9431,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223785:00003:000242-10021-stab"
+  },
+  {
+   "ts": 1783133959818,
+   "prices": [
+    1141,
+    9424,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223791:00003:000010-10021-stab"
+  },
+  {
+   "ts": 1783133967082,
+   "prices": [
+    1140,
+    9475,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223803:00003:000046-10021-stab"
+  },
+  {
+   "ts": 1783133970063,
+   "prices": [
+    1139,
+    9550,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223809:00003:000090-10021-stab"
+  },
+  {
+   "ts": 1783133980161,
+   "prices": [
+    1140,
+    9495,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223827:00003:000051-10021-stab"
+  },
+  {
+   "ts": 1783133987084,
+   "prices": [
+    1140,
+    9509,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223838:00003:000233-10021-stab"
+  },
+  {
+   "ts": 1783133991836,
+   "prices": [
+    1138,
+    9636,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223847:00003:000019-10021-stab"
+  },
+  {
+   "ts": 1783133994255,
+   "prices": [
+    1138,
+    9627,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223851:00003:000236-10021-stab"
+  },
+  {
+   "ts": 1783134001083,
+   "prices": [
+    1140,
+    9464,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223861:00003:000145-10021-stab"
+  },
+  {
+   "ts": 1783134013266,
+   "prices": [
+    1139,
+    9511,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223880:00003:000300-10021-stab"
+  },
+  {
+   "ts": 1783134015854,
+   "prices": [
+    1139,
+    9494,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223884:00003:001147-10021-stab"
+  },
+  {
+   "ts": 1783134023086,
+   "prices": [
+    1143,
+    9268,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223899:00003:000039-10021-stab"
+  },
+  {
+   "ts": 1783134025090,
+   "prices": [
+    1140,
+    9405,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223901:00003:000025-10021-stab"
+  },
+  {
+   "ts": 1783134029136,
+   "prices": [
+    1139,
+    9468,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223908:00003:000024-10021-stab"
+  },
+  {
+   "ts": 1783134037882,
+   "prices": [
+    1138,
+    9520,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223921:00003:000172-10021-stab"
+  },
+  {
+   "ts": 1783134039086,
+   "prices": [
+    1138,
+    9527,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223923:00003:000016-10021-stab"
+  },
+  {
+   "ts": 1783134046908,
+   "prices": [
+    1132,
+    9927,
+    63000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223932:00003:000618-10021-stab"
+  },
+  {
+   "ts": 1783134049089,
+   "prices": [
+    1132,
+    9927,
+    63000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223936:00003:000281-10021-stab"
+  },
+  {
+   "ts": 1783134056540,
+   "prices": [
+    1132,
+    9993,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223948:00003:000024-10021-stab"
+  },
+  {
+   "ts": 1783134061093,
+   "prices": [
+    1140,
+    9527,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223955:00003:000234-10021-stab"
+  },
+  {
+   "ts": 1783134075897,
+   "prices": [
+    1142,
+    9398,
+    56000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223981:00003:000057-10021-stab"
+  },
+  {
+   "ts": 1783134083515,
+   "prices": [
+    1142,
+    9372,
+    57000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223993:00003:000430-10021-stab"
+  },
+  {
+   "ts": 1783134085147,
+   "prices": [
+    1135,
+    9797,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836223996:00003:000259-10021-stab"
+  },
+  {
+   "ts": 1783134091464,
+   "prices": [
+    1135,
+    9759,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224007:00003:000041-10021-stab"
+  },
+  {
+   "ts": 1783134095086,
+   "prices": [
+    1146,
+    9166,
+    55000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224012:00003:000037-10021-stab"
+  },
+  {
+   "ts": 1783134100909,
+   "prices": [
+    1142,
+    9322,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224020:00003:000463-10021-stab"
+  },
+  {
+   "ts": 1783134113419,
+   "prices": [
+    1143,
+    9255,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224041:00003:000434-10021-stab"
+  },
+  {
+   "ts": 1783134115087,
+   "prices": [
+    1139,
+    9519,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224012:00003:000037-1-10021-stab"
+  },
+  {
+   "ts": 1783134120211,
+   "prices": [
+    1143,
+    9282,
+    58000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224052:00003:000142-10021-stab"
+  },
+  {
+   "ts": 1783134135435,
+   "prices": [
+    1142,
+    9302,
+    60000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224075:00003:000385-10021-stab"
+  },
+  {
+   "ts": 1783134143238,
+   "prices": [
+    1143,
+    9227,
+    61000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224088:00003:000257-10021-stab"
+  },
+  {
+   "ts": 1783134147378,
+   "prices": [
+    1140,
+    9391,
+    62000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224094:00003:001567-10021-stab"
+  },
+  {
+   "ts": 1783134151088,
+   "prices": [
+    1140,
+    9402,
+    62000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224098:00003:000028-10021-stab"
+  },
+  {
+   "ts": 1783134163088,
+   "prices": [
+    1139,
+    9402,
+    64000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224118:00003:000030-10021-stab"
+  },
+  {
+   "ts": 1783134165089,
+   "prices": [
+    1139,
+    9401,
+    64000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224122:00003:000027-10021-stab"
+  },
+  {
+   "ts": 1783134173044,
+   "prices": [
+    1137,
+    9562,
+    64000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224136:00003:000017-10021-stab"
+  },
+  {
+   "ts": 1783134178450,
+   "prices": [
+    1134,
+    9659,
+    67000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224145:00003:000117-10021-stab"
+  },
+  {
+   "ts": 1783134183707,
+   "prices": [
+    1135,
+    9645,
+    67000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224153:00003:000011-10021-stab"
+  },
+  {
+   "ts": 1783134189095,
+   "prices": [
+    1134,
+    9651,
+    68000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224163:00003:000007-10021-stab"
+  },
+  {
+   "ts": 1783134197096,
+   "prices": [
+    1135,
+    9646,
+    67000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224177:00003:000164-10021-stab"
+  },
+  {
+   "ts": 1783134202179,
+   "prices": [
+    1133,
+    9761,
+    67000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224186:00003:000390-10021-stab"
+  },
+  {
+   "ts": 1783134205393,
+   "prices": [
+    1133,
+    9758,
+    67000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224192:00003:000422-10021-stab"
+  },
+  {
+   "ts": 1783134209102,
+   "prices": [
+    1136,
+    9589,
+    66000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224199:00003:000207-10021-stab"
+  },
+  {
+   "ts": 1783134220399,
+   "prices": [
+    1136,
+    9599,
+    65000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224219:00003:000322-10021-stab"
+  },
+  {
+   "ts": 1783134228076,
+   "prices": [
+    1125,
+    10300,
+    71000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224233:00003:000039-10021-stab"
+  },
+  {
+   "ts": 1783134237381,
+   "prices": [
+    1123,
+    10500,
+    70000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224249:00003:000716-10021-stab"
+  },
+  {
+   "ts": 1783134242380,
+   "prices": [
+    1123,
+    10500,
+    72000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224258:00003:000222-10021-stab"
+  },
+  {
+   "ts": 1783134253418,
+   "prices": [
+    1123,
+    10400,
+    72000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224276:00003:000343-10021-stab"
+  },
+  {
+   "ts": 1783134266796,
+   "prices": [
+    1125,
+    10300,
+    69000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224300:00003:000012-10021-stab"
+  },
+  {
+   "ts": 1783134273103,
+   "prices": [
+    1135,
+    9692,
+    63000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224311:00003:000061-10021-stab"
+  },
+  {
+   "ts": 1783134276117,
+   "prices": [
+    1135,
+    9701,
+    62000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224317:00003:000018-10021-stab"
+  },
+  {
+   "ts": 1783134287101,
+   "prices": [
+    1135,
+    9720,
+    62000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224336:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783134291105,
+   "prices": [
+    1141,
+    9395,
+    59000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224343:00003:000167-10021-stab"
+  },
+  {
+   "ts": 1783134297101,
+   "prices": [
+    1133,
+    9880,
+    62000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224354:00003:000034-10021-stab"
+  },
+  {
+   "ts": 1783134303438,
+   "prices": [
+    1134,
+    9784,
+    62000
+   ],
+   "in_running": true,
+   "market_period": "FT",
+   "message_id": "1836224366:00003:000222-10021-stab"
+  }
+ ]
+}

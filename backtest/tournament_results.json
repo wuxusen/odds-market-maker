@@ -1,0 +1,844 @@
+{
+ "config": {
+  "starting_cash": 1000.0,
+  "books": 1,
+  "tier": "TxODDS TxLINE devnet \u2014 World Cup free tier (single demarginalised book, ~60s delay)",
+  "market": "1X2 full-time (match result)",
+  "settlement": "none \u2014 spread capture marked to the real closing de-vigged line",
+  "taker_seed": 4041,
+  "dislocation_l1": 0.16,
+  "exposure_cap_fixture": 200.0
+ },
+ "summary": {
+  "n_fixtures": 24,
+  "total_ticks": 18347,
+  "total_fills": 9863,
+  "total_pnl_mtm": 439.5419,
+  "mean_pnl_mtm": 18.3142,
+  "median_pnl_mtm": 18.4595,
+  "total_pnl_realized": 769.9163,
+  "mean_pnl_realized": 32.0798,
+  "median_pnl_realized": 31.0144,
+  "n_profitable": 24,
+  "pct_profitable": 100.0,
+  "total_breaker_trips": 35,
+  "dislocation_trips": 35,
+  "pct_trips_from_real_moves": 100.0,
+  "all_trips_from_real_moves": true,
+  "exposure_cap": 200.0,
+  "max_fixture_exposure_seen": 73.2762,
+  "exposure_within_cap_all": true,
+  "n_exposure_breaches": 0,
+  "audit_ok_all": true,
+  "mean_max_drawdown": 5.8894,
+  "worst_max_drawdown": 34.6415,
+  "best_fixture": {
+   "label": "Canada v Morocco",
+   "fixture_id": 18185036,
+   "pnl_mtm": 37.9194
+  },
+  "worst_fixture": {
+   "label": "Paraguay v France",
+   "fixture_id": 18188721,
+   "pnl_mtm": 3.1937
+  }
+ },
+ "fixtures": [
+  {
+   "fixture_id": 18185036,
+   "home": "Canada",
+   "away": "Morocco",
+   "label": "Canada v Morocco",
+   "start_time": 1783184400000,
+   "n_ticks": 893,
+   "n_raw_updates": 8771,
+   "n_fills": 482,
+   "pnl_realized": 25.789,
+   "pnl_mtm": 37.9194,
+   "final_equity": 1037.9194,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 74.9,
+     "reason": "sharp line dislocation d0.75 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 0.3074,
+   "max_fixture_exposure": 44.8423,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 482,
+   "audit_head": "f9de7e04f2d70809af624fb547e385d67c3f9cc856e188ba444307be01636559",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179763,
+   "home": "Portugal",
+   "away": "Croatia",
+   "label": "Portugal v Croatia",
+   "start_time": 1783033200000,
+   "n_ticks": 846,
+   "n_raw_updates": 9351,
+   "n_fills": 443,
+   "pnl_realized": 37.9462,
+   "pnl_mtm": 30.2812,
+   "final_equity": 1030.2812,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 77.4,
+     "reason": "sharp line dislocation d0.62 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 91.1,
+     "reason": "sharp line dislocation d0.70 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 5.4978,
+   "max_fixture_exposure": 29.3869,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 443,
+   "audit_head": "cabd40977320010d030a86996b24ca8694d9ceb60ff2f274b0b7c4f97690d1e5",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 17588245,
+   "home": "Croatia",
+   "away": "Ghana",
+   "label": "Croatia v Ghana",
+   "start_time": 1782594000000,
+   "n_ticks": 839,
+   "n_raw_updates": 9441,
+   "n_fills": 455,
+   "pnl_realized": 64.9159,
+   "pnl_mtm": 28.8142,
+   "final_equity": 1028.8142,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 36.6,
+     "reason": "sharp line dislocation d0.59 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 0.3772,
+   "max_fixture_exposure": 43.3212,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 455,
+   "audit_head": "df134e94b55c2e908efccfecf397b3ae5841ebbc5ec906e79b81faede06df4ad",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18172280,
+   "home": "Netherlands",
+   "away": "Morocco",
+   "label": "Netherlands v Morocco",
+   "start_time": 1782781200000,
+   "n_ticks": 880,
+   "n_raw_updates": 9393,
+   "n_fills": 484,
+   "pnl_realized": 32.804,
+   "pnl_mtm": 28.1649,
+   "final_equity": 1028.1649,
+   "breaker_trips": 0,
+   "dislocation_trips": 0,
+   "all_trips_from_real_moves": true,
+   "trip_log": [],
+   "max_drawdown": 0.3557,
+   "max_fixture_exposure": 55.1377,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 484,
+   "audit_head": "71ed375dce3fa9c0e1f16537918cd7645df38ccfcfff07096b1696e25fbc2ccc",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179551,
+   "home": "Spain",
+   "away": "Austria",
+   "label": "Spain v Austria",
+   "start_time": 1783018800000,
+   "n_ticks": 659,
+   "n_raw_updates": 6617,
+   "n_fills": 381,
+   "pnl_realized": -28.432,
+   "pnl_mtm": 24.4392,
+   "final_equity": 1024.4392,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 37.1,
+     "reason": "sharp line dislocation d0.43 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 90.7,
+     "reason": "sharp line dislocation d0.17 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 0.3698,
+   "max_fixture_exposure": 70.853,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 381,
+   "audit_head": "471008e993a942607b5e6596510cf26b3e19ca5fa8a1f37f02e1ecf5b53c8e66",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18176123,
+   "home": "Australia",
+   "away": "Egypt",
+   "label": "Australia v Egypt",
+   "start_time": 1783101600000,
+   "n_ticks": 762,
+   "n_raw_updates": 8049,
+   "n_fills": 392,
+   "pnl_realized": 29.4619,
+   "pnl_mtm": 23.3131,
+   "final_equity": 1023.3131,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 18.5,
+     "reason": "sharp line dislocation d0.56 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 82.1,
+     "reason": "sharp line dislocation d0.80 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 8.8241,
+   "max_fixture_exposure": 36.4415,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 392,
+   "audit_head": "4ec06b3c2d1a0847cddb98696491d1ec502bd3b07cc50d2334cf4a10f5f31f5b",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 17588326,
+   "home": "Algeria",
+   "away": "Austria",
+   "label": "Algeria v Austria",
+   "start_time": 1782612000000,
+   "n_ticks": 830,
+   "n_raw_updates": 10051,
+   "n_fills": 388,
+   "pnl_realized": 44.393,
+   "pnl_mtm": 23.2317,
+   "final_equity": 1023.2317,
+   "breaker_trips": 4,
+   "dislocation_trips": 4,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 29.9,
+     "reason": "sharp line dislocation d0.55 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 45.9,
+     "reason": "sharp line dislocation d0.64 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 77.8,
+     "reason": "sharp line dislocation d1.06 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 82.6,
+     "reason": "sharp line dislocation d0.81 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 34.6415,
+   "max_fixture_exposure": 56.3363,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 388,
+   "audit_head": "fbf9389515daf19c0150c2b79a25adbaf00f6da7e87b2ad413c757ce831ce5be",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179549,
+   "home": "Colombia",
+   "away": "Ghana",
+   "label": "Colombia v Ghana",
+   "start_time": 1783128600000,
+   "n_ticks": 793,
+   "n_raw_updates": 7229,
+   "n_fills": 439,
+   "pnl_realized": 45.7199,
+   "pnl_mtm": 21.3329,
+   "final_equity": 1021.3329,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 15.1,
+     "reason": "sharp line dislocation d0.42 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 0.4443,
+   "max_fixture_exposure": 24.9762,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 439,
+   "audit_head": "06a39a175c0fc10e3f9645fb4add13794ced3bb99441a82323b718e2f76865e6",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179550,
+   "home": "Belgium",
+   "away": "Senegal",
+   "label": "Belgium v Senegal",
+   "start_time": 1782936000000,
+   "n_ticks": 808,
+   "n_raw_updates": 9227,
+   "n_fills": 435,
+   "pnl_realized": 76.6503,
+   "pnl_mtm": 20.6743,
+   "final_equity": 1020.6743,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 30.6,
+     "reason": "sharp line dislocation d0.42 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 79.1,
+     "reason": "sharp line dislocation d0.59 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 4.9704,
+   "max_fixture_exposure": 40.1517,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 435,
+   "audit_head": "ed829bc13935650e931eecc01e9a55e8797cf974317632e97620402a6264a36c",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18175983,
+   "home": "Germany",
+   "away": "Paraguay",
+   "label": "Germany v Paraguay",
+   "start_time": 1782765000000,
+   "n_ticks": 833,
+   "n_raw_updates": 11601,
+   "n_fills": 449,
+   "pnl_realized": 49.2372,
+   "pnl_mtm": 20.1208,
+   "final_equity": 1020.1208,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 47.1,
+     "reason": "sharp line dislocation d0.56 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 82.5,
+     "reason": "sharp line dislocation d0.57 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 11.1176,
+   "max_fixture_exposure": 45.1822,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 449,
+   "audit_head": "80b3806a24555aa2937b2d280208057f883dc681fdc27a3c20ccb5758947bbe1",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18175397,
+   "home": "Ivory Coast",
+   "away": "Norway",
+   "label": "Ivory Coast v Norway",
+   "start_time": 1782838800000,
+   "n_ticks": 904,
+   "n_raw_updates": 8688,
+   "n_fills": 479,
+   "pnl_realized": 6.6847,
+   "pnl_mtm": 20.0189,
+   "final_equity": 1020.0189,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 40.9,
+     "reason": "sharp line dislocation d0.60 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 6.2707,
+   "max_fixture_exposure": 54.8095,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 479,
+   "audit_head": "24ae8fc5b7a5f129ebfebb694fd3f802fa9a37afe4c4a3a1962d2e04bdb5e8be",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 17588402,
+   "home": "Panama",
+   "away": "England",
+   "label": "Panama v England",
+   "start_time": 1782594000000,
+   "n_ticks": 751,
+   "n_raw_updates": 10788,
+   "n_fills": 424,
+   "pnl_realized": 19.6472,
+   "pnl_mtm": 19.209,
+   "final_equity": 1019.209,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 81.7,
+     "reason": "sharp line dislocation d0.60 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 0.4841,
+   "max_fixture_exposure": 58.3119,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 424,
+   "audit_head": "a833fe1358eaf10fc364cf9d652a12d1fe1177b670191711956b420a23fd0379",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18167317,
+   "home": "South Africa",
+   "away": "Canada",
+   "label": "South Africa v Canada",
+   "start_time": 1782673200000,
+   "n_ticks": 837,
+   "n_raw_updates": 8917,
+   "n_fills": 451,
+   "pnl_realized": 59.6936,
+   "pnl_mtm": 17.7099,
+   "final_equity": 1017.7099,
+   "breaker_trips": 0,
+   "dislocation_trips": 0,
+   "all_trips_from_real_moves": true,
+   "trip_log": [],
+   "max_drawdown": 0.9283,
+   "max_fixture_exposure": 52.2088,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 451,
+   "audit_head": "ae1977197d481e65e7ec97eb805f66e5bf284e52493183a62a590b156a8681b4",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 17926704,
+   "home": "Congo DR",
+   "away": "Uzbekistan",
+   "label": "Congo DR v Uzbekistan",
+   "start_time": 1782603060000,
+   "n_ticks": 809,
+   "n_raw_updates": 9801,
+   "n_fills": 422,
+   "pnl_realized": 20.073,
+   "pnl_mtm": 17.2829,
+   "final_equity": 1017.2829,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 14.9,
+     "reason": "sharp line dislocation d0.42 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 23.2,
+     "reason": "sharp line dislocation d0.47 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 3.6896,
+   "max_fixture_exposure": 32.2785,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 422,
+   "audit_head": "fc0bda76b36f0c5c75ac2727932551413117960195baf158448cad363398c022",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179764,
+   "home": "England",
+   "away": "Congo DR",
+   "label": "England v Congo DR",
+   "start_time": 1782921600000,
+   "n_ticks": 897,
+   "n_raw_updates": 9058,
+   "n_fills": 459,
+   "pnl_realized": 7.5027,
+   "pnl_mtm": 17.2213,
+   "final_equity": 1017.2213,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 7.7,
+     "reason": "sharp line dislocation d0.37 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 2.1753,
+   "max_fixture_exposure": 44.5685,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 459,
+   "audit_head": "0a368d8432a9a85ddf879968a2b22aa2fed87185a3c51a9cc92354fdbde6213b",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18175918,
+   "home": "Argentina",
+   "away": "Cape Verde",
+   "label": "Argentina v Cape Verde",
+   "start_time": 1783116000000,
+   "n_ticks": 685,
+   "n_raw_updates": 9113,
+   "n_fills": 410,
+   "pnl_realized": 42.6122,
+   "pnl_mtm": 16.9849,
+   "final_equity": 1016.9849,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 34.1,
+     "reason": "sharp line dislocation d0.30 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 85.2,
+     "reason": "sharp line dislocation d0.62 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 4.1599,
+   "max_fixture_exposure": 53.0231,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 410,
+   "audit_head": "6f69992aeffc8260b6476b78f0ece67a959a9f32446d54031b76c791cc6a4f74",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 17588391,
+   "home": "Colombia",
+   "away": "Portugal",
+   "label": "Colombia v Portugal",
+   "start_time": 1782603060000,
+   "n_ticks": 870,
+   "n_raw_updates": 9770,
+   "n_fills": 466,
+   "pnl_realized": 29.1233,
+   "pnl_mtm": 14.4187,
+   "final_equity": 1014.4187,
+   "breaker_trips": 0,
+   "dislocation_trips": 0,
+   "all_trips_from_real_moves": true,
+   "trip_log": [],
+   "max_drawdown": 2.1696,
+   "max_fixture_exposure": 59.7179,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 466,
+   "audit_head": "283c1c167e943e3b3ec81dab0d05c8579149d55a1b2edb972560e4c8ca0ff5fa",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18172379,
+   "home": "USA",
+   "away": "Bosnia & Herzegovina",
+   "label": "USA v Bosnia & Herzegovina",
+   "start_time": 1782950400000,
+   "n_ticks": 776,
+   "n_raw_updates": 8159,
+   "n_fills": 426,
+   "pnl_realized": 39.0434,
+   "pnl_mtm": 14.093,
+   "final_equity": 1014.093,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 48.6,
+     "reason": "sharp line dislocation d0.47 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 93.1,
+     "reason": "sharp line dislocation d0.17 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 3.6973,
+   "max_fixture_exposure": 44.6801,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 426,
+   "audit_head": "93ebeb5264a61e90d728ee67a37604f79797acc96a3465c66fcc15d6ae6e9ff3",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18175981,
+   "home": "France",
+   "away": "Sweden",
+   "label": "France v Sweden",
+   "start_time": 1782853200000,
+   "n_ticks": 658,
+   "n_raw_updates": 8317,
+   "n_fills": 369,
+   "pnl_realized": 32.5669,
+   "pnl_mtm": 13.0688,
+   "final_equity": 1013.0688,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 49.4,
+     "reason": "sharp line dislocation d0.36 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 75.9,
+     "reason": "sharp line dislocation d0.18 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 3.8019,
+   "max_fixture_exposure": 28.8531,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 369,
+   "audit_head": "3713abc0795c7aa27f466fce36f2a1090fc6976bc9f24715308a0ec4aef17cd5",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179552,
+   "home": "Switzerland",
+   "away": "Algeria",
+   "label": "Switzerland v Algeria",
+   "start_time": 1783047600000,
+   "n_ticks": 747,
+   "n_raw_updates": 7712,
+   "n_fills": 408,
+   "pnl_realized": 21.1103,
+   "pnl_mtm": 9.4096,
+   "final_equity": 1009.4096,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 15.2,
+     "reason": "sharp line dislocation d0.50 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 70.5,
+     "reason": "sharp line dislocation d0.42 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 11.2549,
+   "max_fixture_exposure": 19.3499,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 408,
+   "audit_head": "7d433c24c8ac2e79f934abc744e6639676522e04e46491666b350424e1bb947a",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18172469,
+   "home": "Brazil",
+   "away": "Japan",
+   "label": "Brazil v Japan",
+   "start_time": 1782752400000,
+   "n_ticks": 847,
+   "n_raw_updates": 9996,
+   "n_fills": 437,
+   "pnl_realized": 28.9965,
+   "pnl_mtm": 9.3139,
+   "final_equity": 1009.3139,
+   "breaker_trips": 2,
+   "dislocation_trips": 2,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 34.7,
+     "reason": "sharp line dislocation d0.48 \u2014 real in-play move",
+     "real_dislocation": true
+    },
+    {
+     "minute": 82.7,
+     "reason": "sharp line dislocation d0.67 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 15.5148,
+   "max_fixture_exposure": 43.3641,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 437,
+   "audit_head": "1c554c3c921ae802773ee38ad8810b20e17c136e05e6dc5b4fb82a89ca7eeab8",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 17588325,
+   "home": "Jordan",
+   "away": "Argentina",
+   "label": "Jordan v Argentina",
+   "start_time": 1782612000000,
+   "n_ticks": 307,
+   "n_raw_updates": 6886,
+   "n_fills": 163,
+   "pnl_realized": 10.0625,
+   "pnl_mtm": 5.7436,
+   "final_equity": 1005.7436,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 20.0,
+     "reason": "sharp line dislocation d0.24 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 1.291,
+   "max_fixture_exposure": 24.9307,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 163,
+   "audit_head": "ffb987c9f887542eda759081b67eaeba6b3b7cf923266d49e7777dc3b342e720",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18179759,
+   "home": "Mexico",
+   "away": "Ecuador",
+   "label": "Mexico v Ecuador",
+   "start_time": 1782871200000,
+   "n_ticks": 292,
+   "n_raw_updates": 6247,
+   "n_fills": 153,
+   "pnl_realized": 0.3962,
+   "pnl_mtm": 3.582,
+   "final_equity": 1003.582,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 87.0,
+     "reason": "sharp line dislocation d0.59 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 4.5901,
+   "max_fixture_exposure": 29.0103,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 153,
+   "audit_head": "5f2b4c9526125c96c2931fd7311a95fd111cd5171f232759abfde6acd9a7db33",
+   "audit_ok": true
+  },
+  {
+   "fixture_id": 18188721,
+   "home": "Paraguay",
+   "away": "France",
+   "label": "Paraguay v France",
+   "start_time": 1783198980000,
+   "n_ticks": 824,
+   "n_raw_updates": 8607,
+   "n_fills": 448,
+   "pnl_realized": 73.9184,
+   "pnl_mtm": 3.1937,
+   "final_equity": 1003.1937,
+   "breaker_trips": 1,
+   "dislocation_trips": 1,
+   "all_trips_from_real_moves": true,
+   "trip_log": [
+    {
+     "minute": 94.3,
+     "reason": "sharp line dislocation d0.76 \u2014 real in-play move",
+     "real_dislocation": true
+    }
+   ],
+   "max_drawdown": 14.4123,
+   "max_fixture_exposure": 73.2762,
+   "exposure_cap": 200.0,
+   "exposure_within_cap": true,
+   "exposure_breaches": 0,
+   "audit_len": 448,
+   "audit_head": "01c5ad0861b5c4c46f6eb295e6ec4b158d6684ac8e4f8981ac5e5a1d6dafd889",
+   "audit_ok": true
+  }
+ ]
+}

@@ -163,6 +163,32 @@
   .step .s { font-size: 15px; font-weight: 700; margin: 6px 0 6px; }
   .step p { margin: 0; font-size: 13.5px; color: var(--dim); }
 
+  /* ---- tournament backtest ---- */
+  .bt { padding: 52px 0 8px; }
+  .bt h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--dim); font-weight: 700; text-align: center; margin: 0 0 8px;
+  }
+  .bt .sub { text-align: center; color: var(--dim); font-size: 15px; margin: 0 auto 28px; max-width: 680px; }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .stat {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px 18px; text-align: center;
+  }
+  .stat .v {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .stat.g .v { color: var(--green); }
+  .stat.b .v { color: var(--blue); }
+  .stat .k { margin-top: 8px; font-size: 12.5px; color: var(--dim); line-height: 1.35; }
+  .bt .note {
+    margin: 22px auto 0; max-width: 720px; text-align: center;
+    font-size: 13.5px; color: var(--dim);
+  }
+  .bt .note a { font-weight: 600; text-decoration: none; }
+  .bt .note a:hover { text-decoration: underline; }
+
   /* ---- footer ---- */
   footer {
     margin-top: 64px; border-top: 1px solid var(--border);
@@ -180,6 +206,7 @@
     .hero p.lede { font-size: 17px; }
     .grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -247,6 +274,43 @@
           <a href="https://explorer.solana.com/tx/a1HPa9V9k8Q8ckFJoNLckSjCC7yNRsEUU8NSsfpnj6UfTxuWtpPDn4rpGLZegmMifLak7zwADh9LNB5s598D2MG?cluster=devnet">open the transaction on Solana Explorer&nbsp;→</a></p>
         </div>
       </div>
+    </section>
+
+    <section class="bt">
+      <h2>Tournament backtest</h2>
+      <p class="sub">
+        The same engine replayed over <b>24 real World Cup fixtures</b> — 18,347 real in-play
+        odds ticks — to check the risk engine behaves the same across a whole tournament, not
+        just the one match in the reel.
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <div class="v">24</div>
+          <div class="k">real fixtures backtested<br>(9,863 paper fills)</div>
+        </div>
+        <div class="stat b">
+          <div class="v">35</div>
+          <div class="k">circuit-breaker trips<br>100% from real line moves</div>
+        </div>
+        <div class="stat g">
+          <div class="v">0</div>
+          <div class="k">exposure-cap breaches<br>inside the hard cap 100% of the time</div>
+        </div>
+        <div class="stat">
+          <div class="v">24/24</div>
+          <div class="k">audit chains verified<br>tamper-evident, every fixture</div>
+        </div>
+        <div class="stat g">
+          <div class="v">+439.5</div>
+          <div class="k">total spread PnL (paper)<br>marked to the real line, not settled</div>
+        </div>
+      </div>
+      <p class="note">
+        Paper execution on real recorded odds — single free-tier book, spread capture, no
+        outcome betting. The point is the invariants: exposure held its hard cap on every tick
+        of every match, and every breaker trip was explained by a real move.
+        <a href="https://github.com/wuxusen/odds-market-maker/blob/main/docs/BACKTEST.md">Read the full backtest report&nbsp;→</a>
+      </p>
     </section>
 
     <section class="flow">

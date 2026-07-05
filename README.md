@@ -137,15 +137,41 @@ curve, circuit-breaker state, and a running timeline of every incident and
 breaker trip.
 
 ```bash
-pip install pytest && pytest      # 66 core tests (anchoring tests skip cleanly without extras)
+pip install pytest && pytest      # 70 core tests (anchoring tests skip cleanly without extras)
 
 # Full coverage including the on-chain anchoring path (mocked RPC, no network):
-pip install -e ".[dev,anchor]" && pytest   # 91 tests (+1 live TxLINE smoke, skipped without creds)
+pip install -e ".[dev,anchor]" && pytest   # 95 tests (+1 live TxLINE smoke, skipped without creds)
 ```
 
 Every run is **deterministic**: match script, bookmaker noise and taker flow
 all derive from `--seed`; the wall clock is used only for pacing, never for
 decisions. Same seed ⇒ identical fills, PnL and audit hash chain.
+
+## Tournament backtest
+
+Beyond the single-match reel, the agent is replayed over **24 real World Cup
+fixtures** (18,347 real in-play odds ticks, 9,863 paper fills) to check the risk
+engine behaves the same way across a whole tournament — [full report in
+`docs/BACKTEST.md`](docs/BACKTEST.md).
+
+```bash
+python backtest/capture_tournament.py --max 24   # pull real in-play odds (needs TxLINE creds)
+python backtest/run_backtest.py                  # offline, deterministic replay + aggregate
+```
+
+Headline invariants across all 24 matches:
+
+- **Exposure held its hard cap on every tick of every match** — 0 breaches,
+  peak fixture exposure 73/200.
+- **All 35 circuit-breaker trips were driven by a real recorded line move** — no
+  hand-authored events.
+- **Every fixture's audit chain verified** (tamper-evident SHA-256 hash chain).
+
+The captures in `backtest/real_odds/` are odds and timestamps only (no
+credentials), so the replay runs fully offline and is gated in CI. PnL is spread
+capture on a single free-tier book marked to the real line — a risk-engine
+consistency demonstration, not a live-tradeable profit claim; the report is
+explicit about the caveats.
 
 ## Design decisions
 
@@ -365,10 +391,17 @@ odds_mm/
 scripts/
   run_demo_scenario.py   # one-command curated, narrated demo scenario (for recording)
   anchor_devnet_demo.py  # best-effort live devnet anchor: airdrop + anchor + verify
-tests/            # 91 offline pytest cases (+1 live TxLINE smoke, skipped without creds):
+backtest/
+  capture_tournament.py  # batch-pull real in-play odds for finished World Cup fixtures
+  run_backtest.py        # offline deterministic replay + aggregate across the tournament
+  real_odds/             # de-identified real odds captures (odds/timestamps only, no secrets)
+  tournament_results.json# machine-readable aggregate + per-fixture results
+tests/            # 95 offline pytest cases (+1 live TxLINE smoke, skipped without creds):
                   # math, risk gates, breaker, accounting, demo/dashboard state,
-                  # Solana packing + verification, TxLINE payload normalisation
+                  # tournament backtest invariants, Solana packing + verification,
+                  # TxLINE payload normalisation
 docs/
   DESIGN.md       # formulas, risk design, and the anchoring design tradeoffs (§7)
+  BACKTEST.md     # tournament backtest report — 24 real World Cup fixtures
   DEMO_SCRIPT.md  # shot-by-shot narration for the demo video
 ```

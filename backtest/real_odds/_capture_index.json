@@ -1,0 +1,128 @@
+{
+ "captured_at": "2026-07-05T03:26:00Z",
+ "n_captured": 24,
+ "n_skipped": 0,
+ "captured": [
+  {
+   "fixture_id": 18188721,
+   "label": "Paraguay v France",
+   "n_ticks": 824
+  },
+  {
+   "fixture_id": 18185036,
+   "label": "Canada v Morocco",
+   "n_ticks": 893
+  },
+  {
+   "fixture_id": 18179549,
+   "label": "Colombia v Ghana",
+   "n_ticks": 793
+  },
+  {
+   "fixture_id": 18175918,
+   "label": "Argentina v Cape Verde",
+   "n_ticks": 685
+  },
+  {
+   "fixture_id": 18176123,
+   "label": "Australia v Egypt",
+   "n_ticks": 762
+  },
+  {
+   "fixture_id": 18179552,
+   "label": "Switzerland v Algeria",
+   "n_ticks": 747
+  },
+  {
+   "fixture_id": 18179763,
+   "label": "Portugal v Croatia",
+   "n_ticks": 846
+  },
+  {
+   "fixture_id": 18179551,
+   "label": "Spain v Austria",
+   "n_ticks": 659
+  },
+  {
+   "fixture_id": 18172379,
+   "label": "USA v Bosnia & Herzegovina",
+   "n_ticks": 776
+  },
+  {
+   "fixture_id": 18179550,
+   "label": "Belgium v Senegal",
+   "n_ticks": 808
+  },
+  {
+   "fixture_id": 18179764,
+   "label": "England v Congo DR",
+   "n_ticks": 897
+  },
+  {
+   "fixture_id": 18179759,
+   "label": "Mexico v Ecuador",
+   "n_ticks": 292
+  },
+  {
+   "fixture_id": 18175981,
+   "label": "France v Sweden",
+   "n_ticks": 658
+  },
+  {
+   "fixture_id": 18175397,
+   "label": "Ivory Coast v Norway",
+   "n_ticks": 904
+  },
+  {
+   "fixture_id": 18172280,
+   "label": "Netherlands v Morocco",
+   "n_ticks": 880
+  },
+  {
+   "fixture_id": 18175983,
+   "label": "Germany v Paraguay",
+   "n_ticks": 833
+  },
+  {
+   "fixture_id": 18172469,
+   "label": "Brazil v Japan",
+   "n_ticks": 847
+  },
+  {
+   "fixture_id": 18167317,
+   "label": "South Africa v Canada",
+   "n_ticks": 837
+  },
+  {
+   "fixture_id": 17588325,
+   "label": "Jordan v Argentina",
+   "n_ticks": 307
+  },
+  {
+   "fixture_id": 17588326,
+   "label": "Algeria v Austria",
+   "n_ticks": 830
+  },
+  {
+   "fixture_id": 17588391,
+   "label": "Colombia v Portugal",
+   "n_ticks": 870
+  },
+  {
+   "fixture_id": 17926704,
+   "label": "Congo DR v Uzbekistan",
+   "n_ticks": 809
+  },
+  {
+   "fixture_id": 17588245,
+   "label": "Croatia v Ghana",
+   "n_ticks": 839
+  },
+  {
+   "fixture_id": 17588402,
+   "label": "Panama v England",
+   "n_ticks": 751
+  }
+ ],
+ "skipped": []
+}
