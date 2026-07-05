@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>odds-market-maker — in-play odds market maker</title>
-<meta name="description" content="An autonomous in-play odds market maker, running on real TxODDS TxLINE World Cup data.">
+<meta name="description" content="An autonomous in-play odds market maker, run on real TxODDS TxLINE World Cup data. Hard exposure caps, goal-triggered circuit breakers, a tamper-evident audit trail anchored on-chain.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e13'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2335d488'/%3E%3C/svg%3E">
 <style>
   :root {
     --bg: #0b0e13;
@@ -70,34 +71,80 @@
   }
   header a.ghlink:hover { border-color: var(--link); }
 
-  /* ---- hero ---- */
-  .hero { padding: 64px 0 40px; text-align: center; }
+  /* ---- hero (first screen) ---- */
+  .hero { padding: 56px 0 20px; }
   .hero .kicker {
     color: var(--blue); letter-spacing: 0.16em; font-size: 13px;
-    text-transform: uppercase; font-weight: 700; margin-bottom: 20px;
+    text-transform: uppercase; font-weight: 700; margin-bottom: 18px; text-align: center;
   }
   .hero h1 {
-    font-size: 42px; line-height: 1.15; font-weight: 800;
-    letter-spacing: -0.02em; margin: 0 auto 20px; max-width: 860px;
+    font-size: clamp(30px, 5.2vw, 50px); line-height: 1.1; font-weight: 800;
+    letter-spacing: -0.02em; margin: 0 auto 18px; max-width: 900px; text-align: center;
   }
   .hero p.lede {
-    font-size: 19px; color: var(--dim); max-width: 720px; margin: 0 auto;
+    font-size: 18px; color: var(--dim); max-width: 720px; margin: 0 auto; text-align: center;
   }
-  .hero .cta { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .hero p.lede b { color: var(--text); font-weight: 700; }
+
+  /* ---- the three hard numbers ---- */
+  .headline-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    margin: 34px 0 28px;
+  }
+  .hstat {
+    position: relative; background: var(--panel); border: 1px solid var(--border);
+    border-radius: 16px; padding: 26px 24px 24px; overflow: hidden;
+  }
+  .hstat::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .hstat.g::before { background: var(--green); }
+  .hstat.r::before { background: var(--red); }
+  .hstat.b::before { background: var(--blue); }
+  .hstat .tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 12px;
+  }
+  .hstat .tag .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .hstat.g .tag .dot { background: var(--green); box-shadow: 0 0 10px 0 var(--green); }
+  .hstat.r .tag .dot { background: var(--red); box-shadow: 0 0 10px 0 var(--red); }
+  .hstat.b .tag .dot { background: var(--blue); box-shadow: 0 0 10px 0 var(--blue); }
+  .hstat .num {
+    font-size: clamp(40px, 6vw, 58px); font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .hstat.g .num { color: var(--green); }
+  .hstat.r .num { color: var(--red); }
+  .hstat.b .num { color: var(--blue); }
+  .hstat .num .unit { font-size: 0.42em; color: var(--dim); font-weight: 700; margin-left: 6px; letter-spacing: 0; }
+  .hstat .title { font-size: 15.5px; font-weight: 700; margin: 12px 0 4px; }
+  .hstat .desc { font-size: 13.5px; color: var(--dim); margin: 0; }
+
+  /* ---- hero CTAs ---- */
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   .btn {
-    display: inline-block; text-decoration: none; font-weight: 700; font-size: 15px;
-    padding: 12px 22px; border-radius: 10px; border: 1px solid transparent;
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    font-weight: 700; font-size: 15px; padding: 13px 22px; border-radius: 10px;
+    border: 1px solid transparent; white-space: nowrap;
   }
   .btn.primary { background: var(--blue); color: #06111f; }
   .btn.primary:hover { filter: brightness(1.07); }
+  .btn.solid { background: var(--amber); color: #1a1204; }
+  .btn.solid:hover { filter: brightness(1.05); }
   .btn.ghost { background: transparent; color: var(--text); border-color: var(--border); }
   .btn.ghost:hover { border-color: var(--link); }
+  .cta-note { text-align: center; color: var(--dim); font-size: 13px; margin-top: 14px; }
+  .cta-note .mono { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
 
   /* ---- reel embed ---- */
-  .reel-section { padding: 8px 0 8px; }
+  .reel-section { padding: 40px 0 8px; }
+  .section-label {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--dim); font-weight: 700; text-align: center; margin: 0 0 22px;
+  }
   #reel-frame {
     position: relative; width: 100%;
-    /* fixed 16:9 canvas; the reel renders at 1920x1080 and is scaled to fit */
     aspect-ratio: 16 / 9;
     background: #0b0e13;
     border: 1px solid var(--border);
@@ -200,10 +247,13 @@
   footer a { font-size: 14px; font-weight: 600; text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
+  @media (max-width: 860px) {
+    .headline-stats { grid-template-columns: 1fr; }
+    .hstat { padding: 22px 20px; }
+  }
   @media (max-width: 760px) {
-    .hero { padding: 44px 0 28px; }
-    .hero h1 { font-size: 30px; }
-    .hero p.lede { font-size: 17px; }
+    .hero { padding: 40px 0 20px; }
+    .hero p.lede { font-size: 16.5px; }
     .grid { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
@@ -221,29 +271,60 @@
 
   <main class="wrap">
     <section class="hero">
-      <div class="kicker">Autonomous market making · live odds · paper trading</div>
-      <h1>An autonomous in-play odds market maker, running on real TxODDS TxLINE World Cup data</h1>
+      <div class="kicker">Autonomous in-play odds market maker · real World Cup data · paper trading</div>
+      <h1>A market maker built to survive the goal it never saw coming.</h1>
       <p class="lede">
-        It ingests a real in-play 1X2 odds line, prices a de-vigged consensus fair value,
-        quotes two-sided with inventory skew and hard exposure caps, and cancels everything
-        the instant a goal, red card, feed stall or latency spike hits. Execution is paper-only,
-        written to a hash-chained audit ledger that is anchored on-chain.
+        It quotes a two-sided book around a de-vigged fair value on real in-play odds — then
+        <b>pulls every quote the instant the line dislocates</b>. Replayed across a whole World
+        Cup of real data, here is what the risk engine actually did.
       </p>
+
+      <div class="headline-stats">
+        <div class="hstat g">
+          <div class="tag"><span class="dot"></span>Exposure discipline</div>
+          <div class="num">0</div>
+          <div class="title">exposure-cap breaches</div>
+          <p class="desc">Across all 18,347 real odds ticks in 24 matches, position exposure sat
+          inside its hard cap on <b>every single tick</b> — peak 73.3 of a 200-unit ceiling.</p>
+        </div>
+        <div class="hstat r">
+          <div class="tag"><span class="dot"></span>Reflexes</div>
+          <div class="num">35 <span class="unit">/ 100%</span></div>
+          <div class="title">circuit-breaker trips, all real</div>
+          <p class="desc">Every one of the 35 breaker trips was fired by a genuine goal-time line
+          dislocation in the feed. <b>None were hand-scripted</b> — the engine sensed each from
+          the price move itself.</p>
+        </div>
+        <div class="hstat b">
+          <div class="tag"><span class="dot"></span>Provenance</div>
+          <div class="num">24 <span class="unit">/ 24</span></div>
+          <div class="title">audit chains verified</div>
+          <p class="desc">Every fill is appended to a SHA-256 hash-chained ledger. All 24 chains
+          verify byte-for-byte, and the head is <b>anchored on Solana devnet</b> — check it yourself.</p>
+        </div>
+      </div>
+
       <div class="cta">
-        <a class="btn primary" href="reel.html">Watch it run full-screen</a>
-        <a class="btn ghost" href="https://github.com/wuxusen/odds-market-maker">Read the code</a>
+        <a class="btn primary" href="play.html">▸ Play a real match — interactive</a>
+        <a class="btn solid" href="https://explorer.solana.com/tx/a1HPa9V9k8Q8ckFJoNLckSjCC7yNRsEUU8NSsfpnj6UfTxuWtpPDn4rpGLZegmMifLak7zwADh9LNB5s598D2MG?cluster=devnet">⛓ Verify the on-chain anchor</a>
+        <a class="btn ghost" href="reel.html">Watch the 2-min reel</a>
+      </div>
+      <div class="cta-note">
+        Pick any of 24 real World Cup fixtures and watch the agent run on that match's real odds —
+        or verify the anchor tx <span class="mono">a1HPa9V9…598D2MG</span> on Solana Explorer.
       </div>
     </section>
 
     <section class="reel-section">
+      <div class="section-label">The dashboard, running on a real captured line</div>
       <div id="reel-frame">
         <div id="reel-scaler">
           <iframe id="reel" src="reel.html" title="odds-market-maker running on real TxLINE odds" loading="eager" scrolling="no"></iframe>
         </div>
       </div>
       <div class="reel-caption">
-        Live dashboard, playing automatically. The first segment runs on a captured
-        <b>real</b> TxLINE line — Portugal v Croatia. Want it larger? <a href="reel.html">Open full-screen&nbsp;→</a>
+        Auto-playing. The first segment runs on a captured <b>real</b> TxLINE line — Portugal v
+        Croatia. Want to drive it yourself? <a href="play.html">Open the interactive demo&nbsp;→</a>
       </div>
     </section>
 
@@ -251,26 +332,27 @@
       <h2>What you're looking at</h2>
       <div class="grid">
         <div class="fact g">
-          <div class="h"><span class="dot"></span><span class="t">Real TxLINE odds</span></div>
-          <p>The first segment replays a captured, real TxODDS TxLINE in-play line for Portugal v Croatia.
-          Every fair value, quote, paper fill and PnL figure is what the engine produced from that feed —
-          nothing hand-authored.</p>
+          <div class="h"><span class="dot"></span><span class="t">Real TxLINE odds, real engine output</span></div>
+          <p>The agent ingests a real TxODDS TxLINE in-play 1X2 line, prices a de-vigged consensus
+          fair value, and quotes two-sided with inventory skew. Every fair value, quote, paper fill
+          and PnL figure is what the engine produced from that feed — nothing hand-authored.</p>
         </div>
         <div class="fact r">
           <div class="h"><span class="dot"></span><span class="t">Circuit breaker on real goals</span></div>
-          <p>Both breaker trips you see are driven by genuine goal-time line dislocations in the feed —
-          a goal against the favourite, then the equaliser. The engine flattens and stops quoting through
-          the discontinuity, then resumes.</p>
+          <p>On the free-tier feed there is no separate score channel, so the breaker senses a goal
+          from the price move itself: a discontinuous jump in fair value trips it, it flattens and
+          pulls every quote, and it only re-arms once cool-down <i>and</i> fresh data both agree.</p>
         </div>
         <div class="fact b">
           <div class="h"><span class="dot"></span><span class="t">Paper execution, real audit trail</span></div>
-          <p>All trading is paper-only. Every fill and settlement is appended to a SHA-256 hash-chained
-          ledger, so the track record is tamper-evident — you can't rewrite a fill without breaking the chain.</p>
+          <p>All trading is paper-only. Every fill and settlement is appended to a SHA-256
+          hash-chained ledger, so the track record is tamper-evident — you can't rewrite a fill
+          without breaking the chain.</p>
         </div>
         <div class="fact a">
           <div class="h"><span class="dot"></span><span class="t">On-chain anchor (verify it yourself)</span></div>
-          <p>The ledger's rolling head hash is anchored to Solana devnet in a real Memo transaction. Decode
-          the memo and it matches the head byte-for-byte —
+          <p>The ledger's rolling head hash is anchored to Solana devnet in a real Memo transaction.
+          Decode the memo and it matches the head byte-for-byte —
           <a href="https://explorer.solana.com/tx/a1HPa9V9k8Q8ckFJoNLckSjCC7yNRsEUU8NSsfpnj6UfTxuWtpPDn4rpGLZegmMifLak7zwADh9LNB5s598D2MG?cluster=devnet">open the transaction on Solana Explorer&nbsp;→</a></p>
         </div>
       </div>
@@ -307,9 +389,9 @@
       </div>
       <p class="note">
         Paper execution on real recorded odds — single free-tier book, spread capture, no
-        outcome betting. The point is the invariants: exposure held its hard cap on every tick
-        of every match, and every breaker trip was explained by a real move.
-        <a href="https://github.com/wuxusen/odds-market-maker/blob/main/docs/BACKTEST.md">Read the full backtest report&nbsp;→</a>
+        outcome betting, fees and settlement excluded. The point is the invariants: exposure held
+        its hard cap on every tick of every match, and every breaker trip was explained by a real
+        move. <a href="https://github.com/wuxusen/odds-market-maker/blob/main/docs/BACKTEST.md">Read the full backtest report&nbsp;→</a>
       </p>
     </section>
 
@@ -359,7 +441,6 @@
       }
       fit();
       window.addEventListener('resize', fit);
-      // Re-fit shortly after load in case fonts/layout shift the frame width.
       window.addEventListener('load', fit);
       setTimeout(fit, 200);
     })();
