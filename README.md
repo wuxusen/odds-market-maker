@@ -4,6 +4,15 @@ A fully automated, production-minded market making agent for **in-play (live)
 sports odds**, built for the Solana World Cup Hackathon — *Trading Tools &
 Agents* track (TxODDS).
 
+**Part of a three-tool TxLINE suite.** I built three independent projects on the
+TxODDS **TxLINE** feed, one for each stage of a match contract's life: this
+market maker prices a match *while it's live*,
+[Called It](https://github.com/wuxusen/called-it) is a fan play-along layer on
+the same win-probability line, and the
+[Verifiable Settlement Oracle](https://github.com/wuxusen/settlement-oracle)
+settles the contract *once it's over*. Same real TxLINE data plumbing across all
+three.
+
 It consumes multi-bookmaker odds streams (TxODDS **TxLINE** or a
 deterministic simulator), removes each bookmaker's margin to build a
 **consensus fair price**, and quotes a two-sided market around it — with
